@@ -53,7 +53,7 @@ class Renderer(base.Renderer):
         folder = portal['blog']
         folder_path = '/'.join(folder.getPhysicalPath())
         portal_catalog = getToolByName(context, 'portal_catalog')
-        results = portal_catalog(portal_type=['Document','Topic'], path={'query': folder_path, 'depth': 1}, sort_on="getObjPositionInParent")
+        results = portal_catalog(portal_type=['Document','Topic','News Item'], path={'query': folder_path, 'depth': 1}, sort_on="getObjPositionInParent")
         return self.request.get(
             'items', results)
 

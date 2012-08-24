@@ -6,8 +6,8 @@
 				    <a tal:attributes="href python: obj.getURL();"><span tal:replace="obj/Title">test event</span></a>
                     </strong>
                 </li>
+                <br />
             </tal:items>
         </ul>
     <a class="more" href="http://criticalcommons.org/blog">More Updates</a>
-    <br>
 </div>
