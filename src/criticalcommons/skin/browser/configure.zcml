@@ -1,5 +1,6 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone"
            i18n_domain="criticalcommons.skin">
     <!-- -*- extra stuff goes here -*- -->
 
@@ -9,15 +10,16 @@
     <!-- 
     <include package="plone.browserlayer" />
     -->
-    <!-- Example of browser component with ICriticalcommonsSkinLayer layer attribute -->
-    <!-- 
-    <browser:page
-        name="my-view"
-        for="*"
-        permission="zope.Public"
-        template="my-view.pt"
-        layer="..interfaces.ICriticalcommonsSkinLayer"
+
+    <plone:portlet
+        name="criticalcommons.skin.browser.portlets.lectures.RecentLecturesPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.lectures.Renderer"
+        assignment=".portlets.lectures.Assignment"
+        addview=".portlets.lectures.AddForm"
+        editview=".portlets.lectures.EditForm"
+        interface=".portlets.lectures.IRecentLecturesPortlet"
         />
-    -->
 
 </configure>

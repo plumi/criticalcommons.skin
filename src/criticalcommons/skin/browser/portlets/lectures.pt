@@ -1,0 +1,14 @@
+<div class="boxes">
+    <div class="lectures" i18n:domain="em.skin" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+	    <h3><a htal:attributes="href string:${here/portal_url}/lectures">Recent Lectures</a></h3>
+		<ul>
+            <tal:items tal:repeat="obj view/results">
+			    <li><strong>
+				    <a tal:attributes="href python: obj.absolute_url();"><span tal:replace="python: obj.Title()">test event</span></a>
+			        </strong>by <a class="author" tal:attributes="href python: obj.portal_url() + '/author/' + obj.listCreators()[0]" ><span tal:replace="python: obj.listCreators()[0]">Brian ORoark</span></a>
+			    </li>	
+            </tal:items>
+	    </ul>
+	    <br>
+    </div>
+</div>
