@@ -22,4 +22,15 @@
         interface=".portlets.lectures.IRecentLecturesPortlet"
         />
 
+    <plone:portlet
+        name="criticalcommons.skin.browser.portlets.updates.UpdatesPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.updates.Renderer"
+        assignment=".portlets.updates.Assignment"
+        addview=".portlets.updates.AddForm"
+        editview=".portlets.updates.EditForm"
+        interface=".portlets.updates.IUpdatesPortlet"
+        />
+
 </configure>

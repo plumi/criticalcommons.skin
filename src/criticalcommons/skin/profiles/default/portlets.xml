@@ -11,4 +11,30 @@
      name="Recent Lectures Portlet"
      />
 
+<assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="criticalcommons.skin.browser.portlets.updates.UpdatesPortlet"
+     name="Recent Updates Portlet"
+     />
+
+<assignment
+     remove="True"
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="portlets.News"
+     name="news"
+     />
+
+<assignment
+     remove="True"
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="plone.portlet.collection.Collection"
+     name="news-and-events"
+     />
+
 </portlets>
