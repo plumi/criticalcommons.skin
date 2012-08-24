@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="criticalcommons_skin_custom_templates"
+    meta_type="Filesystem Directory View"
+    directory="criticalcommons.skin:skins/criticalcommons_skin_custom_templates"/>
+
+ <object name="criticalcommons_skin_custom_images"
+    meta_type="Filesystem Directory View"
+    directory="criticalcommons.skin:skins/criticalcommons_skin_custom_images"/>
+
+
+ <skin-path name="*">
+  <layer name="criticalcommons_skin_custom_templates"
+     insert-after="custom"/>
+  <layer name="criticalcommons_skin_custom_images"
+     insert-after="custom"/>
+ </skin-path>
+</object>

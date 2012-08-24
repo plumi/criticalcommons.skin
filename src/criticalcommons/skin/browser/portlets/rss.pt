@@ -1,0 +1,15 @@
+<div>
+<div class="columns-holder">
+	<div class="boxes rss">
+	    <h3>RSS Feeds</h3>
+		<ul>
+			<li> <a href="http://criticalcommons.org/latestclips/RSS">Latest Clips (RSS1)</a> </li>
+			<li> <a href="http://criticalcommons.org/featured-clips/RSS">Featured Clips (RSS1)</a> </li>
+			<li> <a href="http://criticalcommons.org/latestclips/RSS2">Latest Clips (RSS2)</a> </li>
+			<li> <a href="http://criticalcommons.org/featured-clips/RSS2">Featured Clips (RSS2)</a> </li>
+			<li> <a href="http://criticalcommons.org/lectures/RSS">Lectures</a> </li>
+			<li> <a href="http://criticalcommons.org/blog/RSS2">Posts</a> </li>
+		</ul>
+	</div>
+</div>
+</div>

@@ -20,6 +20,15 @@
      />
 
 <assignment
+     manager="plone.rightcolumn"
+     category="context"
+     key="/"
+     type="criticalcommons.skin.browser.portlets.rss.RSSPortlet"
+     name="RSS Portlet"
+     />
+
+
+<assignment
      remove="True"
      manager="plone.rightcolumn"
      category="context"

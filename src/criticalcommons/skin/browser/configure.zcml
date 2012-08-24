@@ -11,6 +11,12 @@
     <include package="plone.browserlayer" />
     -->
 
+    <!-- Resource directory for stylesheets -->
+    <browser:resourceDirectory
+        name="criticalcommons.skin.stylesheets"
+        directory="stylesheets"
+        />
+
     <plone:portlet
         name="criticalcommons.skin.browser.portlets.lectures.RecentLecturesPortlet"
         view_permission="zope2.View"
@@ -31,6 +37,17 @@
         addview=".portlets.updates.AddForm"
         editview=".portlets.updates.EditForm"
         interface=".portlets.updates.IUpdatesPortlet"
+        />
+
+    <plone:portlet
+        name="criticalcommons.skin.browser.portlets.rss.RSSPortlet"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".portlets.rss.Renderer"
+        assignment=".portlets.rss.Assignment"
+        addview=".portlets.rss.AddForm"
+        editview=".portlets.rss.EditForm"
+        interface=".portlets.rss.IRSSPortlet"
         />
 
 </configure>

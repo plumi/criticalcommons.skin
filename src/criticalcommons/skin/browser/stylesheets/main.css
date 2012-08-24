@@ -1,0 +1,16 @@
+#portal-column-two .rss ul li {
+    background: url("images/btn-rss.gif") no-repeat scroll 0 0 transparent;
+    padding: 0 0 7px 23px;
+    display: inline-block;
+}
+
+portal-column-two .rss ul {
+    margin: 10px 0 0;
+}
+
+.boxes ul {
+    font-weight: bold;
+    list-style: none outside none;
+    margin: 9px 0 0;
+    padding: 0;
+}
