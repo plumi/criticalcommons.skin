@@ -3,12 +3,12 @@
 	<div class="boxes rss">
 	    <h3>RSS Feeds</h3>
 		<ul>
-			<li> <a href="http://criticalcommons.org/latestclips/RSS">Latest Clips (RSS1)</a> </li>
-			<li> <a href="http://criticalcommons.org/featured-clips/RSS">Featured Clips (RSS1)</a> </li>
-			<li> <a href="http://criticalcommons.org/latestclips/RSS2">Latest Clips (RSS2)</a> </li>
-			<li> <a href="http://criticalcommons.org/featured-clips/RSS2">Featured Clips (RSS2)</a> </li>
-			<li> <a href="http://criticalcommons.org/lectures/RSS">Lectures</a> </li>
-			<li> <a href="http://criticalcommons.org/blog/RSS2">Posts</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/latestclips/RSS">Latest Clips (RSS1)</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/featured-clips/RSS">Featured Clips (RSS1)</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/latestclips/RSS2">Latest Clips (RSS2)</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/featured-clips/RSS2">Featured Clips (RSS2)</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/lectures/RSS">Lectures</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/blog/RSS2">Posts</a> </li>
 		</ul>
 	</div>
 </div>
