@@ -17,6 +17,13 @@
         directory="stylesheets"
         />
 
+    <browser:viewlet
+        name="criticalcommonts.skin.featured"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.FeaturedViewlet"
+        permission="zope2.View"
+        />
+
     <plone:portlet
         name="criticalcommons.skin.browser.portlets.lectures.RecentLecturesPortlet"
         view_permission="zope2.View"
