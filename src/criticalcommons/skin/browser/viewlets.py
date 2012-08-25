@@ -9,7 +9,7 @@ from plumi.content.browser.interfaces import IFeaturedVideosRetriever, IPlumiVid
 from random import shuffle
 
 class FeaturedViewlet(ViewletBase):
-    render = ViewPageTemplateFile('templates/featured.pt')
+    render = ViewPageTemplateFile('templates/featured_videos.pt')
 
     limit_featured = 5
 

@@ -17,6 +17,11 @@
         directory="stylesheets"
         />
 
+    <browser:resourceDirectory
+        name="criticalcommons.skin.images"
+        directory="images"
+        />
+
     <browser:viewlet
         name="criticalcommonts.skin.featured"
         manager="plone.app.layout.viewlets.interfaces.IPortalTop"

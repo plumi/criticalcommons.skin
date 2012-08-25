@@ -1,7 +1,12 @@
+body {
+    color: #333333;
+    font: 12px/14px Arial,Tahoma,Verdana,sans-serif;
+}
+
 #portal-column-two .rss ul li {
-    background: url("images/btn-rss.gif") no-repeat scroll 0 0 transparent;
+    background: url("++resource++criticalcommons.skin.images/btn-rss.gif") no-repeat scroll 0 0 transparent;
     padding: 0 0 7px 23px;
-    display: inline-block;
+    display: block;
 }
 
 portal-column-two .rss ul {
@@ -13,4 +18,89 @@ portal-column-two .rss ul {
     list-style: none outside none;
     margin: 9px 0 0;
     padding: 0;
+}
+
+.lectures ul {
+    line-height: 15px;
+    list-style: none outside none;
+}
+
+.clips-area h3 {
+    margin: 18px 0 0;
+    width: 208px;
+    color: #AA0131;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.boxes .lectures ul li {
+    padding: 0 0 14px 37px;
+}
+
+.lectures ul li {
+    background: url("++resource++criticalcommons.skin.images/lectures-bullet.gif") no-repeat scroll 0 4px transparent;
+    padding: 0 0 18px 37px;
+}
+
+#portal-column-two h3 {
+    margin: 0;
+    background: url(++resource++criticalcommons.skin.images/red-border.gif) repeat-x 0 100%;
+    padding: 0 0 10px;
+}
+
+#portal-columns h3 {
+    color: #AA0131;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+#portal-columns h3 a {
+    color: #AA0131;
+}
+
+.lectures ul li strong {
+    display: inline;
+}
+
+
+boxes ul a:hover {
+    text-decoration: underline;
+}
+
+.lectures ul a:hover {
+    text-decoration: underline;
+}
+
+.boxes ul a {
+    text-decoration: none;
+    color: #066;
+}
+
+.boxes ul li {
+    padding: 0 0 14px;
+    display: block;
+}
+
+.lectures ul a {
+    color: #066;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#portal-column-two a.more {
+    background: url("++resource++criticalcommons.skin.images/arrow.gif") no-repeat scroll 100% 60% transparent;
+    color: #006666;
+    float: left;
+    font-weight: bold;
+    margin: -3px 0 0;
+    padding-right: 9px;
+    text-decoration: none;
+}
+
+#portal-column-two .boxes {
+    margin: 37px 0 0;
+    padding: 0 15px 11px 10px;
 }
