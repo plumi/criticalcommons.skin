@@ -4,8 +4,12 @@ body {
     margin: 0 auto;
 }
 
-body.portaltype-plone-site, body.portaltype-plumivideo {
+body.portaltype-plone-site {
     background: url("++resource++criticalcommons.skin.images/bg-body.jpg") no-repeat center top #FFF;
+}
+
+body.portaltype-plumivideo {
+    background: url("++resource++criticalcommons.skin.images/bg-video.jpg") no-repeat center top #FFF;
 }
 
 /* FEATURED CLIPS WIDGET */
@@ -205,10 +209,12 @@ h1{
         font-size: 20px;
         font-weight: bold;
         padding-bottom:15px;
-        background:url('++resource++criticalcommons.skin.images/grey-border.gif') repeat-x 0 100%;
         margin-bottom:5px;
         }
+#content h1 {
+        background:url('++resource++criticalcommons.skin.images/grey-border.gif') repeat-x 0 100%;
 
+}
 h3{
         font-size: 14px;
         font-weight: bold;
@@ -301,7 +307,6 @@ img {
     list-style: none outside none;
     margin: 0;
     padding: 0;
-    right: 15px;
 }
 
 #portal-top ul li {
@@ -309,11 +314,18 @@ img {
     padding-left: 10px;
 }
 
+#portal-top ul li a:hover,
+#portal-top ul li.selected a:hover {
+    border: 1px #006666 solid;
+}
+
 #portal-top ul li a, #portal-top ul li.selected a {
+    border: 1px transparent solid;
     color: #006666;
     display: block;
     padding-right: 7px;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 #portal-top ul a:hover {
