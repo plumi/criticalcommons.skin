@@ -378,4 +378,34 @@ img {
  margin: 1em 0;
 }
 
+body.portaltype-plumivideo h1 {
+    background: none repeat scroll 0 0 transparent !important;
+    font-size: 24px;
+    line-height: 28px;
+    margin: 0;
+    padding: 0;
+}
 
+body.portaltype-plumivideo h3 {
+    color: #333333 !important;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 11px 0 0;
+}
+
+#portal-searchbox {
+    float: none;
+    width: 100%;
+    border: 1px solid #a0b8b8;
+    border-radius: 5px; 
+    padding: 10px;
+    margin: 5px -10px;
+} 
+
+#portal-logo {
+    margin: 5px;
+}
+
+#portal-personaltools {
+    background-color: transparent;
+}

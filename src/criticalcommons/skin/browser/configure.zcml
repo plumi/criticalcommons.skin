@@ -73,5 +73,13 @@
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
         />
+     
+    <browser:viewlet
+        name="plone.searchbox"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".searchbox.CCSearchBoxViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />
 
 </configure>
