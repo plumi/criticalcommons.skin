@@ -1,9 +1,11 @@
 body {
     color: #333333;
-    font: 12px/14px Arial,Tahoma,Verdana,sans-serif;
     width: 978px;
     margin: 0 auto;
-    background: url("++resource++criticalcommons.skin.images/bg-body.jpg") no-repeat scroll center top #FFFFFF;
+}
+
+body.portaltype-plone-site, body.portaltype-plumivideo {
+    background: url("++resource++criticalcommons.skin.images/bg-body.jpg") no-repeat center top #FFF;
 }
 
 /* FEATURED CLIPS WIDGET */
@@ -89,7 +91,7 @@ div.fifth-clip img {
     display: block;
 }
 
-portal-column-two .rss ul {
+#portal-column-two .rss ul {
     margin: 10px 0 0;
 }
 
@@ -137,9 +139,6 @@ portal-column-two .rss ul {
 }
 
 
-boxes ul a:hover {
-    text-decoration: underline;
-}
 
 .lectures ul a:hover {
     text-decoration: underline;
@@ -178,3 +177,193 @@ a:hover {
     margin: 37px 0 0;
     padding: 0 15px 11px 10px;
 }
+
+/* styles transfered from the old site */
+
+html {-webkit-text-size-adjust:none}
+
+html, body {
+        min-height:100%;
+        font-family: Arial, Tahoma, Verdana, sans-serif;
+        font-size:14px;
+        }
+
+p {
+        font-size:14px;
+        clear:both;
+}
+
+a:hover {
+        text-decoration:underline;
+        }
+
+a:visited {
+        color:#436976;
+}
+
+h1{
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom:15px;
+        background:url('++resource++criticalcommons.skin.images/grey-border.gif') repeat-x 0 100%;
+        margin-bottom:5px;
+        }
+
+h3{
+        font-size: 14px;
+        font-weight: bold;
+        }
+
+br {
+        clear:both;
+        }
+
+
+#box-sign-in {
+        margin-right:14px;
+        width:160px;
+        }
+
+#box-edit-profile {
+        margin-right:5px;
+        width:150px;
+}
+
+#label-sign-in {
+        margin-left:5px;
+        width: 95px;
+        }
+
+#label-edit-profile {
+        margin-left:10px;
+        width: 110px;
+}
+
+
+#go-sign-in {
+        margin-left:120px;
+        float:left;
+}
+
+#go-edit-profile {
+        margin-left:140px;
+        float:left;
+}
+
+.accept-tos {
+        float: left;
+        width: 110px;
+        text-align: right;
+        font-size:16px;
+        font-weight:bold;
+        line-height:22px;
+        padding:2px;
+        margin-left:10px;
+        margin-top:0px;
+        clear:both;
+}
+
+
+select {
+        max-width:99%;
+}
+
+
+
+
+/* Opera Settings */
+
+@media only handheld and (max-device-width: 480px) {
+
+html{
+        width:260px;
+        max-width:260px;
+        }
+
+img {
+        max-width: 95%;
+        }
+
+
+#box-edit-profile {
+        margin-right:5px;
+        width:50%;
+        }
+
+#label-edit-profile {
+        width:30%;
+        }
+}
+
+
+#portal-top ul {
+    font-weight: bold;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    right: 15px;
+}
+
+#portal-top ul li {
+    float: left;
+    padding-left: 10px;
+}
+
+#portal-top ul li a, #portal-top ul li.selected a {
+    color: #006666;
+    display: block;
+    padding-right: 7px;
+    text-decoration: none;
+}
+
+#portal-top ul a:hover {
+    color: #006666;
+    display: block;
+}
+
+#portal-top ul a span {
+    display: block;
+    padding-left: 7px;
+}
+
+#portal-globalnav li a {
+    background: transparent !important;
+    min-width: none !important;
+    padding: 0.5em !important;
+}
+
+#portal-globalnav {
+    background: transparent !important;
+    float: right;
+    width: 690px;
+}
+
+#portal-colophon {
+    background: url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x scroll 0 0 transparent;
+    color: #494949;
+    font-size: 10px;
+    height: 1%;
+    line-height: 13px;
+    list-style: none outside none;
+    margin: 0 15px 0 13px;
+    overflow: hidden;
+    padding: 22px 0 54px;
+}
+
+#portal-colophon li {
+    background: url("++resource++criticalcommons.skin.images/footer-separ.gif") no-repeat scroll 0 2px transparent;
+    float: left;
+    margin-left: -5px;
+    padding: 0 8px 0 4px;
+}
+
+#portal-colophon a {
+    color: #006666;
+    text-decoration: none;
+}
+
+#content .documentDescription, #content #description {
+ margin: 1em 0;
+}
+
+
