@@ -77,8 +77,9 @@
             <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontentbody" tal:condition="transcoding" />
         </div> <!-- id=video-core -->
 
+        <div id="clip-area">
         <dl>
-          <dt tal:condition="context/filmName"><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="context/DateProduced"/></dt>
+          <dt tal:condition="context/filmName"><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
               <dd tal:condition="context/Director"><strong>Created by <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
               <dd tal:condition="context/Distributor"><strong>Distributed by <span tal:omit-tag="" href="#" tal:content="context/Distributor">NBC/Universal</span></strong></dd>
 <tal:comment tal:replace="nothing">
@@ -100,7 +101,7 @@
         </p>
 
 
-
+        </div> <!--clip area -->
         <div id="video-infos">
             <div class="vcard">
               <table summary="Event details" class="vertical listing">

@@ -409,3 +409,23 @@ body.portaltype-plumivideo h3 {
 #portal-personaltools {
     background-color: transparent;
 }
+
+#clip-area {
+    float: left;
+    width: 481px;
+}
+
+#clip-area dl {
+    line-height: 24px;
+    list-style: none outside none;
+    margin: 9px 0 0;
+    padding: 0;
+}
+
+#clip-area dl dt {
+    font-size: 14px;
+}
+
+#clip-area dl dd {
+    margin: 0;
+}
