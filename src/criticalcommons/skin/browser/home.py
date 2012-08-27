@@ -2,6 +2,7 @@ from Products.Five import BrowserView
 
 from zope.component import queryMultiAdapter
 from Products.CMFCore.utils import getToolByName
+from zope.app.component.hooks import getSite
 
 from random import shuffle
 
@@ -25,3 +26,14 @@ class HomePage(BrowserView):
         while len(shuffled_videos) < self.limit_featured:
             shuffled_videos.append(None)
         return shuffled_videos
+
+    def blog_posts(self):
+        """ """
+        context = self.context
+        portal = getSite()
+        folder = portal['blog']
+        folder_path = '/'.join(folder.getPhysicalPath())
+        portal_catalog = getToolByName(context, 'portal_catalog')
+        results = portal_catalog(portal_type=['Document','Topic','News Item'], review_state=['published'], path={'query': folder_path,}, sort_on="getObjPositionInParent")[:5]
+        return self.request.get(
+            'items', results)

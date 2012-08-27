@@ -12,7 +12,7 @@ body.portaltype-plumivideo {
     background: url("++resource++criticalcommons.skin.images/bg-video.jpg") no-repeat center top #FFF;
 }
 
-/* FEATURED CLIPS WIDGET */
+/* FRONT PAGE */
 
 .clips-area {
 	width:665px;
@@ -75,11 +75,9 @@ div.fourth-clip img {
     width: 130px;
 }
 
-
 div.fifth-clip img {
     width: 130px;
 }
-
 
 .clips-area strong {
     display: block;
@@ -88,6 +86,60 @@ div.fifth-clip img {
     width: 130px;
 }
 
+.latest-news h2 {
+    color: #AA0131;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 23px 0 0;
+}
+
+.info-block {
+    background: url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x scroll 0 100% transparent;
+    padding: 13px 10px 20px 0;
+}
+
+.info-block h4 {
+    color: #006666;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+}
+
+.info-block h4 a {
+    color: #006666;
+    text-decoration: none;
+}
+
+.info-block em {
+    color: #494949;
+    display: block;
+    font-style: normal;
+    line-height: 20px;
+}
+
+.info-block strong {
+    font-weight: normal;
+    line-height: 21px;
+}
+
+.info-block strong a {
+    color: #006666;
+    text-decoration: none;
+}
+
+.info-block p {
+    color: #494949;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 14px 0 0;
+}
+
+.info-block h4 a {
+    color: #006666 !important;
+    text-decoration: none;
+}
+
+/* PORTLETS */
 
 #portal-column-two .rss ul li {
     background: url("++resource++criticalcommons.skin.images/btn-rss.gif") no-repeat scroll 0 0 transparent;

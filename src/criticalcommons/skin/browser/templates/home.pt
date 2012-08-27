@@ -50,6 +50,19 @@
             </div>
         </div>
     </div>
+    <div class="latest-news">
+        <h2>Critical Commons Blog</h2>
+    </div>
+    <tal:items tal:repeat="obj view/blog_posts">
+        <div class="info-block">
+            <h4><a tal:attributes="href python: obj.getURL();"><span tal:replace="obj/Title">title</span></a></h4>
+            <em tal:content="python: toLocalizedTime(obj.created)">Tuesday March 15, 2011</em>
+            <strong>Posted in: 
+            <a href="http://criticalcommons.org/blog/SimpleBlogCatSearch?category=Updates">Updates</a>&nbsp;
+            </strong> |
+            <p tal:content="obj/Description">Steve's talk on fair use is picked up by Inside Higher Ed</p>
+        </div>
+    </tal:items>
 </div>
 </metal:main>
 
