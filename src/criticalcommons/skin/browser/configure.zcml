@@ -23,6 +23,7 @@
         />
 
     <browser:viewlet
+        for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
         name="criticalcommonts.skin.featured"
         manager="plone.app.layout.viewlets.interfaces.IAboveContent"
         class=".viewlets.FeaturedViewlet"
