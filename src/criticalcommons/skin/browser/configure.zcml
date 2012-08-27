@@ -24,7 +24,7 @@
 
     <browser:viewlet
         name="criticalcommonts.skin.featured"
-        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
         class=".viewlets.FeaturedViewlet"
         permission="zope2.View"
         />

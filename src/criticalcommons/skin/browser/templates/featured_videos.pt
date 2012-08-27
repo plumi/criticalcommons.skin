@@ -22,6 +22,8 @@
                 </a>
                 <strong tal:content="fc3/Title"> title </strong>
             </div>
+       </div>
+       <div class="underbody">
 
             <div class="fourth-clip clips" tal:condition="fc4">
                 <a tal:attributes="href string:${fc4/getURL}/view; title fc4/Title;">

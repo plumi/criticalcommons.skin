@@ -1,7 +1,87 @@
 body {
     color: #333333;
     font: 12px/14px Arial,Tahoma,Verdana,sans-serif;
+    width: 978px;
+    margin: 0 auto;
+    background: url("++resource++criticalcommons.skin.images/bg-body.jpg") no-repeat scroll center top #FFFFFF;
 }
+
+/* FEATURED CLIPS WIDGET */
+
+.clips-area {
+	width:665px;
+	background:url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x 0 100%;
+	padding:0 0 23px;
+}
+
+.clips-area h3 {
+    margin: 18px 0 0;
+    width: 208px;
+    color: #AA0131;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.clips-area .overhead:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.clips-area .overhead {
+    height: 1%;
+    padding: 17px 0 0;
+}
+
+.clips-area .clips {
+    float: left;
+}
+
+.clips-area img {
+    display: block;
+    margin-right: 15px;
+}
+
+.overhead .second-clip {
+    margin: 0;
+    position: relative;
+}
+
+.overhead .third-clip {
+    margin: 0;
+}
+
+.clips-area .underbody {
+    height: 1%;
+    margin: 12px 0 0 149px;
+    overflow: hidden;
+}
+
+div.first-clip img {
+    width: 209px;
+}
+
+div.third-clip img {
+    width: 130px;
+}
+
+div.fourth-clip img {
+    width: 130px;
+}
+
+
+div.fifth-clip img {
+    width: 130px;
+}
+
+
+.clips-area strong {
+    display: block;
+    font-size: 11px;
+    margin: 4px 0 0 3px;
+    width: 130px;
+}
+
 
 #portal-column-two .rss ul li {
     background: url("++resource++criticalcommons.skin.images/btn-rss.gif") no-repeat scroll 0 0 transparent;
@@ -25,13 +105,7 @@ portal-column-two .rss ul {
     list-style: none outside none;
 }
 
-.clips-area h3 {
-    margin: 18px 0 0;
-    width: 208px;
-    color: #AA0131;
-    font-size: 16px;
-    line-height: 18px;
-}
+
 
 .boxes .lectures ul li {
     padding: 0 0 14px 37px;
