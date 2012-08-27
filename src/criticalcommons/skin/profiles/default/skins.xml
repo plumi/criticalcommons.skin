@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<object name="portal_skins">
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Criticalcommons Skin">
  <object name="criticalcommons_skin_custom_templates"
     meta_type="Filesystem Directory View"
     directory="criticalcommons.skin:skins/criticalcommons_skin_custom_templates"/>
@@ -9,7 +10,7 @@
     directory="criticalcommons.skin:skins/criticalcommons_skin_custom_images"/>
 
 
- <skin-path name="*">
+ <skin-path name="Criticalcommons Skin" based-on="Sunburst Theme">
   <layer name="criticalcommons_skin_custom_templates"
      insert-after="custom"/>
   <layer name="criticalcommons_skin_custom_images"
