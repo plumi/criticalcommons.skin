@@ -20,7 +20,7 @@
         layer=".interfaces.IThemeSpecific"
         />
 
-    <browser:viewlet
+    <browser:page
         for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
         name="featured_videos_homepage"
         class=".home.HomePage"
