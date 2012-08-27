@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plumi">
+<body>
+
+<metal:main fill-slot="main">
+
+<div id="featured-front-page" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+ test
+</div>
+</metal:main>
+
+</body>
+</html>
