@@ -17,7 +17,7 @@
       />
 
   <!-- File System Directory Views registration --> 	
-  <cmf:registerDirectory name="criticalcommons_skin_custom_templates"/>
+  <!--cmf:registerDirectory name="criticalcommons_skin_custom_templates"/-->
   <cmf:registerDirectory name="criticalcommons_skin_custom_images"/>
 
   <include package=".browser" />
