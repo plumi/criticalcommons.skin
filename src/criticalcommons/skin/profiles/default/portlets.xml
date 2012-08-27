@@ -3,6 +3,12 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="plumi">
 
+<portletmanager
+    name="plone.leftcolumn"
+    type="plone.app.portlets.interfaces.ILeftColumn"
+    remove="True"
+    />
+
 <assignment
      manager="plone.rightcolumn"
      category="context"

@@ -25,20 +25,11 @@
 
     <browser:page
         for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
-        name="homepage"
+        name="featured_videos_homepage"
         class=".home.HomePage"
         template="templates/home.pt"
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
-        />
-
-    <browser:viewlet
-        for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
-        name="criticalcommonts.skin.featured"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-        class=".viewlets.FeaturedViewlet"
-        layer=".interfaces.IThemeSpecific"
-        permission="zope2.View"
         />
 
     <plone:portlet
