@@ -23,9 +23,12 @@
                tal:attributes="value request/form/SearchableText|nothing;
                                id search_input_id"
                class="searchField" />
-        <label for="in_select_box">in</label>
-        <select name="in_select_box">
-            <option name="clips">Clips</option>
+        <label for="portal_type">in</label>
+        <select name="portal_type">
+            <option name="clips" value="PlumiVideo">Clips</option>
+            <option name="lectures" value="Lecture">Lectures</option>
+            <option name="articles" value="News Item">Articles</option>
+            <option name="commentaries" value="Commentary">Commentaries</option>
         </select>
 
         <input class="searchButton"
