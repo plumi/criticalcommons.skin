@@ -11,7 +11,7 @@
         <div class="LSBox">
         <label
                tal:attributes="for search_input_id"
-               >Search For</label>
+               >Search for</label>
 
         <input name="SearchableText"
                type="text"
@@ -29,11 +29,13 @@
             <option name="lectures" value="Lecture">Lectures</option>
             <option name="articles" value="News Item">Articles</option>
             <option name="commentaries" value="Commentary">Commentaries</option>
+               class="txt-input" />
+        <label for="in_select_box">in</label>
+        <select name="in_select_box">
+            <option name="clips">Clips</option>
         </select>
 
-        <input class="searchButton"
-               type="submit"
-               value="Go" />
+        <input class="btn-go" type="image" src="++resource++criticalcommons.skin.images/btn-go.gif" />
 
         <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
         </div>

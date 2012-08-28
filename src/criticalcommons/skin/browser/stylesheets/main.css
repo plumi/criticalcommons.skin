@@ -4,7 +4,7 @@ body {
     margin: 0 auto;
 }
 
-body.portaltype-plone-site {
+body.template-featured_videos_homepage {
     background: url("++resource++criticalcommons.skin.images/bg-body.jpg") no-repeat center top #FFF;
 }
 
@@ -447,12 +447,43 @@ body.portaltype-plumivideo h3 {
 
 #portal-searchbox {
     float: none;
-    width: 100%;
     border: 1px solid #a0b8b8;
     border-radius: 5px; 
-    padding: 10px;
-    margin: 5px -10px;
+    padding: 5px 180px;
+    margin: 5px -10px 20px;
+    line-height: 22px;
+    font-size: 14px;
 } 
+
+#portal-searchbox label {
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+#portal-searchbox select {
+    border: 1px solid #B2B2B2;
+    color: #333333;
+    font-size: 12px;
+    height: 22px;
+    margin: 1px 0 0 5px;
+    width: 160px;
+}
+
+#portal-searchbox .txt-input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #A6A6A6;
+    display: inline;
+    font-size: 12px;
+    margin-left: 8px;
+    padding: 3px 5px 2px;
+    width: 247px;
+}
+
+.btn-go {
+    position: relative;
+    top: 7px;
+}
+
 
 #portal-logo {
     margin: 5px;
@@ -480,4 +511,76 @@ body.portaltype-plumivideo h3 {
 
 #clip-area dl dd {
     margin: 0;
+}
+
+#video-infos {
+    clear: both;
+}
+
+a.optionHeader-com {
+    background-image: url("++resource++criticalcommons.skin.images/comments.gif");
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+a.optionHeader-flag {
+    background-image: url("++resource++criticalcommons.skin.images/flag.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+}
+
+#clip-area h5 {
+    font-size: 14px;
+    line-height: 16px;
+    margin: 25px 0 0;
+}
+
+.text-commentaries {
+    float: right;
+    overflow: hidden;
+    padding: 41px 0 0;
+    width: 433px;
+}
+
+.text-commentaries h2 {
+    color: #AA0030;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+}
+
+.text-commentaries .com-form {
+    background: url("++resource++criticalcommons.skin.images/red-border.gif") repeat-x scroll 0 100% transparent;
+    padding: 9px 0 20px;
+}
+
+
+.text-commentaries h4 {
+    font-size: 14px;
+    line-height: 16px;
+    margin: 10px 0 0;
+}
+
+
+.text-commentaries em {
+    color: #494949;
+    display: inline-block;
+    font-style: normal;
+    margin: 5px 0 0;
+}
+
+
+.text-commentaries p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 19px 0 0;
+}
+
+.text-commentaries {
+    float: right;
+    overflow: hidden;
+    width: 302px;
+    padding: 41px 0 0;
 }

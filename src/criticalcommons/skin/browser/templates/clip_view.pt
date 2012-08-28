@@ -37,6 +37,7 @@
 </head>
 <body>
 
+
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main"
         tal:define="fullDescription here/getFullDescription;
@@ -45,6 +46,20 @@
                     transcoding view/transcoding;
                     video_info view/video_info;
                     video_href string:${here/absolute_url}/@@download/video_file/${context/video_file/filename}">
+
+        <div class="text-commentaries">
+            <h2>Text Commentaries on this Clip</h2>
+            <label><strong>Select the commentary you want to read:</strong></label>
+            <select>
+                <option>one</option>
+                <option>two</option>
+            </select>
+        </div> <!--text-commentaries-->
+
+
+
+
+     <div id="clip-area">
 		<div class="roundborder rounded">
         <div tal:replace="structure provider:plone.abovecontent" />
         <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
@@ -77,7 +92,6 @@
             <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontentbody" tal:condition="transcoding" />
         </div> <!-- id=video-core -->
 
-        <div id="clip-area">
         <dl>
           <dt tal:condition="context/filmName"><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
               <dd tal:condition="context/Director"><strong>Created by <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
@@ -101,7 +115,7 @@
         </p>
 
 
-        </div> <!--clip area -->
+        </div> 
         <div id="video-infos">
             <div class="vcard">
               <table summary="Event details" class="vertical listing">
@@ -221,13 +235,6 @@
                          tal:content="here/WebsiteURL"></a>
                     </td>
                   </tr>
-                  <tr tal:define="dp here/DateProduced"
-                      tal:condition="dp">
-                    <th i18n:translate="">Year produced</th>
-                    <td tal:content="dp">
-                      year produced.
-                    </td>
-                  </tr>
             
                   <tr tal:condition="here/ProductionCompanyName">
                     <th i18n:translate="">Production Company</th>
@@ -262,11 +269,21 @@
 			</div>
 		</div>
 
+        <h5>Clip Options</h5>
+
+	<a class="optionHeader-com" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/commentaries/createObject?type_name=Commentary">Add a text commentary to this clip</a><br />
+ 
+                <a class="optionHeader-flag" >Flag as inappropriate</a><br />
+
+
+
         <div id="video-licensing">
           
             <div tal:replace="structure context/@@copyright_byline_view | nothing" />
             <div tal:replace="structure context/@@citation_view | nothing" />
         </div>
+
+
 
         <div tal:condition="view/transcoding_rights">    
             <script type="text/javascript">
