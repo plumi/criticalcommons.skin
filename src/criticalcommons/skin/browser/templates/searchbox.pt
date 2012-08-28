@@ -35,7 +35,14 @@
             <option name="clips">Clips</option>
         </select>
 
+<<<<<<< HEAD
         <input class="btn-go" type="image" src="++resource++criticalcommons.skin.images/btn-go.gif" />
+=======
+        <input class="searchButton"
+               src="++resource++criticalcommons.skin.images/btn-go.gif"
+               type="image"
+               value="Go" />
+>>>>>>> b8723949b9a63d7f242c4cf70092df31741dc9f1
 
         <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
         </div>
