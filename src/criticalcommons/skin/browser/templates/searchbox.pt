@@ -32,7 +32,8 @@
         </select>
 
         <input class="searchButton"
-               type="submit"
+               src="++resource++criticalcommons.skin.images/btn-go.gif"
+               type="image"
                value="Go" />
 
         <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
