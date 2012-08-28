@@ -447,20 +447,11 @@ body.portaltype-plumivideo h3 {
 
 #portal-searchbox {
     float: none;
-<<<<<<< HEAD
-    border: 1px solid #a0b8b8;
-    border-radius: 5px; 
-    padding: 5px 180px;
-    margin: 5px -10px 20px;
-    line-height: 22px;
-    font-size: 14px;
-} 
-=======
-    width: 770px;
     border: 1px solid #a0b8b8;
     border-radius: 5px; 
     padding: 10px;
     margin: 5px -10px;
+    width: 770px;
     padding-left: 180px;
 }
 
@@ -476,6 +467,7 @@ body.portaltype-plumivideo h3 {
     font-weight: bold;
     line-height: 22px;
     padding: 2px;
+    font-size: 14px;
 }
 
 #portal-searchbox div {
@@ -493,40 +485,9 @@ body.portaltype-plumivideo h3 {
 }
 
 #portal-searchbox .searchButton {
-    margin: -5px 5px 0;
+    margin: -5px 10px 0;
     vertical-align: middle;
 }
->>>>>>> b8723949b9a63d7f242c4cf70092df31741dc9f1
-
-#portal-searchbox label {
-    font-weight: bold;
-    margin: 0 5px;
-}
-
-#portal-searchbox select {
-    border: 1px solid #B2B2B2;
-    color: #333333;
-    font-size: 12px;
-    height: 22px;
-    margin: 1px 0 0 5px;
-    width: 160px;
-}
-
-#portal-searchbox .txt-input {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 2px solid #A6A6A6;
-    display: inline;
-    font-size: 12px;
-    margin-left: 8px;
-    padding: 3px 5px 2px;
-    width: 247px;
-}
-
-.btn-go {
-    position: relative;
-    top: 7px;
-}
-
 
 #portal-logo {
     margin: 5px;
