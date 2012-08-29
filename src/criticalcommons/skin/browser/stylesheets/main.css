@@ -357,13 +357,6 @@ img {
 #portal-top ul {
     font-weight: bold;
     list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-
-#portal-top ul li {
-    float: left;
-    padding-left: 10px;
 }
 
 #portal-top ul li a:hover,
@@ -374,15 +367,15 @@ img {
 #portal-top ul li a, #portal-top ul li.selected a {
     border: 1px transparent solid;
     color: #006666;
-    display: block;
+    display: inline;
     padding-right: 7px;
     text-decoration: none;
     border-radius: 5px;
 }
 
-#portal-top ul a:hover {
+#portal-globalnav .selected a:hover, #portal-top ul a:hover {
     color: #006666;
-    display: block;
+    display: inline;
 }
 
 #portal-top ul a span {
@@ -394,19 +387,23 @@ img {
     background: transparent !important;
     min-width: none !important;
     padding: 0.5em !important;
+    display: inline;
+    clear: none;
 }
 
 #portal-globalnav {
     background: transparent !important;
     float: right;
+    text-align: right;
     width: 690px;
     font-size: 90%;
+    margin-top: 15px;
 }
 
 ul#portal-globalnav li {
    display: inline;
-   float: right;
    margin-top: 20px;
+   float
 }
 
 #portal-colophon {
@@ -520,8 +517,7 @@ body.template-search #content h1 {
 
 #portal-personaltools {
     background-color: transparent;
-    top: 15px;
-    font-size: 90%;
+    top: 10px;
 }
 
 #clip-area {
