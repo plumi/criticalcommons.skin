@@ -1,0 +1,567 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
+    <metal:block fill-slot="column_two_slot" />
+</head>
+
+<body>
+
+<tal:comment replace="nothing">
+    Please note that this template fills the "content" slot instead of the
+    "main" slot, this is done so we can provide stuff like the content
+    tabs. This also means that we have to supply things that are normally
+    present from main_template.
+</tal:comment>
+<metal:javascript_head fill-slot="javascript_head_slot">
+      <script type="text/javascript"
+              charset="iso-8859-1">
+          jQuery(document).ready( function() {
+              jQuery('form').submit(function(){
+                if  (this.name == 'feedback_form'){  //we only want it to work for feedback form
+                  url = 'send_feedback_to_author';
+                  subject = document.getElementById('subject').value;
+                  subject_check = subject.replace(/ /gi, "");
+                  message = document.getElementById('message').value;
+                  message_check = message.replace(/ /gi, "");
+                  author = document.getElementById('author').value;
+                  referer = document.getElementById('referer').value;
+                  if (subject && message &&message_check && subject_check ){
+                  jQuery('#kss-spinner').show();
+                  jQuery.post(url,{'subject':subject,'message':message,'author':author,'referer':referer},function(data){
+                      jQuery('#kss-spinner').hide();       
+                      status_bar = document.getElementById('feedback_form_status');
+                      jQuery(status_bar).html(data);
+                      jQuery(status_bar).addClass('portalMessage info');
+                      jQuery(status_bar).fadeOut(5000);
+                      document.getElementById('subject').value = '';
+                      document.getElementById('message').value = '';
+                  });
+                  }
+                  else{
+                      alert('Please fill required fields')
+                  }
+                  return false;
+                }
+              }); 
+          });
+      </script>
+</metal:javascript_head>
+<metal:main fill-slot="content"
+    tal:define="errors options/state/getErrors;
+		view context/author_view;">
+    <tal:main-macro metal:define-macro="main"
+                    tal:define="mtool context/portal_membership;
+                                portal context/@@plone_portal_state/portal;
+                                isAnon context/@@plone_portal_state/anonymous;
+                                member context/@@plone_portal_state/member;
+                                url_unquote_plus python:modules['Products.PythonScripts.standard'].url_unquote_plus;
+                                author python:(len(request.traverse_subpath) > 0 and url_unquote_plus(request.traverse_subpath[0])) or request.get('author', None);
+                                portrait python: mtool.getPersonalPortrait(author);
+                                portal_types portal/portal_types;
+                                here_url context/@@plone_context_state/object_url;
+                                template_id template/getId;
+                                authorinfo python: mtool.getMemberInfo(author);
+                                email_from_address portal/email_from_address;
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+        <tal:noAuthor condition="not: authorinfo">
+        <div id="region-content">
+
+        <dl class="portalMessage error">
+            <dt i18n:translate="">
+                Error
+            </dt>
+            <dd i18n:translate="text_no_user_by_name">
+                No user by that name.
+            </dd>
+        </dl>
+        </div>
+        </tal:noAuthor>
+
+
+
+        <tal:haveAuthor condition="authorinfo">
+ 
+    <div id="region-content-container" class="documentEditable"
+         tal:define="isOwner python:member.getId()==author"
+         tal:attributes="class python: test(isOwner, 'documentEditable', '')">
+
+        <h5 class="hiddenStructure"
+            tal:condition="isOwner">Views</h5>
+        
+        <ul id="content-views" 
+            tal:condition="isOwner"
+            class="contentViews">
+          <li class="selected">
+            <a href=""
+                tal:define="url_quote_plus python:modules['Products.PythonScripts.standard'].url_quote_plus;
+                            memberurl python:url_quote_plus(member.getId())"
+               tal:attributes="href string:${portal_url}/author/${memberurl}"
+               i18n:translate="label_view">View</a>
+          </li>
+          <li>
+            <a href=""
+               tal:attributes="href string:${portal_url}/personalize_form"
+               i18n:translate="label_edit">Edit</a>
+          </li>
+        </ul>
+
+        <div class="contentActions"
+             tal:condition="isOwner">
+          &nbsp;
+        </div>
+
+
+        <div class="documentContent" id="region-content">
+
+            <a name="documentContent"></a>
+                    
+            <div metal:use-macro="here/global_statusmessage/macros/portal_message">
+                Portal status message
+            </div>
+
+            <!-- Author information -->
+            <h1 class="documentFirstHeading" tal:condition="authorinfo/fullname" tal:content="authorinfo/fullname">
+                Author name
+            </h1>
+
+            <h1 class="documentFirstHeading" tal:condition="not: authorinfo/fullname" tal:content="author">
+                Author ID
+            </h1>
+
+            <div class="discreet">
+                <tal:location condition="view/author_city|nothing" i18n:translate="text_location">
+                    Location:
+                     <span tal:content="view/author_city" tal:omit-tag="" i18n:name="author_city">
+                        Some City
+                    </span>
+                </tal:location>
+                <tal:location condition="authorinfo/location" i18n:translate="text_country">
+                    Country:
+                 <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}">
+                    <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="country">
+                        Some Country
+                    </span>
+                 </a>
+
+                </tal:location>
+
+                <tal:language condition="authorinfo/language">
+                &mdash;
+                <span i18n:translate="label_main_language">Main Language:</span>
+                  <a tal:attributes="href string:${portal_url}/@@author_listing?intype=language&invalue=${authorinfo/language}">                
+                     <span tal:replace="authorinfo/language">Some language</span>
+                  </a>
+                </tal:language>
+            </div>
+
+            <img src=""
+                 alt=""
+                 class="portraitPhoto"
+                 width="75"
+                 style="float: left; margin: 1em;"
+                 tal:attributes="src portrait/absolute_url" />
+                      
+
+            <p class="documentDescription" tal:content="view/author_userbio|nothing">
+                Author description.
+            </p>
+
+            <div class="visualClear"><!-- --></div>
+            
+            <p tal:condition="python:mtool.getHomeFolder(id=author)">
+            <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"
+               i18n:translate="label_author_internal_home_page">This Member's folder&hellip;</a>
+            </p>
+
+            <p tal:condition="python: not mtool.getHomeFolder(id=author) and authorinfo['home_page']">
+            <a href="#" 
+               rel="nofollow"
+               tal:attributes="href authorinfo/home_page"
+               i18n:translate="label_home_page">homepage&hellip;</a>
+            </p>
+
+
+	<!-- custom author profile , Plumi Skin implementation -->
+    <tal:plumi_domain i18n:domain="plumi">
+        <div class="author-details">
+		    <tal:url condition="view/author_url|nothing">
+			        <tal:website 
+				          i18n:translate="website">Website:</tal:website>
+			        <a tal:attributes="href view/author_url"
+			           tal:content="view/author_url"
+				      >
+				    Some URL
+			        </a>
+
+			        <p />
+		    </tal:url>
+                    
+		    <tal:homepages condition="view/author_homepages_display|nothing">
+                    <div id="other-homepages-title" i18n:translate="social_networking_blogs">Social Networking and Blogs</div>
+			        <div id="other-homepages"
+                         tal:repeat="homepage view/author_homepages_display">
+			           <a tal:attributes="href homepage;
+                                          class python:context.isSocialNetworkURL(homepage)"
+                          tal:content="homepage">
+				    Some URL
+			        </a>
+                    </div>
+
+                    <br />
+            </tal:homepages>
+
+                    <tal:street condition="view/author_street|nothing">
+                        <span class="street_label" i18n:translate="">Address : </span>
+                        <span tal:content="view/author_street" class="author_street" >
+                            Some street
+                        </span>
+
+                        <br />
+                    </tal:street>
+
+
+                    <tal:phone condition="view/author_phone|nothing">
+                        <span class="phone_label" i18n:translate="">Phone : </span>
+                        <span tal:content="view/author_phone" class="author_phone" >
+                            Some phone number
+                        </span>
+
+                        <br />
+                    </tal:phone>
+
+
+                    <tal:postcode condition="view/author_postcode|nothing">
+                        <span class="postcode_label" i18n:translate="">Post Code : </span>
+                        <span tal:content="view/author_postcode" class="author_postcode" >
+                            Some post code 
+                        </span>
+
+                        <br />
+                    </tal:postcode>
+
+
+		    <tal:genre_interests condition="view/author_genre_interests|nothing">
+                        <span class="genre_header" i18n:translate="">Genre Interests : </span>
+                        	<tal:repeat repeat="interest view/author_genre_interests">
+                        		<!--a class="author_interest" tal:attributes="href string:${portal_url}/taxonomy/genre/${interest/lower}" tal:content="interest"></a-->
+				    <a tal:attributes="href string:${portal_url}/@@author_listing?intype=genre&invalue=${interest}">
+                                        <span class="author_activity" tal:content="interest"/>
+                                    </a>&nbsp
+                        	</tal:repeat>
+
+                        <br />
+                    </tal:genre_interests>
+
+
+		    <tal:activities condition="view/author_activities|nothing">
+                        <span class="activities_header" i18n:translate="">Activities : </span>
+			    <tal:repeat repeat="activity view/author_activities">
+				    <a tal:attributes="href string:${portal_url}/@@author_listing?intype=activities&invalue=${activity}">
+                                        <span class="author_activity" tal:content="activity"/>
+                                    </a>&nbsp
+			    </tal:repeat>
+
+                       <br />
+                    </tal:activities>
+
+
+		    <tal:media_formats condition="view/author_media_formats|nothing">
+                        <span class="media_formats_header" i18n:translate="">Media Formats : </span>
+			    <tal:repeat repeat="format view/author_media_formats">
+				    <!--a href="here/author_interests_page"><span class="author_media_formats" tal:content="format"/></a-->
+				    <a tal:attributes="href string:${portal_url}/@@author_listing?intype=mediaformats&invalue=${format}">
+                                        <span class="author_activity" tal:content="format"/>
+                                    </a>&nbsp
+			    </tal:repeat>
+                    </tal:media_formats>
+
+        </div>
+
+        <div id="paypal-donation" tal:define="paypalcode view/author_paypal|nothing"
+                                     tal:condition="paypalcode">
+            <p class="paypal-donate"> 
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="encrypted"
+                       tal:attributes="value paypalcode"> 
+                <input type="image" id="paypalImage" src="https://www.paypal.com/en_AU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+                <span i18n:translate="paypal_donate">
+                    If you enjoyed this member's videos, you can support them via PayPal.
+                </span>
+                </form>
+            </p>
+        </div>
+
+  </tal:plumi_domain>
+  <!-- END : custom author profile, Plumi Skin impl -->
+
+	<!-- Videos listing -->
+	<div class="featured-block" tal:condition="videos" tal:define="videos view/videos|nothing">
+	  <dl class="videos-listing" i18n:domain="plumi">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/RSS2"><img class="feedButton" src="rss2_icon.png" alt="RSS2 Syndication" title="RSS2 Syndication" id="icon-rss2syndication" i18n:attributes="alt; title"/></a>	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/videos/" i18n:translate="">Latest Videos</a>
+	    </dt>
+		<!-- each video item -->
+	    <dd class="featuredItem" tal:repeat="obj videos">
+	      <tal:video replace="structure obj/render_listing" />
+	    </dd>
+	    <!-- end of each video item -->
+
+            <p tal:condition="python:mtool.getHomeFolder(id=author)">
+               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
+                 i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
+            </p>
+
+	  </dl>
+	</div>
+	<!-- end of video listing for user -->
+
+	<!-- Callout listing -->
+	<div class="featured-block" tal:condition="callouts" tal:define="callouts view/callouts|nothing">
+	  <dl class="callouts-listing" i18n:domain="plumi">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a>
+	    </dt>
+
+		<!-- each Callout item -->
+	    <dd class="featuredItem" tal:repeat="obj callouts">
+
+	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
+
+	    </dd>
+	    <!-- end of each Callout item -->
+
+            <p tal:condition="python:mtool.getHomeFolder(id=author)">
+              <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
+                 i18n:translate="label_author_internal_callout_page">All callouts from this author&hellip;</a>
+            </p>
+
+	  </dl>
+	</div>
+	<!-- end of Callouts listing for user -->
+
+	<!-- News listing -->
+	<div class="featured-block" tal:define="newses view/news|nothing" tal:condition="newses">
+	  <dl class="news-listing" i18n:domain="plumi">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/news/" i18n:translate="">Latest News</a>
+	    </dt>
+
+		<!-- each news item -->
+	    <dd class="featuredItem" tal:repeat="obj newses">
+
+	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
+
+	    </dd>
+	    <!-- end of each news item -->
+
+          <p tal:condition="python:mtool.getHomeFolder(id=author)">
+               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/news')"
+                  i18n:translate="label_author_internal_news_page">All news from this author&hellip;</a>
+          </p>
+
+	  </dl>
+	</div>
+	<!-- end of news listing for user -->
+
+
+	<!-- Events listing -->
+	<div class="featured-block" tal:condition="events" tal:define="events view/events|nothing">
+	  <dl class="events-listing" i18n:domain="plumi">
+	       
+	    <dt class="featuredHeader">
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
+	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/events/" i18n:translate="">Latest Events</a>
+	    </dt>
+
+		<!-- each Event item -->
+	    <dd class="featuredItem" tal:repeat="obj events">
+	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
+
+	    </dd>
+	    <!-- end of each Event item -->
+
+         <p tal:condition="python:mtool.getHomeFolder(id=author)">
+              <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/events')"
+                 i18n:translate="label_author_internal_events_page">All events from this author&hellip;</a>
+         </p>
+
+	  </dl>
+	</div>
+	<!-- end of Event listing for user -->
+
+
+            <div class="visualClear"><!-- --></div>
+
+ <tal:mailsetup tal:condition="python:email_from_address and authorinfo['has_email']">
+
+                        <div class="formControls" tal:condition="isAnon">
+                        <form
+                          tal:define="pss modules/Products/PythonScripts/standard"
+                          tal:attributes="action string:$portal_url/login_form">
+                           <input class="standalone"
+                               type="submit"
+                               value="Log in to send feedback"
+                               i18n:attributes="value label_login_to_send_feedback;"
+                               />
+                        </form>
+                        </div>
+
+                        <!-- feedback form -->
+
+
+                        <tal:owner tal:condition="python: not isOwner and not isAnon">
+                            <p class="discreet"
+                               i18n:translate="description_author_feedback">
+                                If you want to contact this author, fill in the form
+                                below.
+                            </p>
+
+                            <form name="feedback_form"
+                                  action=""
+                                  method="post"
+                                  tal:attributes="action string:$here_url/${template/getId}">
+
+                            <fieldset>
+
+                            <legend i18n:translate="legend_feedback_for_author">Feedback for author</legend>
+
+                            <div class="field"
+                              tal:define="error errors/subject|nothing"
+                              tal:attributes="class python:test(error, 'field error', 'field')">
+                              <label for="subject" i18n:translate="label_subject">
+                                Subject
+                              </label>
+
+                              <span class="fieldRequired" title="Required"
+                                      i18n:attributes="title title_required;"
+                                      i18n:translate="label_required">(Required)</span>
+
+                              <br />
+                              <input type="text"
+                                     id="subject"
+                                     name="subject"
+                                     size="25"
+                                     value=""
+                                     tal:attributes="value request/subject|nothing"
+                                     />
+                            </div>
+                            <div class="field"
+                              tal:define="error errors/message|nothing"
+                              tal:attributes="class python:test(error, 'field error', 'field')">
+                              <label for="message" i18n:translate="label_message">
+                                Message
+                              </label>
+
+                              <span class="fieldRequired" title="Required"
+                                      i18n:attributes="title title_required;"
+                                      i18n:translate="label_required">(Required)</span>
+
+                              <textarea name="message"
+                                        id="message"
+                                        rows="5"
+                                        cols="25"
+                                        tal:content="request/message|nothing"
+                                        ></textarea>
+                            </div>
+
+                            <div class="formControls">
+
+                                <input class="context"
+                                       type="submit"
+                                       name="form.button.Send"
+                                       value="Send"
+                                       i18n:attributes="value label_send;" />
+
+                            </div>
+
+                            </fieldset>
+
+                            <input type="hidden" name="author" value="" tal:attributes="value author" />
+                            <input type="hidden" name="referer" value=""
+                              tal:attributes="value python:request.get('referer', request.get('HTTP_REFERER', 'unknown url') )" />
+                            <input type="hidden" name="form.submitted" value="1" />
+
+                            </form>
+                        </tal:owner>
+                    </tal:mailsetup>
+            <!-- listing of content created by this user -->
+
+            <!--        
+            <tal:authorContent define="author_content python:here.author_find_content(author);"
+                               condition="author_content">
+        
+                <h2 i18n:translate="heading_author_content">
+                    Recent content created by this user
+                </h2>
+                
+                <div metal:define-macro="user_content_listing">
+                <table class="listing" summary="Lists content written by an author grouped by content type" i18n:attributes="summary summary_author_content_list;">
+                    <tal:repeat repeat="content_by_type author_content">
+                      <tal:grouping define="getTypeInfo nocall:portal_types/getTypeInfo;
+                                            content_type_ content_by_type/portal_type;
+                                            type_title python: getTypeInfo(content_type_) or None"
+                                    condition="type_title">		
+                        <tr>
+                            <td tal:content="content_type_" />
+                            <th colspan="2"
+                                i18n:translate=""
+                                tal:define="getTypeInfo nocall:portal_types/getTypeInfo;
+                                            content_type_ content_by_type/portal_type;
+                                            type_title python: getTypeInfo(content_type_) or None"
+                                tal:content="python:type_title and type_title.Title() or content_type_ + ' is not available'">
+                                Type
+                            </th>
+                        </tr>
+                        <tal:repeat repeat="item content_by_type/content_items">
+                            <tr>
+                                <td>
+                                    <a href="" tal:attributes="href item/getURL"
+                                       tal:content="item/pretty_title_or_id">title</a>
+                                </td>
+                                <td tal:content="python:toLocalizedTime(item.Date)">
+                                    Date
+                                </td>
+                            </tr>
+                        </tal:repeat>
+                      </tal:grouping>
+                    </tal:repeat>
+                </table>
+                </div>
+
+                <a href=""
+                   tal:attributes="href string:$here_url/search?Creator=${author}&amp;sort_on=Date&amp;sort_order=reverse"
+                   i18n:translate="go_to_search_author_content">
+                    All content created by 
+                    <span i18n:name="user" tal:omit-tag="" tal:content="python:authorinfo['fullname'] or author"/>&hellip;
+                </a>
+
+            </tal:authorContent>
+            -->
+
+        </div>
+    </div> <!-- end simulated tabs -->
+        
+    </tal:haveAuthor>
+
+    </tal:main-macro>
+
+</metal:main>
+
+</body>
+</html>

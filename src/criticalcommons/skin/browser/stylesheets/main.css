@@ -653,3 +653,39 @@ select {
     white-space: nowrap !important;
     word-wrap: normal !important;
 }
+
+dl.plumi-country {
+    display:none;
+}
+
+dl.plumi-videolanguage {
+    display:none;
+}
+
+div.featured-block {
+    margin-top: 10px;
+}
+
+dd.featuredItem {
+    clear:left;
+}
+
+.featuredItem .plumi-nice-description {
+    float: left;
+    margin-left: 230px;
+    margin-top: -80px;
+}
+
+span.featured-read-more {
+    float: none;
+}
+
+#region-content .documentFirstHeading {
+    margin-left: 10px;
+    margin-top: 13px;
+    padding-bottom: 0;
+}
+
+#region-content .portraitPhoto {
+    margin-top: 0;
+}
