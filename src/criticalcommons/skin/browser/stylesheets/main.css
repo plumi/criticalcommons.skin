@@ -627,3 +627,33 @@ a.optionHeader-flag {
     width: 490px;
 }
 
+.com-form select {
+    border: 1px solid #B2B2B2;
+    height: 22px;
+    margin: 18px 0 0;
+    width: 238px;
+}
+input, textarea, select {
+    font-size: 100%;
+    vertical-align: middle;
+}
+select {
+    -moz-appearance: menulist;
+    -moz-box-sizing: border-box;
+    -moz-user-select: none;
+    background-color: -moz-combobox;
+    border-color: threedface;
+    border-style: inset;
+    border-width: 2px;
+    color: -moz-comboboxtext;
+    cursor: default;
+    font: ;
+    line-height: normal !important;
+    margin: 0;
+    overflow: -moz-hidden-unscrollable;
+    text-align: start;
+    text-indent: 0;
+    text-shadow: none;
+    white-space: nowrap !important;
+    word-wrap: normal !important;
+}

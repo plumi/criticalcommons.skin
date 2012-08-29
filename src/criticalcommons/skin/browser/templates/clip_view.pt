@@ -58,7 +58,7 @@
              <div tal:condition="view/commentaries" class="com-form">
                  <label><strong>Select the commentary you want to read:</strong></label>
                  <select>
-                 <span tal:omit-tag="" tal:repeat="obj view/commentaries">
+                 <span tal:omit-tag="" tal:repeat="obj view/commentaries" >
                      <option tal:define="mtool context/portal_membership; author python:mtool.getMemberInfo(obj.Creator())" tal:attributes="id python:'option-commentary-'+obj.getId().replace('.','-')" tal:content="python:(author and author['fullname'] or obj.Creator()) + ': ' + obj.Title()">Commentary title</option>
                  </span>
                  </select>
@@ -70,10 +70,10 @@
 
 
              <span tal:attributes="id python:'commentary-'+obj.getId().replace('.','-')" tal:repeat="obj view/commentaries">
-             <h4 tal:content="obj/Title">commentary title</h4>
-             <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
-             <p tal:content="obj/description"> description </p>
-             <p tal:content="structure obj/textCommentary/raw">textCommentary</p>
+                 <h4 tal:content="obj/Title">commentary title</h4>
+                 <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
+                 <p tal:content="obj/description"> description </p>
+                 <p tal:content="structure obj/textCommentary/raw">textCommentary</p>
              </span>
 
 
@@ -394,13 +394,10 @@
     
     </div>      
     </tal:main-macro>
-</metal:main>
 
 <script>
 $(document).ready(function(){
-
     function show_comment(){
-        $('div.text-commentaries span').hide();
         var option_id = $('.com-form select option:selected')[0].id;
         comment_id = option_id.split('option-').pop();
         $('#' + comment_id).show();
@@ -409,12 +406,13 @@ $(document).ready(function(){
     show_comment();
 
     $('.com-form select').change(function() {
+        $('div.text-commentaries span').hide();
         show_comment();
     });
 
 });
 </script>
 
-
+</metal:main>
 </body>
 </html>
