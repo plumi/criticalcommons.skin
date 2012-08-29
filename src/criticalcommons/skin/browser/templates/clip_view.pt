@@ -57,17 +57,17 @@
                  <label><strong>Select the commentary you want to read:</strong></label>
                  <select>
                  <span tal:omit-tag="" tal:repeat="obj view/commentaries">
-                     <option tal:define="mtool context/portal_membership; author python:mtool.getMemberInfo(obj.Creator())" tal:attributes="id python:'option-commentary-'+obj.getId()" tal:content="python:(author and author['fullname'] or obj.Creator()) + ': ' + obj.Title()">Commentary title</option>
+                     <option tal:define="mtool context/portal_membership; author python:mtool.getMemberInfo(obj.Creator())" tal:attributes="id python:'option-commentary-'+obj.getId().replace('.','-')" tal:content="python:(author and author['fullname'] or obj.Creator()) + ': ' + obj.Title()">Commentary title</option>
                  </span>
                  </select>
              </div>
 
              <div tal:condition="not: view/commentaries" class="com-form">
-                 No text commentary available.
+                 No text commentary available.<a href="#"> Add one</a>
              </div>
 
 
-             <span tal:attributes="id python:'commentary-'+obj.getId()" tal:repeat="obj view/commentaries">
+             <span tal:attributes="id python:'commentary-'+obj.getId().replace('.','-')" tal:repeat="obj view/commentaries">
              <h4 tal:content="obj/Title">commentary title</h4>
              <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
              <p tal:content="obj/description"> description </p>
@@ -116,10 +116,8 @@
           <dt tal:condition="context/filmName"><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
               <dd tal:condition="context/Director"><strong>Created by <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
               <dd tal:condition="context/Distributor"><strong>Distributed by <span tal:omit-tag="" href="#" tal:content="context/Distributor">NBC/Universal</span></strong></dd>
-<tal:comment tal:replace="nothing">
-              <dd><strong>Posted by<a tal:attributes="href view/owner_urllink" tal:content="view/owner_fullname">Steve Anderson</a></strong></dd>
-</tal:comment>
-                                </dl>
+              <dd tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())"><strong>Posted by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></strong></dd>
+        </dl>
 
 
        <p class="documentDescription">
@@ -352,34 +350,29 @@
                 </div>
             </div> <!-- id=video-transcoding -->
         </div> <!-- transcoding rights tal -->
-	</div>
 
-    <div id="authors_latest" tal:define="other_videos  view/authors_latest|nothing">
-        <h1 class="documentFirstHeading" tal:condition="other_videos">Other videos by this author</h1>
-    <ul>
-        <li tal:repeat="video other_videos">
-            <a class="video-download" title="View details about this video"
-                                        tal:attributes="href string:${video/url}/view;">
-                <img title="" alt="" tal:attributes="alt video/video_title;
-                                                     src string:${video/url}/thumbnailImage_thumb" />
-                <h5 class="featuredItemTitle" tal:content="video/video_title" />
-            </a>
-            <p class="discreet">
-            Posted on <span tal:replace="video/post_date" />
-            </p>
-        </li>
-    </ul>
     
     </div>      
     </tal:main-macro>
 </metal:main>
 
 <script>
-    $(document).ready(function(){
-        function from_option_id_control_span(option_id){var span_id='#'+option_id.slice(7);$(span_id).toggle()}
-    var option_selector='.com-form > select option';
-    function hideall(){$(option_selector).each( function(){var span_id='#'+this.id.slice(7);$(span_id).hide()})}
-    $('.com-form > select').change( function(){hideall();$('.com-form > select option:selected').each( function(){from_option_id_control_span(this.id)})});hideall();$(option_selector+':first').each( function(){from_option_id_control_span(this.id)})});
+$(document).ready(function(){
+
+    function show_comment(){
+        $('div.text-commentaries span').hide();
+        var option_id = $('.com-form select option:selected')[0].id;
+        comment_id = option_id.split('option-').pop();
+        $('#' + comment_id).show();
+    }
+    
+    show_comment();
+
+    $('.com-form select').change(function() {
+        show_comment();
+    });
+
+});
 </script>
 
 
