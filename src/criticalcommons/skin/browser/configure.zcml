@@ -31,7 +31,7 @@
 
    <browser:page
       name="lecture_view"
-      for="criticalcommons.content.content.ILecture"
+      for="criticalcommons.content.content.lecture.ILecture"
       class=".views.LectureView"
       template="templates/lecture_view.pt"
       permission="zope2.View"
@@ -39,7 +39,7 @@
 
     <browser:page
       name="lecturelibrary_view"
-      for="criticalcommons.content.content.ILecture"
+      for="criticalcommons.content.content.lecture.ILecture"
       class=".views.LectureLibraryView"
       template="templates/lecturelibrary_view.pt"
       permission="zope2.View"
