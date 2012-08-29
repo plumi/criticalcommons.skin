@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+<div class="content" tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                 b_start python:request.get('b_start',0); ">
+
+		<div class="lecture-search">
+		<h1>Lecture Library</h1>
+                <p>A community-generated archive of lectures, presentations and screening
+                programs, complete with associated media clips and critical commentaries.</p>
+		<form name="searchform" action="search" 
+	    	    tal:define="livesearch site_properties/enable_livesearch|nothing" 
+		    tal:attributes="action string:${portal_url}/search; onsubmit python:livesearch==True and 'return liveSearchSubmit()' or ''" 
+		    style="white-space:nowrap">
+
+		<div class="addlecturebutton">
+		<div>
+		<a class="lectureupload" tal:condition="python: view.isAdvancedUser()" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=ATLecture"><img src="btn-addlecture.gif"></a>
+		</div>
+		</div>
+                <div class="search-results additions" tal:define="lectures view/latestlectures;  batch python:Batch(lectures, 20, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
+		<div class="column1">
+		<div tal:repeat="lecture batch" tal:omit-tag="">
+		<span  tal:omit-tag="" tal:condition="repeat/lecture/even">
+		<div class="clips-holder">
+		<img tal:condition="repeat/lecture/even" tal:attributes="src python:lecture.thumbnail()" />
+		<div tal:condition="repeat/lecture/even">
+		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
+		<em>by <a tal:attributes="href  lecture/owner_urllink" tal:content="lecture/owner_fullname">Alfred Hitchcock</a></em>
+		<p tal:content="lecture/summary">Nulla neque velit,a est.</p>
+		</div>
+		</div>
+		</span>
+		</div>
+          	</div>		
+	        <div class="column2">
+		<div tal:repeat="lecture batch" tal:omit-tag="">
+		<span  tal:omit-tag="" tal:condition="repeat/lecture/odd">
+		<div class="clips-holder">
+		<img tal:condition="repeat/lecture/odd" tal:attributes="src python:lecture.thumbnail()" />
+		<div tal:condition="repeat/lecture/odd">
+		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
+		<em>by <a tal:attributes="href  lecture/owner_urllink" tal:content="lecture/owner_fullname">Alfred Hitchcock</a></em>
+		<p tal:content="lecture/summary">Nulla neque velit, pr a est.</p>
+		</div>
+		</div>
+		</span>
+		</div>
+
+		</div>
+
+	 	<div metal:use-macro="here/batch_macros/macros/navigation" />
+
+		</div>
+
+		</div>
+		</div>
+
+</metal:main>
+
+
+<metal:override metal:fill-slot="column_two_slot" >
+<td id="portal-column-two">
+     <div class="visualPadding">
+	<div metal:use-macro="here/portlet_featured_articles/macros/portlet">
+        </div>
+	<div metal:use-macro="here/portlet_project/macros/portlet">
+	</div>
+	<div metal:use-macro="here/portlet_rss/macros/portlet">
+	</div>
+     </div>
+</td>
+</metal:override>
+
+
+</body>
+</html>
+
+

@@ -29,6 +29,22 @@
         layer=".interfaces.IThemeSpecific"
         />
 
+   <browser:page
+      name="lecture_view"
+      for="criticalcommons.content.content.ILecture"
+      class=".views.LectureView"
+      template="templates/lecture_view.pt"
+      permission="zope2.View"
+      />
+
+    <browser:page
+      name="lecturelibrary_view"
+      for="criticalcommons.content.content.ILecture"
+      class=".views.LectureLibraryView"
+      template="templates/lecturelibrary_view.pt"
+      permission="zope2.View"
+      />
+
     <plone:portlet
         name="criticalcommons.skin.browser.portlets.lectures.RecentLecturesPortlet"
         view_permission="zope2.View"

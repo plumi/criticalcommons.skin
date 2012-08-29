@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+	<div class="content">
+		<div class="third-page second-page">
+		    <h1>Lecture Library</h1> 
+
+		    <h5 tal:content="view/name" />
+		    <em class="author" tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></em>
+
+                    <p tal:content="structure view/summary">Lecture summary</p>
+                    <p tal:content="structure view/FullDescription/raw">Full Description</p>
+
+
+                    <div class="cinema" tal:repeat="obj view/clips">
+		        <a  tal:condition="python:obj.hasThumbnailImage()" tal:attributes="href python:obj.absolute_url() + '/view'" ><img tal:attributes="alt python:obj.getThumbnailImageDescription(); src python:obj.getThumbnailImage().absolute_url() + '_small'" /></a>
+			<a  tal:condition="python:not obj.hasThumbnailImage()" tal:attributes="href python:obj.absolute_url() + '/view'" ><img tal:attributes="alt python:obj.Title(); src string:img6.jpg" /></a>
+
+
+			<span class="info-cinema">
+			    <strong><a tal:attributes="href python:obj.absolute_url()+'/view'" tal:content="obj/Title">Psycho Shower Scene</a></strong>
+			    <em>by 
+			    <span tal:content="python:obj.getDirector()">Croneberg</span> (<span tal:omit-tag="" tal:content="python:obj.getYearProduced()"/>)</em>
+			    <p tal:content="python:obj.Description()">Lorem ipsum dolor sit amet consectetuer adipiscing elit. Sed sit amet leo. Proin nisl nisi, interdum congue, fringilla ut, sagittis vel, lorem. </p>
+			    </span>
+			 </div>
+
+  				<tal:copyright replace="structure context/copyright_byline_view" />
+                                <tal:citation  replace="structure context/citation_view" />
+                                <tal:metadata  replace="structure context/metadata_view" />
+
+		</div>
+	    </div>
+    <div class="visualClear"><!----></div>
+    
+</metal:main>
+
+<metal:override metal:fill-slot="column_two_slot" >
+<td id="portal-column-two">
+     <div class="visualPadding">
+		<div metal:use-macro="here/portlet_featured_articles/macros/portlet">
+	      </div>
+		<div metal:use-macro="here/portlet_project/macros/portlet">
+	      </div>
+		<div metal:use-macro="here/portlet_rss/macros/portlet">
+	      </div>
+     </div>
+</td>
+</metal:override>
+
+
+</body>
+</html>
+
