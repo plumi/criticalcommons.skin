@@ -7,12 +7,6 @@ class LectureView(BrowserView):
         self.context = context
         self.request = request
 
-    def lecturedescription(self):
-        return self.context.getFullDescription()
-
-    def summary(self):
-        return self.context.getSummary()
-
     def clips(self):
         clips = []
         for item in self.context.relatedItems:

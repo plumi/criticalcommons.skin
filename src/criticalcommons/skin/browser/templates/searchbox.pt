@@ -24,11 +24,11 @@
                                id search_input_id"
                class="txt-input" />
         <label for="portal_type">in</label>
-        <select name="portal_type">
-            <option name="clips" value="PlumiVideo">Clips</option>
-            <option name="lectures" value="Lecture">Lectures</option>
-            <option name="articles" value="News Item">Articles</option>
-            <option name="commentaries" value="Commentary">Commentaries</option>
+        <select name="portal_type" tal:define="portal_type request/portal_type|nothing">
+            <option name="clips" tal:attributes="selected python:portal_type == 'PlumiVideo'" value="PlumiVideo">Clips</option>
+            <option name="lectures" tal:attributes="selected python:portal_type == 'Lecture'" value="Lecture">Lectures</option>
+            <option name="articles" tal:attributes="selected python:portal_type == 'Document'" value="Document">Articles</option>
+            <option name="commentaries" tal:attributes="selected python:portal_type == 'Commentary'" value="Commentary">Commentaries</option>
         </select>
 
         <input class="searchButton"
