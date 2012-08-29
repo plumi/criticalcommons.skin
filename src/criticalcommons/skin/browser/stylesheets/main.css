@@ -15,9 +15,10 @@ body.portaltype-plumivideo {
 /* FRONT PAGE */
 
 .clips-area {
-	width:665px;
-	background:url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x 0 100%;
-	padding:0 0 23px;
+    width:665px;
+    background:url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x 0 100%;
+    padding:0 0 23px;
+    margin-top: 35px;
 }
 
 .clips-area h3 {
@@ -64,7 +65,11 @@ body.portaltype-plumivideo {
 }
 
 div.first-clip img {
-    width: 209px;
+    width: 207px;
+}
+
+div.second-clip img {
+    width: 278px;
 }
 
 div.third-clip img {
@@ -368,9 +373,8 @@ img {
     border: 1px transparent solid;
     color: #006666;
     display: inline;
-    padding-right: 7px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 #portal-globalnav .selected a:hover, #portal-top ul a:hover {
@@ -386,7 +390,7 @@ img {
 #portal-globalnav li a {
     background: transparent !important;
     min-width: none !important;
-    padding: 0.5em !important;
+    padding: 3px 5px;
     display: inline;
     clear: none;
 }
@@ -397,13 +401,12 @@ img {
     text-align: right;
     width: 690px;
     font-size: 90%;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 ul#portal-globalnav li {
    display: inline;
-   margin-top: 20px;
-   float
+   margin: 0px 7px;
 }
 
 #portal-colophon {
@@ -453,9 +456,9 @@ body.portaltype-plumivideo h3 {
     float: none;
     border: 1px solid #a0b8b8;
     border-radius: 5px; 
-    padding: 10px;
-    margin: 5px -10px;
-    width: 770px;
+    padding: 8px;
+    margin: 5px -10px 10px;
+    width: 790px;
     padding-left: 180px;
 }
 
@@ -508,7 +511,7 @@ body.template-search #content dd.thumbs {
 }
 
 body.template-search #content h1 {
-        background: none !important;
+    background: none !important;
 }
 
 #portal-logo {
@@ -518,6 +521,11 @@ body.template-search #content h1 {
 #portal-personaltools {
     background-color: transparent;
     top: 10px;
+    font-size: 12px;
+}
+
+#portal-personaltools li a {
+    padding: 3px 3px 3px 5px;
 }
 
 #clip-area {
@@ -654,6 +662,7 @@ select {
     word-wrap: normal !important;
 }
 
+<<<<<<< HEAD
 dl.plumi-country {
     display:none;
 }
@@ -688,4 +697,8 @@ span.featured-read-more {
 
 #region-content .portraitPhoto {
     margin-top: 0;
+}
+
+.actionMenuContent li a:hover {
+    color: white !important;
 }

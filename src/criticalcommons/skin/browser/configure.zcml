@@ -30,19 +30,21 @@
         />
 
    <browser:page
-      name="lecture_view"
+      name="view"
       for="criticalcommons.content.content.lecture.ILecture"
       class=".views.LectureView"
       template="templates/lecture_view.pt"
       permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
       />
 
     <browser:page
-      name="lecturelibrary_view"
-      for="criticalcommons.content.content.lecture.ILecture"
+      name="view"
+      for="criticalcommons.content.interfaces.ILectureLibrary"
       class=".views.LectureLibraryView"
       template="templates/lecturelibrary_view.pt"
       permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
       />
 
     <plone:portlet
