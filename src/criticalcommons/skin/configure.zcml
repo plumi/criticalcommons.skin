@@ -16,6 +16,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+    <genericsetup:importStep
+        name="criticalcommons.skin"
+        title="criticalcommons.skin special import handlers"
+        description="Install various pre reqs"
+        handler="criticalcommons.skin.setuphandlers.setupVarious"
+        />
+
   <!-- File System Directory Views registration --> 	
 
   <cmf:registerDirectory name="criticalcommons_skin_custom_images"/>
