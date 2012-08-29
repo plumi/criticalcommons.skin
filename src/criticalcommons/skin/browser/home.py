@@ -37,3 +37,9 @@ class HomePage(BrowserView):
         results = portal_catalog(portal_type=['Document','Topic','News Item'], review_state=['published'], path={'query': folder_path,}, sort_on="getObjPositionInParent")[:5]
         return self.request.get(
             'items', results)
+
+class PublishPage(BrowserView):
+    """Publish browser view
+    """
+
+

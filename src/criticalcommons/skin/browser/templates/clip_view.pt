@@ -39,6 +39,9 @@
 
 
 <metal:main fill-slot="main">
+
+
+
     <tal:main-macro metal:define-macro="main"
         tal:define="fullDescription here/getFullDescription;
                     is_editable context/@@plone_context_state/is_editable;
@@ -49,13 +52,30 @@
 
         <div class="text-commentaries">
             <h2>Text Commentaries on this Clip</h2>
-            <label><strong>Select the commentary you want to read:</strong></label>
-            <select>
-                <option>one</option>
-                <option>two</option>
-            </select>
-        </div> <!--text-commentaries-->
 
+             <div tal:condition="view/commentaries" class="com-form">
+                 <label><strong>Select the commentary you want to read:</strong></label>
+                 <select>
+                 <span tal:omit-tag="" tal:repeat="obj view/commentaries">
+                     <option tal:define="mtool context/portal_membership; author python:mtool.getMemberInfo(obj.Creator())" tal:attributes="id python:'option-commentary-'+obj.getId()" tal:content="python:(author and author['fullname'] or obj.Creator()) + ': ' + obj.Title()">Commentary title</option>
+                 </span>
+                 </select>
+             </div>
+
+             <div tal:condition="not: view/commentaries" class="com-form">
+                 No text commentary available.
+             </div>
+
+
+             <span tal:attributes="id python:'commentary-'+obj.getId()" tal:repeat="obj view/commentaries">
+             <h4 tal:content="obj/Title">commentary title</h4>
+             <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
+             <p tal:content="obj/description"> description </p>
+             <p tal:content="structure obj/textCommentary/raw">textCommentary</p>
+             </span>
+
+
+        </div> <!--text-commentaries-->
 
 
 
@@ -114,92 +134,90 @@
              This item does not have any body text, click the edit tab to change it.
         </p>
 
+        <dl tal:define="subjects view/subjects" tal:condition="subjects">
+          <dt i18n:translate="">Keywords</dt>
+          <dd>
+            <ul>
+              <li tal:repeat="kw subjects">
+                <a href="" title="" id=""
+                   tal:attributes="href kw/url;
+                                   id kw/id;
+                                   title kw/title;
+                                   class string:keyword-${kw/id};"
+                   tal:content="kw/title" />
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+       <dl tal:define="country view/country" tal:condition="country">
+          <dt i18n:translate="">Country</dt>
+          <dd>
+            <ul>
+              <li>
+                <a tal:attributes="href country/url|nothing;
+                                   class string:country-${country/id}"
+                   tal:content="country/title">countryname</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+       <dl tal:define="video_language view/video_language" tal:condition="video_language">
+          <dt i18n:translate="">Language</dt>
+          <dd>
+            <ul>
+              <li>
+                <a tal:attributes="href video_language/url|nothing;
+                                   class string:video_language-${video_language/id}"
+                  tal:content="video_language/title">languagename</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
+       <dl tal:define="genres view/genres" tal:condition="genres">
+          <dt i18n:translate="">Genres</dt>
+          <dd>
+            <ul>
+             <li tal:repeat="genre genres">
+                <a href="" title="" id=""
+                   tal:condition="python: genre['id'] != 'aaa_none'"
+                   tal:attributes="href genre/url;
+                                   id genre/id;
+                                   title genre/title;
+                                   class string:genre-${genre/id};"
+                   tal:content="genre/title" />
+              </li>
+
+            </ul>
+          </dd>
+        </dl>
+
+
+       <dl tal:define="categories view/categories" tal:condition="categories">
+          <dt i18n:translate="">Categories</dt>
+          <dd>
+            <ul>
+              <li tal:repeat="cat categories">
+                <a href="" title="" id=""
+                   tal:attributes="href cat/url;
+                                   id cat/id;
+                                   title cat/title;
+                                   class string:category-${cat/id};"
+                   tal:content="cat/title" />
+              </li>
+            </ul>
+          </dd>
+        </dl>
+
 
         </div> 
+        <br />
         <div id="video-infos">
             <div class="vcard">
               <table summary="Event details" class="vertical listing">
                 <tbody>
-                    <tr tal:define="duration context/plumiVideoDuration"
-                        tal:condition="duration">
-                        <th i18n:translate="">Duration</th>
-                        <td tal:content="duration"></td>
-                    </tr>
-                    <tr tal:define="genres view/genres"
-                        tal:condition="genres">
-                        <th i18n:translate="">Genres</th>
-                        <td>
-                            <ul>
-                              <li tal:repeat="genre genres">
-                                <a href="" title="" id="" 
-                                   tal:condition="python: genre['id'] != 'aaa_none'"
-                                   tal:attributes="href genre/url|nothing;
-                                                   id genre/id;
-                                                   title genre/title;
-                                                   class string:genre-${genre/id};"
-                                   tal:content="genre/title" />
-                              </li>
-                            </ul>
-                        </td>
-                  </tr>
-                  <tr tal:define="categories view/categories"
-                      tal:condition="categories">
-                      <th i18n:translate="">Topics</th>
-                      <td>
-                        <ul>
-                          <li tal:repeat="cat categories">
-                            <a href="" title="" id=""
-                               tal:attributes="href cat/url|nothing;
-                                               id cat/id;
-                                               title cat/title;
-                                               class string:category-${cat/id};"
-                               tal:content="cat/title" />
-                          </li>
-                        </ul>
-                      </td>
-                  </tr>
-                  <tr tal:define="subjects view/subjects"
-                        tal:condition="subjects">
-                      <th i18n:translate="">Keywords</th>
-                      <td>
-                        <ul>
-                          <li tal:repeat="kw subjects">
-                            <a href="" title="" id=""
-                               tal:attributes="href kw/url;
-                                               id kw/id;
-                                               title kw/title;
-                                               class string:keyword-${kw/id};"
-                               tal:content="kw/title" />
-                          </li>
-                        </ul>
-                      </td>
-                  </tr>    
-                  <tr tal:define="country view/country"
-                        tal:condition="country">
-                      <th i18n:translate="">Country</th>
-                      <td>
-                        <ul>
-                          <li>
-                            <a tal:attributes="href country/url|nothing;
-                                               class string:country-${country/id}"
-                               tal:content="country/title">countryname</a>
-                          </li>
-                        </ul>
-                      </td>
-                  </tr>
-                  <tr tal:define="video_language view/video_language"
-                        tal:condition="video_language">
-                      <th i18n:translate="">Language</th>
-                      <td>
-                        <ul>
-                          <li>
-                            <a tal:attributes="href video_language/url|nothing;
-                                               class string:video_language-${video_language/id}"
-                               tal:content="video_language/title">languagename</a>
-                          </li>
-                        </ul>
-                      </td>
-                  </tr>
                   <tr tal:condition="here/Producer">
                     <th i18n:translate="">
                       Producer
@@ -254,11 +272,6 @@
             </div> <!-- class=vcard -->           
         </div> <!-- id=video-infos -->
 
-        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
-            show related items if they exist
-        </div>
-
-
 		
 		<div id="full-description" tal:condition="here/FullDescription">
 			<h1 class="documentFirstHeading" i18n:translate="full_description"> 
@@ -270,11 +283,34 @@
 		</div>
 
         <h5>Clip Options</h5>
-
+        <p tal:condition="not: here/portal_membership/isAnonymousUser">
 	<a class="optionHeader-com" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/commentaries/createObject?type_name=Commentary">Add a text commentary to this clip</a><br />
- 
-                <a class="optionHeader-flag" >Flag as inappropriate</a><br />
+                <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a><br />
 
+        </p>
+
+        <p tal:condition="here/portal_membership/isAnonymousUser">
+        <a class="optionHeader-com" tal:attributes="href string:${portal_state/portal_url}/publish">Login to add a text commentary to this clip</a><br />
+                <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a><br />
+        </p>
+
+   <div id="authors_latest" tal:define="other_videos  view/authors_latest|nothing">
+        <h1 class="documentFirstHeading" tal:condition="other_videos">Other videos by this author</h1>
+    <ul>
+        <li tal:repeat="video other_videos">
+            <a class="video-download" title="View details about this video"
+                                        tal:attributes="href string:${video/url}/view;">
+                <img title="" alt="" tal:attributes="alt video/video_title;
+                                                     src string:${video/url}/thumbnailImage_thumb" />
+                <h5 class="featuredItemTitle" tal:content="video/video_title" />
+            </a>
+            <p class="discreet">
+            Posted on <span tal:replace="video/post_date" />
+            </p>
+        </li>
+    </ul>
+
+    </div>
 
 
         <div id="video-licensing">
@@ -337,5 +373,15 @@
     </div>      
     </tal:main-macro>
 </metal:main>
+
+<script>
+    $(document).ready(function(){
+        function from_option_id_control_span(option_id){var span_id='#'+option_id.slice(7);$(span_id).toggle()}
+    var option_selector='.com-form > select option';
+    function hideall(){$(option_selector).each( function(){var span_id='#'+this.id.slice(7);$(span_id).hide()})}
+    $('.com-form > select').change( function(){hideall();$('.com-form > select option:selected').each( function(){from_option_id_control_span(this.id)})});hideall();$(option_selector+':first').each( function(){from_option_id_control_span(this.id)})});
+</script>
+
+
 </body>
 </html>

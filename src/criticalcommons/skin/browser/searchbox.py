@@ -3,3 +3,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 class CCSearchBoxViewlet(SearchBoxViewlet):
     render = ViewPageTemplateFile("templates/searchbox.pt")
 
+class SearchBoxViewlet(SearchBoxViewlet):
+    render = ViewPageTemplateFile("templates/search.pt")
+
+

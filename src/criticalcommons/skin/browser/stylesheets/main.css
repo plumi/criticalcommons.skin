@@ -400,6 +400,13 @@ img {
     background: transparent !important;
     float: right;
     width: 690px;
+    font-size: 90%;
+}
+
+ul#portal-globalnav li {
+   display: inline;
+   float: right;
+   margin-top: 20px;
 }
 
 #portal-colophon {
@@ -461,6 +468,8 @@ body.portaltype-plumivideo h3 {
     height: 22px;
     margin: 1px 0 0 5px;
     width: 160px;
+    position: relative;
+    top: -2px;
 }
 
 #portal-searchbox label {
@@ -474,7 +483,7 @@ body.portaltype-plumivideo h3 {
     margin-right: 10px;
 }
 
-#portal-searchbox .searchField {
+#portal-searchbox .txt-input {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 2px solid #A6A6A6;
     display: inline;
@@ -489,12 +498,30 @@ body.portaltype-plumivideo h3 {
     vertical-align: middle;
 }
 
+.search-img {
+    clear: both;
+    float: left;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+body.template-search #content dd.thumbs {
+    height: 107px;
+}
+
+body.template-search #content h1 {
+        background: none !important;
+}
+
 #portal-logo {
     margin: 5px;
 }
 
 #portal-personaltools {
     background-color: transparent;
+    top: 15px;
+    font-size: 90%;
 }
 
 #clip-area {
@@ -588,3 +615,16 @@ a.optionHeader-flag {
     width: 302px;
     padding: 41px 0 0;
 }
+
+.cinema {
+    height: 1%;
+    margin: 25px 0 0;
+    overflow: hidden;
+}
+
+
+.info-cinema {
+    float: right;
+    width: 490px;
+}
+
