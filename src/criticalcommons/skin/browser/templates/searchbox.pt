@@ -22,14 +22,14 @@
                i18n:attributes="title title_search_site;"
                tal:attributes="value request/form/SearchableText|nothing;
                                id search_input_id"
-               class="searchField" />
+               class="txt-input" />
         <label for="portal_type">in</label>
         <select name="portal_type">
             <option name="clips" value="PlumiVideo">Clips</option>
             <option name="lectures" value="Lecture">Lectures</option>
             <option name="articles" value="News Item">Articles</option>
             <option name="commentaries" value="Commentary">Commentaries</option>
-               class="txt-input" />
+        </select>
 
         <input class="searchButton"
                src="++resource++criticalcommons.skin.images/btn-go.gif"

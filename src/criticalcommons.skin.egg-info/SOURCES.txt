@@ -14,6 +14,7 @@ src/criticalcommons.skin.egg-info/top_level.txt
 src/criticalcommons/skin/__init__.py
 src/criticalcommons/skin/testing.py
 src/criticalcommons/skin/browser/__init__.py
+src/criticalcommons/skin/browser/clip.py
 src/criticalcommons/skin/browser/home.py
 src/criticalcommons/skin/browser/interfaces.py
 src/criticalcommons/skin/browser/searchbox.py
