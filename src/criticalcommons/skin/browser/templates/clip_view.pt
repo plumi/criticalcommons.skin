@@ -113,9 +113,10 @@
                 </tal:isVideo>
 
                 <tal:isAudio condition="view/isAudio">
-                    <audio id="main-audio">
+                    <img tal:condition="thumb" tal:attributes="src thumb" />
+                    <audio id="main-audio" width="600">
                       <source src="" tal:attributes="src video_source; type view/context/content_type" />
-                      <object width="525" height="300" type="application/x-shockwave-flash" data="++resource++collective.mediaelementjs/flashmediaelement.swf">
+                      <object width="600" height="30" type="application/x-shockwave-flash" data="++resource++collective.mediaelementjs/flashmediaelement.swf">
                         <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
                         <param name="flashvars" value="" tal:attributes="value python:'controls=true&poster=%s&file=%s' % (thumb, video_source)" />
                       </object>
