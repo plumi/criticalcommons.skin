@@ -3,9 +3,6 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="plone">
 <head>
-  <metal:block fill-slot="top_slot"
-               tal:define="dummy python:request.set('disable_border',1);
-                           disable_column_two python:request.set('disable_plone.rightcolumn',0);" />
 </head>
 
 
