@@ -2,9 +2,18 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="plone">
+<head>
+  <metal:block fill-slot="top_slot"
+               tal:define="dummy python:request.set('disable_border',1);
+                           disable_column_two python:request.set('disable_plone.rightcolumn',0);" />
+</head>
+
 
 <body>
+
 <metal:main fill-slot="main">
+
+
 	<div class="content">
 		<div class="third-page second-page">
 		    <h1>Lecture Library</h1> 
@@ -13,25 +22,24 @@
 		    <em class="author" tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></em>
 
                     <p tal:content="structure context/description">Lecture summary</p>
-                    <p tal:content="structure context/fullDescription">Full Description</p>
+                    <p tal:content="structure context/fullDescription/raw">Full Description</p>
 
 
                     <div class="cinema" tal:repeat="obj view/clips">
-		        <a  tal:define="portal context/@@plone_portal_state/portal" tal:condition="python:obj.hasThumbnailImage()" tal:attributes="href python:obj.absolute_url() + '/view'" ><img tal:attributes="alt python:obj.getThumbnailImageDescription(); src python:obj.getThumbnailImage().absolute_url() + '_small'" /></a>
-			<a  tal:condition="python:not obj.hasThumbnailImage()" tal:attributes="href python:obj.absolute_url() + '/view'" ><img tal:attributes="alt python:obj.Title(); src string:img6.jpg" /></a>
+		        <a  tal:define="portal context/@@plone_portal_state/portal" tal:condition="obj/thumbnailImage" tal:attributes="href obj/absolute_url" >
+                       <span class="search-img">
+                        <img tal:attributes="alt obj/getThumbnailImageDescription; src python:obj.getThumbnailImage().absolute_url() + '_thumb'" />
+                        </span></a>
+			<a  tal:condition="not: obj/thumbnailImage" tal:attributes="href obj/absolute_url" ><img tal:attributes="alt python:obj.Title(); src string:img6.jpg" /></a>
 
 
-			<span class="info-cinema">
-			    <strong><a tal:attributes="href python:obj.absolute_url()+'/view'" tal:content="obj/Title">Psycho Shower Scene</a></strong>
-			    <em>by 
-			    <span tal:content="python:obj.getDirector()">Croneberg</span> (<span tal:omit-tag="" tal:content="python:obj.getYearProduced()"/>)</em>
-			    <p tal:content="python:obj.Description()">Lorem ipsum dolor sit amet consectetuer adipiscing elit. Sed sit amet leo. Proin nisl nisi, interdum congue, fringilla ut, sagittis vel, lorem. </p>
-			    </span>
+			    <strong><a tal:attributes="href obj/absolute_url" tal:content="obj/Title">Psycho Shower Scene</a></strong>
+			    <span class="clip-description">by 
+			    <span tal:content="obj/Director">Croneberg</span> (<span tal:omit-tag="" tal:content="obj/DateProduced"/>)</span>
+			    <span class="clip-description" tal:content="obj/description">Lorem ipsum  </span>
 			 </div>
 
-  				<tal:copyright replace="structure context/copyright_byline_view" />
-                                <tal:citation  replace="structure context/citation_view" />
-                                <tal:metadata  replace="structure context/metadata_view" />
+
 
 		</div>
 	    </div>
@@ -39,18 +47,6 @@
     
 </metal:main>
 
-<metal:override metal:fill-slot="column_two_slot" >
-<td id="portal-column-two">
-     <div class="visualPadding">
-		<div metal:use-macro="here/portlet_featured_articles/macros/portlet">
-	      </div>
-		<div metal:use-macro="here/portlet_project/macros/portlet">
-	      </div>
-		<div metal:use-macro="here/portlet_rss/macros/portlet">
-	      </div>
-     </div>
-</td>
-</metal:override>
 
 
 </body>

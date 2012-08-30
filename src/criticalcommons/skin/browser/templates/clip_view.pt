@@ -125,7 +125,7 @@
                 </tal:isAudio>
 
                 <tal:isImage condition="view/isImage">
-                    <img tal:attributes="src video_source" />
+                    <img tal:attributes="src thumb" />
                 </tal:isImage>
             </div>
 

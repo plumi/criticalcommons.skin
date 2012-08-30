@@ -4,6 +4,14 @@
       i18n:domain="plone">
 <body>
 
+<head>
+  <metal:block fill-slot="top_slot"
+               tal:define="dummy python:request.set('disable_border',1);
+                           disable_column_two python:request.set('disable_plone.rightcolumn',0);" />
+</head>
+
+
+
 <metal:main fill-slot="main">
 <div class="content" tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                  b_start python:request.get('b_start',0); ">
@@ -19,7 +27,7 @@
 
 		<div class="addlecturebutton">
 		<div>
-		<a class="lectureupload" tal:condition="python: view.isAdvancedUser()" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=ATLecture"><img src="btn-addlecture.gif"></a>
+		<a class="lectureupload" tal:condition="python: view.isAdvancedUser()" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture"><img src="btn-addlecture.gif"></a>
 		</div>
 		</div>
                 <div class="search-results additions" tal:define="lectures view/latestlectures;  batch python:Batch(lectures, 20, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
@@ -30,8 +38,8 @@
 		<img tal:condition="repeat/lecture/even" tal:attributes="src python:lecture.thumbnail()" />
 		<div tal:condition="repeat/lecture/even">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
-		<em>by <a tal:attributes="href  lecture/owner_urllink" tal:content="lecture/owner_fullname">Alfred Hitchcock</a></em>
-		<p tal:content="lecture/summary">Nulla neque velit,a est.</p>
+                <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator()" tal:content="python:author and author['fullname'] or lecture.Creator()">Alfred Hitchcock</a></em>
+		<p tal:content="lecture/description">Nulla neque velit,a est.</p>
 		</div>
 		</div>
 		</span>
@@ -44,8 +52,8 @@
 		<img tal:condition="repeat/lecture/odd" tal:attributes="src python:lecture.thumbnail()" />
 		<div tal:condition="repeat/lecture/odd">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
-		<em>by <a tal:attributes="href  lecture/owner_urllink" tal:content="lecture/owner_fullname">Alfred Hitchcock</a></em>
-		<p tal:content="lecture/summary">Nulla neque velit, pr a est.</p>
+		<em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator()" tal:content="python:author and author['fullname'] or lecture.Creator()">Alfred Hitchcock</a></em>
+		<p tal:content="lecture/description">Nulla neque velit, pr a est.</p>
 		</div>
 		</div>
 		</span>
@@ -53,29 +61,12 @@
 
 		</div>
 
-	 	<div metal:use-macro="here/batch_macros/macros/navigation" />
-
 		</div>
 
 		</div>
 		</div>
 
 </metal:main>
-
-
-<metal:override metal:fill-slot="column_two_slot" >
-<td id="portal-column-two">
-     <div class="visualPadding">
-	<div metal:use-macro="here/portlet_featured_articles/macros/portlet">
-        </div>
-	<div metal:use-macro="here/portlet_project/macros/portlet">
-	</div>
-	<div metal:use-macro="here/portlet_rss/macros/portlet">
-	</div>
-     </div>
-</td>
-</metal:override>
-
 
 </body>
 </html>

@@ -29,12 +29,26 @@
             <option name="lectures" tal:attributes="selected python:portal_type == 'Lecture'" value="Lecture">Lectures</option>
             <option name="articles" tal:attributes="selected python:portal_type == 'Document'" value="Document">Articles</option>
             <option name="commentaries" tal:attributes="selected python:portal_type == 'Commentary'" value="Commentary">Commentaries</option>
+            <option name="members" tal:define="members request/fullname|nothing" tal:attributes="selected members" value="Members">Members</option>
         </select>
-
+        <script tal:content="string: var portal_url='${navigation_root_url}/'" />
+        <script>
+        $('#portal-searchbox select').change(function(){
+            if (this.value=='Members') {
+                $('#portal-searchbox form').attr('action',portal_url+'Members/member_search_results');
+                $('#portal-searchbox input.txt-input').attr('name','fullname');
+                $('#portal-searchbox select').attr('name','');
+            } else {
+                $('#portal-searchbox form').attr('action',portal_url+'@@search');
+                $('#portal-searchbox input.txt-input').attr('name','SearchableText');
+                $('#portal-searchbox select').attr('name','portal_type');
+            }
+        });
+        $(document).ready(function(){$('#portal-searchbox select').change()});
+        </script>
         <input class="searchButton"
-               src="++resource++criticalcommons.skin.images/btn-go.gif"
-               type="image"
-               value="Go" />
+               type="submit"
+               value="" />
 
         <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
         </div>
