@@ -1,0 +1,4 @@
+<h2 tal:content="view/label">View Title</h2>
+<div id="layout-contents">
+  <div tal:replace="structure view/form/render" />
+</div>
