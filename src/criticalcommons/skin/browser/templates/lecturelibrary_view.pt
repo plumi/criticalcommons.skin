@@ -28,7 +28,9 @@
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/even">
 		<div class="clips-holder">
-		<img tal:condition="repeat/lecture/even" tal:attributes="src python:'/thumbnailImage_thumb'" />
+                    <span class="search-img">
+    		    <img tal:condition="repeat/lecture/even" tal:attributes="src python:'http://ccserver.usc.edu:8080/cc/Members/adiab/clips/SF_Arthur_TranScan_2003.mov/thumbnailImage_thumb'" />
+                    </span>
 		<div tal:condition="repeat/lecture/even">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
                 <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator()" tal:content="python:author and author['fullname'] or lecture.Creator()">Alfred Hitchcock</a></em>
@@ -42,7 +44,9 @@
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/odd">
 		<div class="clips-holder">
-		<img tal:condition="repeat/lecture/odd" tal:attributes="src python:'/thumbnailImage_thumb'" />
+                    <span class="search-img">
+                    <img tal:condition="repeat/lecture/odd" tal:attributes="src python:'http://ccserver.usc.edu:8080/cc/Members/adiab/clips/SF_Arthur_TranScan_2003.mov/thumbnailImage_thumb'" />
+                    </span>
 		<div tal:condition="repeat/lecture/odd">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
 		<em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator()" tal:content="python:author and author['fullname'] or lecture.Creator()">Alfred Hitchcock</a></em>

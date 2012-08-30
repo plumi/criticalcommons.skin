@@ -137,7 +137,7 @@
 
         <dl>
           <dt tal:condition="context/filmName"><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
-              <dd tal:condition="context/Director"><strong>Created by <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
+              <dd tal:condition="context/Director"><strong>Director: <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
               <dd tal:condition="context/Distributor"><strong>Distributed by <span tal:omit-tag="" href="#" tal:content="context/Distributor">NBC/Universal</span></strong></dd>
               <dd tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())"><strong>Posted by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></strong></dd>
         </dl>
@@ -249,7 +249,7 @@
                   </tr>
                   <tr tal:condition="here/Director">
                     <th i18n:translate="">
-                      Director
+                      Media Source
                     </th>
                     <td tal:content="here/Director">
                       Director
