@@ -18,14 +18,13 @@ class HomePage(BrowserView):
         filtering = dict(portal_type='PlumiVideo',
                  sort_on='effective',
                  sort_order='reverse',
-                 review_state='featured',
-                         limit=self.limit_featured)
-        brains = catalog(filtering)[:self.limit_featured]
+                 review_state='featured')
+        brains = catalog(filtering)
         shuffled_videos = list(brains)
         shuffle(shuffled_videos)
         while len(shuffled_videos) < self.limit_featured:
             shuffled_videos.append(None)
-        return shuffled_videos
+        return shuffled_videos[:self.limit_featured]
 
     def blog_posts(self):
         """ """
