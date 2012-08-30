@@ -41,7 +41,19 @@
 		</div>
 	    </div>
     <div class="visualClear"><!----></div>
-    
+
+
+<script>
+$(document).ready(function(){
+    $(".LSBox select").find("option:contains('Lectures')").each(function(){
+     if( $(this).text() == 'Lectures' ) {
+        $(this).attr("selected","selected");
+     }
+ });
+
+});
+</script>
+
 </metal:main>
 
 

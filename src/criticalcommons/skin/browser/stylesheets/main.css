@@ -755,3 +755,44 @@ span.clip-description {
     display: block;
 }
 
+.additions {
+    background:url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x 0 100%;
+    height: 1%;
+    padding: 15px 0 0;
+    position: relative;
+}
+
+.search-results {
+  margin: 30px 0 0;
+}
+
+.additions .column1 {
+    display: inline;
+    float: left;
+    margin: 0 0 0 -4px;
+    position: relative;
+    width: 345px;
+}
+.search-results div {
+    padding: 0 0 14px;
+}
+
+.additions .clips-holder {
+    height: 1%;
+    overflow: hidden;
+    padding: 0 0 18px;
+}
+
+.clips-holder img {
+    border: 1px solid #999999;
+    float: left;
+}
+
+.additions .column2 {
+    float: right;
+    width: 309px;
+}
+
+body.section-lectures .boxes .lectures {
+    display: none;
+}

@@ -1,4 +1,5 @@
 from Products.Five.browser import BrowserView
+from Products.CMFCore.utils import getToolByName
 
 class LectureView(BrowserView):
     """A view of a critical commons lecture"""

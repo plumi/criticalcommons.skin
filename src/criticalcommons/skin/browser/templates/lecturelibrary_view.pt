@@ -5,9 +5,6 @@
 <body>
 
 <head>
-  <metal:block fill-slot="top_slot"
-               tal:define="dummy python:request.set('disable_border',1);
-                           disable_column_two python:request.set('disable_plone.rightcolumn',0);" />
 </head>
 
 
@@ -20,14 +17,10 @@
 		<h1>Lecture Library</h1>
                 <p>A community-generated archive of lectures, presentations and screening
                 programs, complete with associated media clips and critical commentaries.</p>
-		<form name="searchform" action="search" 
-	    	    tal:define="livesearch site_properties/enable_livesearch|nothing" 
-		    tal:attributes="action string:${portal_url}/search; onsubmit python:livesearch==True and 'return liveSearchSubmit()' or ''" 
-		    style="white-space:nowrap">
 
 		<div class="addlecturebutton">
 		<div>
-		<a class="lectureupload" tal:condition="python: view.isAdvancedUser()" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture"><img src="btn-addlecture.gif"></a>
+		<a tal:define="portal context/@@plone_portal_state/portal;" class="lectureupload" tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture">Add a lecture</a>
 		</div>
 		</div>
                 <div class="search-results additions" tal:define="lectures view/latestlectures;  batch python:Batch(lectures, 20, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
@@ -35,7 +28,7 @@
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/even">
 		<div class="clips-holder">
-		<img tal:condition="repeat/lecture/even" tal:attributes="src python:lecture.thumbnail()" />
+		<img tal:condition="repeat/lecture/even" tal:attributes="src python:'/thumbnailImage_thumb'" />
 		<div tal:condition="repeat/lecture/even">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
                 <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator()" tal:content="python:author and author['fullname'] or lecture.Creator()">Alfred Hitchcock</a></em>
@@ -49,7 +42,7 @@
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/odd">
 		<div class="clips-holder">
-		<img tal:condition="repeat/lecture/odd" tal:attributes="src python:lecture.thumbnail()" />
+		<img tal:condition="repeat/lecture/odd" tal:attributes="src python:'/thumbnailImage_thumb'" />
 		<div tal:condition="repeat/lecture/odd">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
 		<em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator()" tal:content="python:author and author['fullname'] or lecture.Creator()">Alfred Hitchcock</a></em>
@@ -65,6 +58,18 @@
 
 		</div>
 		</div>
+
+<script>
+$(document).ready(function(){
+    $(".LSBox select").find("option:contains('Lectures')").each(function(){
+     if( $(this).text() == 'Lectures' ) {
+        $(this).attr("selected","selected");
+     }
+ });
+
+});
+</script>
+
 
 </metal:main>
 
