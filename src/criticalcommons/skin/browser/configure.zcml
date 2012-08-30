@@ -128,7 +128,7 @@
         for="plumi.content.interfaces.IPlumiVideo"
         manager=".interfaces.IAddCommentary"
         class=".viewlet.CommentaryViewlet"
-        permission="zope2.View"
+        permission="criticalcommons.content.AddCommentary"
         />
 
 </configure>
