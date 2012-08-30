@@ -31,7 +31,7 @@
         <meta property="og:video" tal:condition="python: mp4 and mp4[0]=='ok'" tal:attributes="content python:mp4[1]" />
         <meta property="og:video:type" content="video/webm" tal:condition="python: webm and webm[0]=='ok'" />
         <meta property="og:video" tal:condition="python: webm and webm[0]=='ok'" tal:attributes="content python:webm[1]" />
-        <link rel="stylesheet" href="mediaelementplayer.css" />
+        <link rel="stylesheet" tal:attributes="href python: context.portal_url() + '/++resource++collective.mediaelementjs/mediaelementplayer.css'" />
     </tal:block>
 <head>
     <metal:block fill-slot="column_two_slot" />
@@ -54,7 +54,6 @@
 
         <div class="text-commentaries">
             <h2>Text Commentaries on this Clip</h2>
-
              <div tal:condition="view/commentaries" class="com-form">
                  <label><strong>Select the commentary you want to read:</strong></label>
                  <select>
@@ -62,10 +61,11 @@
                      <option tal:define="mtool context/portal_membership; author python:mtool.getMemberInfo(obj.Creator())" tal:attributes="id python:'option-commentary-'+obj.getId().replace('.','-')" tal:content="python:(author and author['fullname'] or obj.Creator()) + ': ' + obj.Title()">Commentary title</option>
                  </span>
                  </select>
+                 <div tal:replace="structure provider:commentary_viewlet_manager" />
              </div>
-
              <div tal:condition="not: view/commentaries" class="com-form">
-                 No text commentary available.<a href="#"> Add one</a>
+                 No text commentary available.
+                 <div tal:replace="structure provider:commentary_viewlet_manager" />
              </div>
 
 

@@ -91,6 +91,14 @@ div.fifth-clip img {
     width: 130px;
 }
 
+div#clip-area div.rounded h2 {
+    float: right;
+}
+
+div#clip-area div#layout-contents {
+    float: right;
+}
+
 .latest-news h2 {
     color: #AA0131;
     font-size: 14px;
@@ -795,4 +803,19 @@ span.clip-description {
 
 body.section-lectures .boxes .lectures {
     display: none;
+}
+
+div#add_comentary_form {
+    margin-top: 5px;
+}
+
+div.text-commentaries input#form-widgets-title, div.text-commentaries textarea#form-widgets-body  {
+    width: 290px !important;
+}
+
+a#show_commentary_form {
+    color: #205C90;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
 }

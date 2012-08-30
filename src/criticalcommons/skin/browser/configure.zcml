@@ -115,10 +115,18 @@
         layer=".interfaces.IThemeSpecific"
         />
 
+    <browser:viewletManager
+        name="commentary_viewlet_manager"
+        provides=".interfaces.IAddCommentary"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope2.View"
+     />
+
     <browser:viewlet
         name="commentary_viewlet"
         for="plumi.content.interfaces.IPlumiVideo"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        manager=".interfaces.IAddCommentary"
         class=".viewlet.CommentaryViewlet"
         permission="zope2.View"
         />
