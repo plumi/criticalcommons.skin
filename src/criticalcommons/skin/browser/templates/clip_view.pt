@@ -249,7 +249,7 @@
                   </tr>
                   <tr tal:condition="here/Director">
                     <th i18n:translate="">
-                      Media Source
+                      Director
                     </th>
                     <td tal:content="here/Director">
                       Director
@@ -282,7 +282,7 @@
                     </td>
                   </tr>
                   <tr tal:condition="here/Distributor">
-                    <th i18n:translate="">Distributor</th>
+                    <th i18n:translate="">Media Source</th>
                     <td tal:content="here/Distributor">
                       Distributor
                     </td>
