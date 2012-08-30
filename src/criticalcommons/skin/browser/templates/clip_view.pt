@@ -32,6 +32,9 @@
         <meta property="og:video:type" content="video/webm" tal:condition="python: webm and webm[0]=='ok'" />
         <meta property="og:video" tal:condition="python: webm and webm[0]=='ok'" tal:attributes="content python:webm[1]" />
         <link rel="stylesheet" tal:attributes="href python: context.portal_url() + '/++resource++collective.mediaelementjs/mediaelementplayer.css'" />
+        <style type="text/css" tal:condition="not: view/canDownload">
+            div.download { display:none; }
+        </style>
     </tal:block>
 <head>
     <metal:block fill-slot="column_two_slot" />

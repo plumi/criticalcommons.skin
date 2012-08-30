@@ -2,6 +2,7 @@ from plumi.content.browser.video import VideoView
 from criticalcommons.content.forms import CommentaryForm
 from plone.z3cform import z2
 from z3c.form.interfaces import IFormLayer
+from zope.security import checkPermission
 
 
 class ClipView(VideoView):
@@ -18,4 +19,7 @@ class ClipView(VideoView):
         for item in related:
             if item.portal_type == 'Commentary':
                 ret.append(item)
-        return ret            
+        return ret
+
+    def canDownload(self):
+        return checkPermission('criticalcommons.content.CanDownload', self.context)
