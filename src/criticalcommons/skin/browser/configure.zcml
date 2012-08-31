@@ -88,16 +88,7 @@
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
         />
-
-    <browser:page
-        for="*"
-        name="publish"
-        class=".home.PublishPage"
-        template="templates/publish.pt"
-        permission="cmf.ModifyPortalContent"
-        layer=".interfaces.IThemeSpecific"
-        />
-     
+   
     <browser:viewlet
         name="plone.searchbox"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
@@ -112,6 +103,15 @@
         permission="zope2.View"
         for="*"
         template="templates/search.pt"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <browser:page
+        name="publisher"
+        class=".publisher.Publisher"
+        permission="zope2.View"
+        for="*"
+        template="templates/publisher.pt"
         layer=".interfaces.IThemeSpecific"
         />
 

@@ -1,0 +1,7 @@
+<html>
+    <head>
+        <meta http-equiv="Refresh" tal:attributes="content string: 0;;URL=${view/url}" />
+    </head>
+    <body>
+    </body>
+</html>
