@@ -12,11 +12,18 @@
     <browser:resourceDirectory
         name="criticalcommons.skin.stylesheets"
         directory="stylesheets"
+        layer=".interfaces.IThemeSpecific"
         />
 
     <browser:resourceDirectory
         name="criticalcommons.skin.images"
         directory="images"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <browser:resourceDirectory
+        name="criticalcommons.skin.javascripts"
+        directory="javascripts"
         layer=".interfaces.IThemeSpecific"
         />
 
@@ -130,5 +137,12 @@
         class=".viewlet.CommentaryViewlet"
         permission="criticalcommons.content.AddCommentary"
         />
+
+    <browser:page
+        name="register"
+        for="Products.CMFPlone.Portal.PloneSite"
+        class=".forms.MyRegistrationForm"
+        permission="zope2.View"
+          />
 
 </configure>

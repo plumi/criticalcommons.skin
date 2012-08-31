@@ -819,3 +819,7 @@ a#show_commentary_form {
     font-size: 14px;
     text-decoration: underline;
 }
+
+.kssattr-formname-register #formfield-form-title, .kssattr-formname-register #formfield-form-institution, .kssattr-formname-register #formfield-form-biography, .kssattr-formname-register #formfield-form-homePage {
+    display: none;
+}
