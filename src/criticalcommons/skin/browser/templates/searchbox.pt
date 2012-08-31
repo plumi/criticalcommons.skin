@@ -29,7 +29,7 @@
             <option name="lectures" tal:attributes="selected python:portal_type == 'Lecture'" value="Lecture">Lectures</option>
             <option name="articles" tal:attributes="selected python:portal_type == 'Document'" value="Document">Articles</option>
             <option name="commentaries" tal:attributes="selected python:portal_type == 'Commentary'" value="Commentary">Commentaries</option>
-            <option name="members" tal:define="members request/fullname|nothing" tal:attributes="selected members" value="Members">Members</option>
+            <option name="members" tal:define="members request/fullname|nothing" tal:attributes="selected members" value="Members">Contributors</option>
         </select>
         <script tal:content="string: var portal_url='${navigation_root_url}/'" />
         <script>
