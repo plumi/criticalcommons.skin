@@ -822,6 +822,10 @@ div.text-commentaries input#form-widgets-title, div.text-commentaries textarea#f
     width: 290px !important;
 }
 
+div.text-commentaries textarea#form-widgets-body  {
+    height: 250px !important;
+}
+
 a#show_commentary_form {
     color: #205C90;
     cursor: pointer;
