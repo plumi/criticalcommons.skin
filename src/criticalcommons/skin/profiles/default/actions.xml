@@ -25,7 +25,7 @@
    <property name="icon_expr"></property>
    <property name="available_expr">python:1</property>
    <property name="permissions">
-    <element value="Review portal content"/>
+    <element value="criticalcommons.content: Add Media"/>
    </property>
    <property name="visible">True</property>
   </object>
