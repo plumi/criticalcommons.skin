@@ -8,5 +8,5 @@
                 </li>
             </tal:items>
         </ul>
-    <a class="more" href="http://criticalcommons.org/blog">More Updates</a>
+    <a class="more" tal:attributes="href string:${here/portal_url}/blog">More Updates</a>
 </div>

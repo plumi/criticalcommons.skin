@@ -199,8 +199,18 @@ div#clip-area div#layout-contents {
     line-height: 18px;
 }
 
-#portal-columns h3 a {
-    color: #AA0131;
+.portletHeader a, #portal-columns h3 a {
+    color: #AA0131 !important;
+}
+
+.portletHeader a {
+    background: url("++resource++criticalcommons.skin.images/red-border.gif") repeat-x scroll 0 100% transparent !important;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+.portletHeader {
+    background: transparent !important;
 }
 
 .lectures ul li strong {
@@ -764,7 +774,6 @@ span.clip-description {
 }
 
 .additions {
-    background:url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x 0 100%;
     height: 1%;
     padding: 15px 0 0;
     position: relative;
@@ -823,3 +832,28 @@ a#show_commentary_form {
 .kssattr-formname-register #formfield-form-title, .kssattr-formname-register #formfield-form-institution, .kssattr-formname-register #formfield-form-biography, .kssattr-formname-register #formfield-form-homePage {
     display: none;
 }
+
+body.template-library_view .listingBar {
+    clear: both !important;
+}
+
+#content li {
+    list-style: none;
+}
+
+#clip-area #category {
+    display: none;
+}
+
+
+.card {
+    border-color: #FFF;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 1em;
+    padding: 1em 0;
+    text-align: center;
+    width: 110px;
+}
+

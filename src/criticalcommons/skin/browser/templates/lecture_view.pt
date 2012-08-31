@@ -10,16 +10,22 @@
 
 <metal:main fill-slot="main">
 
+    <div class="content">
+	<div class="third-page second-page">
+	    <h1>Lecture Library</h1> 
 
-	<div class="content">
-		<div class="third-page second-page">
-		    <h1>Lecture Library</h1> 
+	    <h5 tal:content="context/Title" />
+	    <em class="author" tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></em>
 
-		    <h5 tal:content="context/Title" />
-		    <em class="author" tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></em>
+           <p tal:content="structure context/description">Lecture summary</p>
 
-                    <p tal:content="structure context/description">Lecture summary</p>
-                    <p tal:content="structure context/fullDescription/raw">Full Description</p>
+        <div tal:define="picture nocall:context/thumbnailImage"
+             tal:condition="nocall:picture">
+            <img tal:attributes="src string:${context/absolute_url}/@@images/thumbnailImage/preview;"
+                />
+        </div>
+
+            <p tal:content="structure context/fullDescription/raw">Full Description</p>
 
 
                     <div class="cinema" tal:repeat="obj view/clips">

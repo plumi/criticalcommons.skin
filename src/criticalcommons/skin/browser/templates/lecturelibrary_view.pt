@@ -8,7 +8,6 @@
 </head>
 
 
-
 <metal:main fill-slot="main">
 <div class="content" tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                  b_start python:request.get('b_start',0); ">
@@ -23,13 +22,17 @@
 		<a tal:define="portal context/@@plone_portal_state/portal;" class="lectureupload" tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture">Add a lecture</a>
 		</div>
 		</div>
-                <div class="search-results additions" tal:define="lectures view/latestlectures;  batch python:Batch(lectures, 20, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
+                <div class="search-results additions" tal:define="lectures view/latestlectures;  batch python:Batch(lectures, 40, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
 		<div class="column1">
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/even">
 		<div class="clips-holder">
-                    <span class="search-img">
-    		    <img tal:condition="repeat/lecture/even" tal:attributes="src python:'http://ccserver.usc.edu:8080/cc/Members/adiab/clips/SF_Arthur_TranScan_2003.mov/thumbnailImage_thumb'" />
+                    <span class="search-img" tal:condition="repeat/lecture/even">
+                      <div tal:define="picture nocall:lecture/thumbnailImage"
+                      tal:condition="nocall:picture">
+                      <img tal:attributes="src string:${lecture/absolute_url}/@@images/thumbnailImage/thumb;"
+                      />
+                       </div>
                     </span>
 		<div tal:condition="repeat/lecture/even">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
@@ -44,8 +47,12 @@
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/odd">
 		<div class="clips-holder">
-                    <span class="search-img">
-                    <img tal:condition="repeat/lecture/odd" tal:attributes="src python:'http://ccserver.usc.edu:8080/cc/Members/adiab/clips/SF_Arthur_TranScan_2003.mov/thumbnailImage_thumb'" />
+                   <span class="search-img" tal:condition="repeat/lecture/odd">
+                      <div tal:define="picture nocall:lecture/thumbnailImage"
+                      tal:condition="nocall:picture">
+                      <img tal:attributes="src string:${lecture/absolute_url}/@@images/thumbnailImage/thumb;"
+                      />
+                       </div>
                     </span>
 		<div tal:condition="repeat/lecture/odd">
 		<strong><a tal:attributes="href lecture/absolute_url" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
@@ -57,6 +64,8 @@
 		</div>
 
 		</div>
+
+                                        <div metal:use-macro="here/batch_macros/macros/navigation" />
 
 		</div>
 

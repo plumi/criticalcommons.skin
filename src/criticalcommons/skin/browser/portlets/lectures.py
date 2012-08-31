@@ -50,11 +50,8 @@ class Renderer(base.Renderer):
         context = self.context
         portal_catalog = getToolByName(context, 'portal_catalog')
         results = portal_catalog(portal_type=['Lecture'], review_state=['published'],sort_on='effective',sort_order='descending')[:4]
-        objects = []
-        for item in results:
-            obj = item.getObject()
-            objects.append(obj)
-        return objects
+        return self.request.get(
+            'items', results)
 
 
 class AddForm(base.AddForm):

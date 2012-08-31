@@ -18,15 +18,13 @@ class LectureView(BrowserView):
 class LectureLibraryView(BrowserView):
     """A view of a library of critical commons lectures """
 
-    lecture_limit_latest = 200
+    lecture_limit_latest = 400
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        #setup a catalog object
         self.catalog = getToolByName(self.context,"portal_catalog")
         self.author = self.context.Creator()
-        #print " author of lecture library %s" % self.author
 
     def latestlectures(self):
         """Return the latest lectures for the library"""
@@ -35,10 +33,8 @@ class LectureLibraryView(BrowserView):
                          sort_order='reverse',
                          review_state='published',
                          sort_limit=self.lecture_limit_latest)
-        if self.author!='admin':
-                filtering.update(Creator=self.author)
-        brains = self.catalog(filtering)[:self.lecture_limit_latest]
-        #return real objects
-        return [ b.getObject() for b in brains ]
+        
+        lectures = self.catalog(filtering)
+        return [ l for l in lectures ]
 
 

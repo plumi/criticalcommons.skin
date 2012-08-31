@@ -108,7 +108,7 @@
         name="search"
         class="plone.app.search.browser.Search"
         permission="zope2.View"
-        for="*"
+         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         template="templates/search.pt"
         layer=".interfaces.IThemeSpecific"
         />
