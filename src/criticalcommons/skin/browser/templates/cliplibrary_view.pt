@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<head>
+</head>
+
+
+<metal:main fill-slot="main">
+<div class="content" tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                 b_start python:request.get('b_start',0);
+                 clips view/latestclips;  batch python:Batch(clips, 40, int(b_start), orphan=1); template_id string:@@cliplibrary_view">
+
+		<div class="lecture-search">
+		<h1>Clip Library</h1>
+                <div class="discreet">There are <b tal:content="python:len(clips)"></b> videos available</div>
+
+                <p>Advanced Users can upload clips and commentaries to the Critical Commons repository.</p>
+
+		<div class="addlecturebutton">
+		<div>
+		<a tal:define="portal context/@@plone_portal_state/portal;" class="lectureupload" tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_url}/publisher">Add a Clip</a>
+		</div>
+		</div>
+                <div class="search-results additions" >
+		<div class="column1">
+		<div tal:repeat="clip batch" tal:omit-tag="">
+		<span  tal:omit-tag="" tal:condition="repeat/clip/even">
+		<div class="clips-holder">
+                    <span class="search-img" tal:condition="repeat/clip/even">
+                        <a tal:attributes="href clip/getURL; title clip/Title">
+                      <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;
+                                           width string:75;
+                                           height string:75;"
+                      /></a>
+                    </span>
+		<tal:clip condition="repeat/clip/even">
+		<strong><a tal:attributes="href clip/getURL" tal:content="clip/Title">The Dolly Counter-Zoom</a></strong>
+                <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
+		<span tal:content="clip/Description">Nulla neque velit,a est.</span>
+		</tal:clip>
+		</div>
+		</span>
+		</div>
+          	</div>		
+	        <div class="column2">
+		<div tal:repeat="clip batch" tal:omit-tag="">
+		<span  tal:omit-tag="" tal:condition="repeat/clip/odd">
+		<div class="clips-holder">
+                   <span class="search-img" tal:condition="repeat/clip/odd">
+                        <a tal:attributes="href clip/getURL; title clip/Title">
+                      <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;
+                                           width string:75;
+                                           height string:75;"
+                      /></a>
+                    </span>
+		<tal:clip condition="repeat/clip/odd">
+		<strong><a tal:attributes="href clip/getURL" tal:content="clip/Title">The Dolly Counter-Zoom</a></strong>
+		<em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
+		<span tal:content="clip/Description">Nulla neque velit, pr a est.</span>
+		</tal:clip>
+		</div>
+		</span>
+		</div>
+
+		</div>
+
+                                        <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+		</div>
+
+		</div>
+		</div>
+
+</metal:main>
+
+</body>
+</html>
+
+
