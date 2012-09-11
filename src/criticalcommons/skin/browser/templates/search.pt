@@ -250,7 +250,9 @@
                                       </div>
                                       <div tal:omit-tag="" tal:condition="python:item_type=='PlumiVideo'">
                                               <span class="search-img">
-                                              <img tal:attributes="src python:item.getURL()+'/thumbnailImage_thumb'" />
+                                                  <a tal:attributes="href item/getURL" >
+                                                  <img tal:attributes="src python:item.getURL()+'/thumbnailImage_thumb';title item/title; alt item/title;" />
+                                                  </a>
                         		      </span>
                                       </div>
 

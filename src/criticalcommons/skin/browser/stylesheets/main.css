@@ -685,7 +685,6 @@ select {
     word-wrap: normal !important;
 }
 
-<<<<<<< HEAD
 dl.plumi-country {
     display:none;
 }
@@ -749,6 +748,7 @@ span.featured-read-more {
 }
 
 .third-page .cinema {
+    font-size: 13px;
     height: 1%;
     margin: 25px 0 0;
     overflow: hidden;
@@ -805,6 +805,10 @@ span.clip-description {
     float: left;
 }
 
+.clips-holder em {
+    display: block;
+}
+
 .additions .column2 {
     float: right;
     width: 309px;
@@ -837,7 +841,7 @@ a#show_commentary_form {
     display: none;
 }
 
-body.template-library_view .listingBar {
+.listingBar {
     clear: both !important;
 }
 
@@ -859,5 +863,34 @@ body.template-library_view .listingBar {
     padding: 1em 0;
     text-align: center;
     width: 110px;
+}
+
+span.vaporized-tag {
+    text-style: none !important;
+}
+
+.listingBar a:link, .listingBar a:visited, .listingBar a:hover {
+    border-bottom: 0.1em solid #CCCCCC !important;
+}
+
+
+#content a:link, dl.portlet a:link, dl.portlet a:visited, dl.portlet a:hover {
+    color: #006666;
+    border-bottom: medium none;
+}
+
+.vaporized-tag a {
+    font-weight: bold !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+#content a:hover, dl.portlet a:hover {
+    color: #006666 !important;
+    text-decoration: underline; 
+}
+
+body.portaltype-plumivideo #archetypes-fieldname-relatedItems, body.portaltype-plumivideo #archetypes-fieldname-location, body.portaltype-plumivideo #archetypes-fieldname-thumbnailImageDescription, body.portaltype-plumivideo #archetypes-fieldname-VideoLanguage, body.portaltype-plumivideo #archetypes-fieldname-language, body.portaltype-plumivideo #archetypes-fieldname-FullDescription, body.portaltype-plumivideo #archetypes-fieldname-WebsiteURL, body.portaltype-plumivideo #archetypes-fieldname-ProductionCompanyName, body.portaltype-plumivideo #archetypes-fieldname-ProjectName, body.portaltype-plumivideo #archetypes-fieldname-ProducerMailingAddress, body.portaltype-plumivideo #archetypes-fieldname-ProducerEmail, body.portaltype-plumivideo #archetypes-fieldname-Producer {
+    display: none !important;
 }
 

@@ -1,4 +1,4 @@
-<div id="add_comentary_form">
+<div tal:condition="not: here/portal_membership/isAnonymousUser" id="add_comentary_form">
     <a id="show_commentary_form" tal:content="view/label">View Title</a>
     <div id="layout-contents" style="display:none;">
       <div tal:replace="structure view/form/render" />
@@ -10,3 +10,8 @@
           });
     </script>
 </div>
+
+<div tal:condition="here/portal_membership/isAnonymousUser" id="add_comentary_form">
+    <a id="show_commentary_form" href="href string:${portal_url}/login_form">Login to Add Commentary</a>
+</div>
+

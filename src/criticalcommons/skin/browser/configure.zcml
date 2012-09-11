@@ -54,6 +54,15 @@
       layer=".interfaces.IThemeSpecific"
       />
 
+    <browser:page
+      name="videolibrary_view"
+      for="zope.app.container.interfaces.IContainer"
+      class=".views.ClipLibraryView"
+      template="templates/cliplibrary_view.pt"
+      permission="zope2.View"
+      allowed_attributes="videos empty parent_url renderers"
+      />
+
     <plone:portlet
         name="criticalcommons.skin.browser.portlets.lectures.RecentLecturesPortlet"
         view_permission="zope2.View"
@@ -108,7 +117,7 @@
         name="search"
         class="plone.app.search.browser.Search"
         permission="zope2.View"
-         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         template="templates/search.pt"
         layer=".interfaces.IThemeSpecific"
         />
@@ -135,7 +144,7 @@
         for="plumi.content.interfaces.IPlumiVideo"
         manager=".interfaces.IAddCommentary"
         class=".viewlet.CommentaryViewlet"
-        permission="criticalcommons.content.AddCommentary"
+        permission="zope2.View"
         />
 
     <browser:page

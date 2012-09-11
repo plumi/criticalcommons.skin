@@ -15,5 +15,5 @@ class Publisher(BrowserView):
     def url(self):
         mtool = getToolByName(self.context, 'portal_membership')
         member = mtool.getAuthenticatedMember()
-        url = '/'.join(mtool.getHomeFolder(member.id).getPhysicalPath()) + '/videos/@@publish_video'
+        url = '/'.join(mtool.getHomeFolder(member.id).getPhysicalPath()) + '/clips/@@publish_video'
         return url

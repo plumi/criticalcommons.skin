@@ -38,3 +38,25 @@ class LectureLibraryView(BrowserView):
         return [ l for l in lectures ]
 
 
+class ClipLibraryView(BrowserView):
+    """A view of a library of critical commons Clips """
+
+    clip_limit_latest = 20000
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.catalog = getToolByName(self.context,"portal_catalog")
+        self.author = self.context.Creator()
+
+    def latestclips(self):
+        """Return the latest Clips for the library"""
+        filtering = dict(portal_type='PlumiVideo',
+                         sort_on='created',
+                         sort_order='reverse',
+                         review_state='published',
+                         sort_limit=self.clip_limit_latest)
+
+        clips = self.catalog(filtering)
+        return [ l for l in clips ]
+

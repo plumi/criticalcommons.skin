@@ -177,10 +177,6 @@
 
             <div class="visualClear"><!-- --></div>
             
-            <p tal:condition="python:mtool.getHomeFolder(id=author)">
-            <a href="#" tal:attributes="href python:mtool.getHomeFolder(id=author).absolute_url()"
-               i18n:translate="label_author_internal_home_page">This Member's folder&hellip;</a>
-            </p>
 
             <p tal:condition="python: not mtool.getHomeFolder(id=author) and authorinfo['home_page']">
             <a href="#" 
@@ -188,7 +184,7 @@
                tal:attributes="href authorinfo/home_page"
                i18n:translate="label_home_page">homepage&hellip;</a>
             </p>
-
+        <br />
 
 	<!-- custom author profile , Plumi Skin implementation -->
     <tal:plumi_domain i18n:domain="plumi">
@@ -319,39 +315,17 @@
 	    <!-- end of each video item -->
 
             <p tal:condition="python:mtool.getHomeFolder(id=author)">
-               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/videos')"
+               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/clips')"
                  i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
             </p>
+
+
+
 
 	  </dl>
 	</div>
 	<!-- end of video listing for user -->
 
-	<!-- Callout listing -->
-	<div class="featured-block" tal:condition="callouts" tal:define="callouts view/callouts|nothing">
-	  <dl class="callouts-listing" i18n:domain="plumi">
-	       
-	    <dt class="featuredHeader">
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/RSS"><img class="feedButton" src="rss.gif" alt="RSS Syndication" title="RSS Syndication" id="rsssyndication" i18n:attributes="alt; title"/></a>	      	      
-	      <a href="#" tal:attributes="href string:${view/homefolder/absolute_url}/callouts/" i18n:translate="">Latest Callouts</a>
-	    </dt>
-
-		<!-- each Callout item -->
-	    <dd class="featuredItem" tal:repeat="obj callouts">
-
-	     <metal:macro use-macro="here/atobjs_renderer/macros/atobj_renderer"/>
-
-	    </dd>
-	    <!-- end of each Callout item -->
-
-            <p tal:condition="python:mtool.getHomeFolder(id=author)">
-              <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/callouts')"
-                 i18n:translate="label_author_internal_callout_page">All callouts from this author&hellip;</a>
-            </p>
-
-	  </dl>
-	</div>
-	<!-- end of Callouts listing for user -->
 
 	<!-- News listing -->
 	<div class="featured-block" tal:define="newses view/news|nothing" tal:condition="newses">

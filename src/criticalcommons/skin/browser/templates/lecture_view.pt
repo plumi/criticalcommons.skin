@@ -21,7 +21,7 @@
 
         <div tal:define="picture nocall:context/thumbnailImage"
              tal:condition="nocall:picture">
-            <img tal:attributes="src string:${context/absolute_url}/@@images/thumbnailImage/preview;"
+            <img tal:attributes="src string:${context/absolute_url}/@@images/thumbnailImage/thumb;"
                 />
         </div>
 

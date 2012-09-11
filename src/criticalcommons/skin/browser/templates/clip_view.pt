@@ -75,9 +75,25 @@
              <span tal:attributes="id python:'commentary-'+obj.getId().replace('.','-')" tal:repeat="obj view/commentaries">
                  <h4 tal:content="obj/Title">commentary title</h4>
                  <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
-                 <p tal:content="obj/description"> description </p>
                  <p tal:content="structure obj/textCommentary/raw">textCommentary</p>
              </span>
+
+
+   <div id="authors_latest" tal:define="other_videos  view/authors_latest|nothing">
+        <h2 tal:condition="other_videos" style="padding-bottom:10px;" >Other videos by this author</h2>
+    <ul>
+        <li tal:repeat="video other_videos">
+            <a class="video-download" 
+                                        tal:attributes="href string:${video/url}/view;title video/post_date">
+                <img title="" alt="" tal:attributes="alt video/video_title;
+                                                     src string:${video/url}/thumbnailImage_thumb" />
+                <h5 class="featuredItemTitle" tal:content="video/video_title" />
+            </a>
+        </li>
+    </ul>
+
+
+    </div>
 
 
         </div> <!--text-commentaries-->
@@ -128,7 +144,7 @@
                 </tal:isAudio>
 
                 <tal:isImage condition="view/isImage">
-                    <img tal:attributes="src thumb" />
+                    <img tal:attributes="src thumb; width string:620" />
                 </tal:isImage>
             </div>
 
@@ -303,15 +319,14 @@
 			</div>
 		</div>
 
+        <br />
         <h5>Clip Options</h5>
         <p tal:condition="not: here/portal_membership/isAnonymousUser">
-	<a class="optionHeader-com" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/commentaries/createObject?type_name=Commentary">Add a text commentary to this clip</a><br />
                 <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a><br />
 
         </p>
 
         <p tal:condition="here/portal_membership/isAnonymousUser">
-        <a class="optionHeader-com" tal:attributes="href string:${portal_state/portal_url}/publish">Login to add a text commentary to this clip</a><br />
                 <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a><br />
         </p>
 
@@ -355,28 +370,11 @@
             </div> <!-- id=video-transcoding -->
         </div> <!-- transcoding rights tal -->
 
-    <div id="authors_latest" tal:define="other_videos  view/authors_latest|nothing">
-        <h1 class="documentFirstHeading" tal:condition="other_videos">Other videos by this author</h1>
-    <ul>
-        <li tal:repeat="video other_videos">
-            <a class="video-download" title="View details about this video"
-                                        tal:attributes="href string:${video/url}/view;">
-                <img title="" alt="" tal:attributes="alt video/video_title;
-                                                     src string:${video/url}/thumbnailImage_thumb" />
-                <h5 class="featuredItemTitle" tal:content="video/video_title" />
-            </a>
-            <p class="discreet">
-            Posted on <span tal:replace="video/post_date" />
-            </p>
-        </li>
-    </ul>
-
     <script>
         // using jQuery
         $('video,audio').mediaelementplayer(/* Options */);
     </script>
     
-    </div>      
     </tal:main-macro>
 
 <script>

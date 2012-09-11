@@ -2,6 +2,7 @@ from plonetheme.classic.browser.interfaces import IThemeSpecific as IClassicThem
 from zope.viewlet.interfaces import IViewletManager
 from zope.interface import Interface
 from zope import schema
+from criticalcommons.content import _
 
 class IThemeSpecific(IClassicTheme):
     """theme-specific layer"""
