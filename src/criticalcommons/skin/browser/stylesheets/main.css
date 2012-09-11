@@ -890,7 +890,28 @@ span.vaporized-tag {
     text-decoration: underline; 
 }
 
-body.portaltype-plumivideo #archetypes-fieldname-relatedItems, body.portaltype-plumivideo #archetypes-fieldname-location, body.portaltype-plumivideo #archetypes-fieldname-thumbnailImageDescription, body.portaltype-plumivideo #archetypes-fieldname-VideoLanguage, body.portaltype-plumivideo #archetypes-fieldname-language, body.portaltype-plumivideo #archetypes-fieldname-FullDescription, body.portaltype-plumivideo #archetypes-fieldname-WebsiteURL, body.portaltype-plumivideo #archetypes-fieldname-ProductionCompanyName, body.portaltype-plumivideo #archetypes-fieldname-ProjectName, body.portaltype-plumivideo #archetypes-fieldname-ProducerMailingAddress, body.portaltype-plumivideo #archetypes-fieldname-ProducerEmail, body.portaltype-plumivideo #archetypes-fieldname-Producer {
+body.portaltype-plumivideo #archetypes-fieldname-location, body.portaltype-plumivideo #archetypes-fieldname-thumbnailImageDescription, body.portaltype-plumivideo #archetypes-fieldname-VideoLanguage, body.portaltype-plumivideo #archetypes-fieldname-language, body.portaltype-plumivideo #archetypes-fieldname-FullDescription, body.portaltype-plumivideo #archetypes-fieldname-WebsiteURL, body.portaltype-plumivideo #archetypes-fieldname-ProductionCompanyName, body.portaltype-plumivideo #archetypes-fieldname-ProjectName, body.portaltype-plumivideo #archetypes-fieldname-ProducerMailingAddress, body.portaltype-plumivideo #archetypes-fieldname-ProducerEmail, body.portaltype-plumivideo #archetypes-fieldname-Producer {
     display: none !important;
 }
 
+body.template-author .featuredItem .plumi-nice-description {
+    margin-top: -94px;
+}
+
+body.template-author p {
+  font-size: 13px;
+}
+
+body.template-author .featuredItemDetailsPosted {
+    display: none !important;
+    font-size: 13px;
+}
+
+body.template-author .featured-video-duration {
+    float: left;
+     margin: 1px 2px;
+}
+
+body.template-author .plumi-nice-description {
+    display: none;
+}
