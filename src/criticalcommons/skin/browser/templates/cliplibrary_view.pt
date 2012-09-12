@@ -31,9 +31,7 @@
 		<div class="clips-holder">
                     <span class="search-img" tal:condition="repeat/clip/even">
                         <a tal:attributes="href clip/getURL; title clip/Title">
-                      <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;
-                                           width string:75;
-                                           height string:75;"
+                      <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;"
                       /></a>
                     </span>
 		<tal:clip condition="repeat/clip/even">
@@ -51,9 +49,7 @@
 		<div class="clips-holder">
                    <span class="search-img" tal:condition="repeat/clip/odd">
                         <a tal:attributes="href clip/getURL; title clip/Title">
-                      <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;
-                                           width string:75;
-                                           height string:75;"
+                      <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;"
                       /></a>
                     </span>
 		<tal:clip condition="repeat/clip/odd">

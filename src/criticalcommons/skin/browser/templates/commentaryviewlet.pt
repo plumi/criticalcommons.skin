@@ -6,6 +6,8 @@
 
     <script>
         $('#show_commentary_form').click(function(){
+            $('#form-widgets-body').val('');
+            $('#form-widgets-title').val('');
             $('#layout-contents').toggle();
           });
     </script>

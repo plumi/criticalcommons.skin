@@ -19,7 +19,7 @@
    <property name="visible">True</property>
   </object>
   <object name="publisher" meta_type="CMF Action">
-   <property name="title">Publish Media</property>
+   <property name="title">Share Media</property>
    <property name="description"></property>
    <property name="url_expr">string:${portal_url}/publisher</property>
    <property name="icon_expr"></property>

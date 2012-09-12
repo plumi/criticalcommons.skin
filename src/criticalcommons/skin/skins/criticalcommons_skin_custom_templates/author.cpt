@@ -314,17 +314,25 @@
 	    </dd>
 	    <!-- end of each video item -->
 
-            <p tal:condition="python:mtool.getHomeFolder(id=author)">
-               <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/clips')"
-                 i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
-            </p>
-
-
-
-
 	  </dl>
 	</div>
 	<!-- end of video listing for user -->
+
+      <p tal:condition="python:mtool.getHomeFolder(id=author)">
+         <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/clips')"
+           i18n:translate="label_author_internal_video_page">All videos from this author&hellip;</a>
+      </p>
+
+      <p tal:condition="python:mtool.getHomeFolder(id=author)">
+           <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/commentaries')"
+             i18n:translate="label_author_internal_video_page">All text commentaries from this author&hellip;</a>
+      </p>
+
+      <p tal:condition="python:mtool.getHomeFolder(id=author)">
+           <a class="all-link" href="#" tal:attributes="href python:(mtool.getHomeFolder(id=author).absolute_url() + '/lectures')"
+             i18n:translate="label_author_internal_video_page">All lectures from this author&hellip;</a>
+      </p>
+
 
 
 	<!-- News listing -->
