@@ -10,10 +10,13 @@
 
 <metal:main fill-slot="main">
 <div class="content" tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-                 b_start python:request.get('b_start',0); ">
+                 b_start python:request.get('b_start',0); 
+                 lectures view/latestlectures; ">
 
 		<div class="lecture-search">
 		<h1>Lecture Library</h1>
+                <div class="discreet">There are <b tal:content="python:len(lectures)"></b> lectures available</div>
+
                 <p>A community-generated archive of lectures, presentations and screening
                 programs, complete with associated media clips and critical commentaries.</p>
 
@@ -22,7 +25,7 @@
 		<a tal:define="portal context/@@plone_portal_state/portal;" class="lectureupload" tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture">Add a lecture</a>
 		</div>
 		</div>
-                <div class="search-results additions" tal:define="lectures view/latestlectures;  batch python:Batch(lectures, 40, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
+                <div class="search-results additions" tal:define="batch python:Batch(lectures, 40, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
 		<div class="column1">
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/even">

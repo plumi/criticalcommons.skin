@@ -783,6 +783,10 @@ span.clip-description {
   margin: 30px 0 0;
 }
 
+#search-results-bar {
+    font-size: 13px;
+}
+
 .additions .column1 {
     display: inline;
     float: left;

@@ -58,7 +58,7 @@
         <div class="text-commentaries">
             <h2>Text Commentaries on this Clip</h2>
              <div tal:condition="view/commentaries" class="com-form">
-                 <label><strong>Select the commentary you want to read:</strong></label>
+                 <label tal:condition="python: len(view.commentaries())!=1" ><strong>Select the commentary you want to read:</strong></label>
                  <select>
                  <span tal:omit-tag="" tal:repeat="obj view/commentaries" >
                      <option tal:define="mtool context/portal_membership; author python:mtool.getMemberInfo(obj.Creator())" tal:attributes="id python:'option-commentary-'+obj.getId().replace('.','-')" tal:content="python:(author and author['fullname'] or obj.Creator()) + ': ' + obj.Title()">Commentary title</option>
@@ -80,7 +80,7 @@
 
 
    <div id="authors_latest" tal:define="other_videos  view/authors_latest|nothing">
-        <h2 tal:condition="other_videos" style="padding-bottom:10px;" >Other videos by this author</h2>
+        <h2 tal:condition="other_videos" style="padding-bottom:10px;" >Other videos by this contributor</h2>
     <ul>
         <li tal:repeat="video other_videos">
             <a class="video-download" 
@@ -153,8 +153,7 @@
 
         <dl>
           <dt tal:condition="context/filmName"><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
-              <dd tal:condition="context/Director"><strong>Director: <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
-              <dd tal:condition="context/Distributor"><strong>Distributed by <span tal:omit-tag="" href="#" tal:content="context/Distributor">NBC/Universal</span></strong></dd>
+              <dd tal:condition="context/Director"><strong>Creator: <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
               <dd tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())"><strong>Posted by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></strong></dd>
         </dl>
 
@@ -165,11 +164,6 @@
             </metal:field>
         </p>
 
-        <p tal:condition="python: not fullDescription and is_editable"
-            i18n:translate="no_body_text"
-            class="discreet">
-             This item does not have any body text, click the edit tab to change it.
-        </p>
 
         <dl tal:define="subjects view/subjects" tal:condition="subjects">
           <dt i18n:translate="">Keywords</dt>
@@ -200,18 +194,6 @@
           </dd>
         </dl>
 
-       <dl tal:define="video_language view/video_language" tal:condition="video_language">
-          <dt i18n:translate="">Language</dt>
-          <dd>
-            <ul>
-              <li>
-                <a tal:attributes="href video_language/url|nothing;
-                                   class string:video_language-${video_language/id}"
-                  tal:content="video_language/title">languagename</a>
-              </li>
-            </ul>
-          </dd>
-        </dl>
 
        <dl tal:define="genres view/genres" tal:condition="genres">
           <dt i18n:translate="">Genres</dt>
@@ -251,63 +233,6 @@
 
         </div> 
         <br />
-        <div id="video-infos">
-            <div class="vcard">
-              <table summary="Event details" class="vertical listing">
-                <tbody>
-                  <tr tal:condition="here/Producer">
-                    <th i18n:translate="">
-                      Producer
-                    </th>
-                    <td tal:content="here/Producer">
-                      Producer
-                    </td>
-                  </tr>
-                  <tr tal:condition="here/Director">
-                    <th i18n:translate="">
-                      Director
-                    </th>
-                    <td tal:content="here/Director">
-                      Director
-                    </td>
-                  </tr>
-                  <tr tal:condition="here/ProducerEmail"
-                      tal:define="emailaddy here/ProducerEmail">
-                    <th i18n:translate="">Contact</th>
-                    <td>
-                      <a href=""
-                         tal:attributes="href string:mailto:$emailaddy" i18n:translate="">
-                        write the producer
-                      </a>
-                    </td>
-                  </tr>
-                  <tr tal:condition="here/WebsiteURL">
-                    <th i18n:translate="">Website</th>
-                    <td>
-                      <a href=""
-                         tal:define="url here/WebsiteURL"
-                         tal:attributes="href url" 
-                         tal:content="here/WebsiteURL"></a>
-                    </td>
-                  </tr>
-            
-                  <tr tal:condition="here/ProductionCompanyName">
-                    <th i18n:translate="">Production Company</th>
-                    <td tal:content="here/ProductionCompanyName">
-                      production company
-                    </td>
-                  </tr>
-                  <tr tal:condition="here/Distributor">
-                    <th i18n:translate="">Media Source</th>
-                    <td tal:content="here/Distributor">
-                      Distributor
-                    </td>
-                  </tr>
-            
-                </tbody>
-              </table>
-            </div> <!-- class=vcard -->           
-        </div> <!-- id=video-infos -->
 
 		
 		<div id="full-description" tal:condition="here/FullDescription">
