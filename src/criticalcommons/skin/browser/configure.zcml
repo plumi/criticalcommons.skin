@@ -54,6 +54,15 @@
       layer=".interfaces.IThemeSpecific"
       />
 
+   <browser:page
+      name="view"
+      for="criticalcommons.content.content.commentary.ICommentary"
+      class=".views.CommentaryView"
+      template="templates/commentary_view.pt"
+      permission="zope2.View"
+      layer=".interfaces.IThemeSpecific"
+      />
+
     <browser:page
       name="videolibrary_view"
       for="zope.app.container.interfaces.IContainer"
@@ -119,6 +128,14 @@
         permission="zope2.View"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         template="templates/search.pt"
+        />
+
+   <browser:page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        name="cloud_search"
+        class="collective.vaporisation.browser.search.CloudSearch"
+        template="templates/search.pt"
+        permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
         />
 

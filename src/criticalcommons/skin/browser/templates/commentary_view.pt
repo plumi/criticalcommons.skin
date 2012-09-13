@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<head>
+</head>
+
+
+<body>
+
+<metal:main fill-slot="main">
+
+    <div class="content">
+	<div class="third-page second-page">
+	    <h1>Text Commentary</h1> 
+
+	    <h5 tal:content="context/Title" />
+	    <em class="author" tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></em>
+`
+           <p tal:content="structure context/textCommentary/raw">Text Commentary summary</p>
+
+This Commentary is related to the following Clips:
+                    <div class="cinema" tal:repeat="obj view/clips">
+		        <a  tal:define="portal context/@@plone_portal_state/portal" tal:condition="obj/thumbnailImage" tal:attributes="href obj/absolute_url" >
+                       <span class="search-img">
+                        <img tal:attributes="alt obj/getThumbnailImageDescription; src python:obj.getThumbnailImage().absolute_url() + '_thumb'" />
+                        </span></a>
+			<a  tal:condition="not: obj/thumbnailImage" tal:attributes="href obj/absolute_url" ><img tal:attributes="alt python:obj.Title(); src string:img6.jpg" /></a>
+
+
+			    <strong><a tal:attributes="href obj/absolute_url" tal:content="obj/Title">Psycho Shower Scene</a></strong>
+			    <span class="clip-description">by 
+			    <span tal:content="obj/Director">Croneberg</span> (<span tal:omit-tag="" tal:content="obj/DateProduced"/>)</span>
+			    <span class="clip-description" tal:content="obj/description">Lorem ipsum  </span>
+			 </div>
+
+
+
+		</div>
+	    </div>
+    <div class="visualClear"><!----></div>
+
+
+<script>
+$(document).ready(function(){
+    $(".LSBox select").find("option:contains('Commentaries')").each(function(){
+     if( $(this).text() == 'Commentaries' ) {
+        $(this).attr("selected","selected");
+     }
+ });
+
+});
+</script>
+
+</metal:main>
+
+
+
+</body>
+</html>
+

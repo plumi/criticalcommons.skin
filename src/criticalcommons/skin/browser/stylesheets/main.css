@@ -919,3 +919,8 @@ body.template-author .featured-video-duration {
 body.template-author .plumi-nice-description {
     display: none;
 }
+
+fieldset, .editionComment {
+    border: medium none;
+}
+

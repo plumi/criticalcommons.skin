@@ -60,3 +60,18 @@ class ClipLibraryView(BrowserView):
         clips = self.catalog(filtering)
         return [ l for l in clips ]
 
+class CommentaryView(BrowserView):
+    """A view of a critical commons Commentary"""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def clips(self):
+        clips = []
+        for item in self.context.relatedItems:
+            video = item.to_object
+            clips.append(video)
+        return clips
+
+
