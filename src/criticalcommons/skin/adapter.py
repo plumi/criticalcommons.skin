@@ -9,11 +9,11 @@ class EnhancedUserDataPanelAdapter(UserDataPanelAdapter):
         return self.context.setMemberProperties({'usertype': value})
     usertype = property(get_usertype, set_usertype)
 
-    def get_title(self):
-        return self.context.getProperty('title', '')
-    def set_title(self, value):
-        return self.context.setMemberProperties({'title': value})
-    title = property(get_title, set_title)
+    def get_user_title(self):
+        return self.context.getProperty('user_title', '')
+    def set_user_title(self, value):
+        return self.context.setMemberProperties({'user_title': value})
+    user_title = property(get_user_title, set_user_title)
 
     def get_institution(self):
         return self.context.getProperty('institution', '')
