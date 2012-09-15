@@ -138,7 +138,7 @@
                     </span>
                 </tal:location>
                 <tal:location condition="authorinfo/location" i18n:translate="text_country">
-                    Country:
+                    Location:
                  <a tal:attributes="href string:${portal_url}/@@author_listing?intype=location&invalue=${authorinfo/location}">
                     <span tal:content="authorinfo/location" tal:omit-tag="" i18n:name="country">
                         Some Country
@@ -146,6 +146,7 @@
                  </a>
 
                 </tal:location>
+
 
                 <tal:language condition="authorinfo/language">
                 &mdash;

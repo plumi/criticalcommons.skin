@@ -3,6 +3,7 @@ from criticalcommons.content.forms import CommentaryForm
 from plone.z3cform import z2
 from z3c.form.interfaces import IFormLayer
 from zope.security import checkPermission
+from AccessControl import getSecurityManager
 
 
 class ClipView(VideoView):
@@ -22,4 +23,4 @@ class ClipView(VideoView):
         return ret
 
     def canDownload(self):
-        return checkPermission('criticalcommons.content.CanDownload', self.context)
+        return getSecurityManager().checkPermission('criticalcommons.content.CanDownload', self.context)

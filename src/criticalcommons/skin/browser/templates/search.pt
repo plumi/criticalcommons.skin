@@ -113,15 +113,23 @@
                                       item_type item/portal_type;">
 
                                     <dt tal:attributes="class item/ContentTypeClass">
-                                      <div tal:omit-tag="" tal:condition="python:item_type!='PlumiVideo'">
+                                      <div tal:omit-tag="" tal:condition="python:item_type not in ['Lecture', 'PlumiVideo']">
                                          <img tal:replace="structure item/getIcon" />
                                       </div>
                                       <div tal:omit-tag="" tal:condition="python:item_type=='PlumiVideo'">
                                               <span class="search-img">
                                                   <a tal:attributes="href item/getURL" >
-                                                  <img tal:attributes="src python:item.getURL()+'/thumbnailImage_thumb';title item/title; alt item/title;" />
+                                                  <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;height string:130; width string:230;" />
                                                   </a>
                         		      </span>
+                                      </div>
+    
+                                       <div tal:omit-tag="" tal:condition="python:item_type=='Lecture'">
+                                              <span class="search-img">
+                                                  <a tal:attributes="href item/getURL" >
+                                                  <img tal:attributes="src string:${item/getURL}/@@images/thumbnailImage/thumb;title item/title; alt item/title;height string:130; width string:230;" />
+                                                  </a>
+                                              </span>
                                       </div>
 
                                       <a href="#"
