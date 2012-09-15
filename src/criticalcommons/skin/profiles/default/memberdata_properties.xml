@@ -3,6 +3,4 @@
  <property name="usertype" type="string"></property>
  <property name="user_title" type="string"></property>
  <property name="institution" type="string"></property>
- <property name="biography" type="string"></property>
- <property name="homePage" type="string"></property>
 </object> 

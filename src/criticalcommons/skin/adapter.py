@@ -20,15 +20,3 @@ class EnhancedUserDataPanelAdapter(UserDataPanelAdapter):
     def set_institution(self, value):
         return self.context.setMemberProperties({'institution': value})
     institution = property(get_institution, set_institution)
-
-    def get_biography(self):
-        return self.context.getProperty('biography', '')
-    def set_biography(self, value):
-        return self.context.setMemberProperties({'biography': value})
-    biography = property(get_biography, set_biography)
-
-    def get_homePage(self):
-        return self.context.getProperty('homePage', '')
-    def set_homePage(self, value):
-        return self.context.setMemberProperties({'homePage': value})
-    homePage = property(get_homePage, set_homePage)

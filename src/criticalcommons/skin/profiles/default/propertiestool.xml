@@ -6,8 +6,8 @@
    <element value="usertype" />
    <element value="user_title" />
    <element value="institution" />
-   <element value="biography" />
-   <element value="homePage" />
+   <element value="description" />
+   <element value="home_page" />
   </property>
  </object>
 </object>

@@ -37,15 +37,3 @@ class IEnhancedUserDataSchema(IUserDataSchema):
         title=_(u'Institution'),
         required=False,
     )
-
-    biography = schema.Text(
-        title=_(u'Biography'),
-        description= _(u"A short overview of who you are and what you do. Will be displayed on the your author page, linked from the items you create."),
-        required=False,
-    )
-
-    homePage = schema.TextLine(
-        title=_(u'Home page'),
-        description= _(u"The URL for your external home page, if you have one."),
-        required=False,
-    )
