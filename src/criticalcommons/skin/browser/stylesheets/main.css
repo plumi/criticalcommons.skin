@@ -424,7 +424,7 @@ img {
 
 ul#portal-globalnav li {
    display: inline;
-   margin: 0px 7px;
+   margin: 0px 5px;
 }
 
 #portal-colophon {
@@ -924,3 +924,18 @@ fieldset, .editionComment {
     border: medium none;
 }
 
+body.template-publish_video #formfield-form-widgets-Topics, body.template-publish_video #formfield-form-widgets-Country {
+    display: none;
+}
+
+.ccbutton a {
+    border: 1px solid transparent;
+    border-radius: 3px 3px 3px 3px; 
+    color: #006666;
+    display: inline;
+    text-decoration: none;
+}
+
+#form-buttons-apply {
+    color: #006666;
+}
