@@ -841,7 +841,7 @@ a#show_commentary_form {
     text-decoration: underline;
 }
 
-.kssattr-formname-register #formfield-form-title, .kssattr-formname-register #formfield-form-institution, .kssattr-formname-register #formfield-form-biography, .kssattr-formname-register #formfield-form-homePage {
+.kssattr-formname-register #formfield-form-user_title, .kssattr-formname-register #formfield-form-institution, .kssattr-formname-register #formfield-form-biography, .kssattr-formname-register #formfield-form-homePage {
     display: none;
 }
 

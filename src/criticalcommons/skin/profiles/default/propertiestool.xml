@@ -2,5 +2,12 @@
 <object name="portal_properties" meta_type="Plone Properties Tool">
  <object name="site_properties" meta_type="Plone Property Sheet">
   <property name="enable_livesearch" type="boolean">False</property>
+  <property name="user_registration_fields" type="lines">
+   <element value="usertype" />
+   <element value="user_title" />
+   <element value="institution" />
+   <element value="biography" />
+   <element value="homePage" />
+  </property>
  </object>
 </object>
