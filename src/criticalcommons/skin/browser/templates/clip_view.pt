@@ -158,7 +158,7 @@
         </div> <!-- id=video-core -->
 
         <dl>
-          <dt tal:condition="context/filmName"><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
+          <dt><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
               <dd tal:condition="context/Director"><strong>Creator: <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
               <dd tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())"><strong>Posted by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></strong></dd>
         </dl>
@@ -207,7 +207,6 @@
         </dl>
 
         </div> 
-        <br />
 
 		
 		<div id="full-description" tal:condition="here/FullDescription">
@@ -219,16 +218,20 @@
 			</div>
 		</div>
 
-        <br />
-        <h5>Clip Options</h5>
-        <p tal:condition="not: here/portal_membership/isAnonymousUser">
-                <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a><br />
+       <dl>
+          <dt i18n:translate="">Clip Options</dt>
+          <dd>
+            <ul>
+              <li tal:condition="not: here/portal_membership/isAnonymousUser">
+                <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a>
+              </li>
+              <li tal:condition="here/portal_membership/isAnonymousUser">
+                <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a>
+              </li>
+            </ul>
+          </dd>
+        </dl>
 
-        </p>
-
-        <p tal:condition="here/portal_membership/isAnonymousUser">
-                <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a><br />
-        </p>
 
         <div id="video-licensing">
           

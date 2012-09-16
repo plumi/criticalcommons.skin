@@ -1,5 +1,7 @@
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+
 
 class LectureView(BrowserView):
     """A view of a critical commons lecture"""
@@ -47,18 +49,34 @@ class ClipLibraryView(BrowserView):
         self.context = context
         self.request = request
         self.catalog = getToolByName(self.context,"portal_catalog")
-        self.author = self.context.Creator()
 
     def latestclips(self):
         """Return the latest Clips for the library"""
-        filtering = dict(portal_type='PlumiVideo',
+        genre = self.request.form.get('genre', None)
+        if genre and genre != 'all':
+            filtering = dict(portal_type='PlumiVideo',
+                         sort_on='created',
+                         sort_order='reverse',
+                         review_state='published',
+                         getGenre=genre,
+                         sort_limit=self.clip_limit_latest)
+        else:
+            filtering = dict(portal_type='PlumiVideo',
                          sort_on='created',
                          sort_order='reverse',
                          review_state='published',
                          sort_limit=self.clip_limit_latest)
-
         clips = self.catalog(filtering)
         return [ l for l in clips ]
+   
+    def videogenres(self):
+        pv = getToolByName(self.context, 'portal_vocabularies')
+        voc = pv.getVocabularyByName('video_genre')
+        genresDict = []
+        voc_terms = voc.getDisplayList(self.context).items()
+        genresDict = [SimpleTerm(value=term[0], token=term[0], title=term[1])
+                         for term in voc_terms if term[0] != 'none']
+        return SimpleVocabulary(genresDict)
 
 class CommentaryView(BrowserView):
     """A view of a critical commons Commentary"""
