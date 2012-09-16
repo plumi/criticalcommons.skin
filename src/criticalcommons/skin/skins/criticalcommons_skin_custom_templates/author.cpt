@@ -163,7 +163,18 @@
                  width="75"
                  style="float: left; margin: 1em;"
                  tal:attributes="src portrait/absolute_url" />
-                      
+
+            <p tal:content="python: member.getProperty('institution')">Institution:
+                <span class="documentFirstHeading" tal:condition="python: member.getProperty('institution')">
+                    Institution
+                </span>
+            </p>
+
+            <p  tal:content="python: member.getProperty('user_title')">Title:
+                <span class="documentFirstHeading" tal:condition="python: member.getProperty('user_title')">
+                    Title
+                </span>
+            </p>
 
             <p class="documentDescription" tal:content="view/author_userbio|nothing">
                 Author description.
