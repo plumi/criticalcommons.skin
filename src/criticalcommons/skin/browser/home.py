@@ -33,7 +33,18 @@ class HomePage(BrowserView):
         folder = portal['blog']
         folder_path = '/'.join(folder.getPhysicalPath())
         portal_catalog = getToolByName(context, 'portal_catalog')
-        results = portal_catalog(portal_type=['Document','News Item'], review_state=['published'], path={'query': folder_path,}, sort_on="effective", sort_order='reverse')[:5]
+        results = portal_catalog(portal_type=['Document','News Item'], Subject=('Updates'), review_state=['published','featured'], path={'query': folder_path,}, sort_on="effective", sort_order='reverse')[:3]
+        return self.request.get(
+            'items', results)
+
+    def featured_blog_posts(self):
+        """ """
+        context = self.context
+        portal = getSite()
+        folder = portal['blog']
+        folder_path = '/'.join(folder.getPhysicalPath())
+        portal_catalog = getToolByName(context, 'portal_catalog')
+        results = portal_catalog(portal_type=['Document','News Item'], Subject=('featured-content'), review_state=['published','featured'], path={'query': folder_path,}, sort_on="effective", sort_order='reverse')[:6]
         return self.request.get(
             'items', results)
 

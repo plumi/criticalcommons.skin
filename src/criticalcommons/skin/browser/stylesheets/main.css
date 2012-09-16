@@ -939,3 +939,25 @@ body.template-publish_video #formfield-form-widgets-Topics, body.template-publis
 #form-buttons-apply {
     color: #006666;
 }
+
+img.blog-listing-image {
+    float:left;
+    padding: 3px;
+}
+
+div.filed-under {
+    float:left;
+    margin-right: 10px;
+}
+
+div.blog-listing-descr {
+    clear:both;
+}
+
+span.separator {
+    margin-right: 3px;
+}
+
+div.featured-blogs-posts {
+    padding-bottom: 30px;
+}
