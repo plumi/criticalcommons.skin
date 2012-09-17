@@ -21,10 +21,10 @@
                     <form method="post" action="">
                     <select onchange="javascript:form.submit()" name="genre">
                         <option tal:attributes="value string:all;selected string:selected;" >All</option>
-                <div tal:define="genres view/videogenres;" tal:repeat="genre genres" >
-                        <option tal:condition="python: view.request.form.get('genre') == genre.value" tal:attributes="value string:${genre/value};selected string:selected;" tal:content="genre/title" >Title</option>
-                        <option tal:condition="python: view.request.form.get('genre') != genre.value" tal:attributes="value string:${genre/value}" tal:content="genre/title" >Title</option>
-                </div>
+                        <div tal:define="genres view/videogenres;" tal:repeat="genre genres" >
+                            <option tal:condition="python: view.request.form.get('genre') == genre.value" tal:attributes="value string:${genre/value};selected string:selected;" tal:content="genre/title" >Title</option>
+                            <option tal:condition="python: view.request.form.get('genre') != genre.value" tal:attributes="value string:${genre/value}" tal:content="genre/title" >Title</option>
+                        </div>
                     </select>
                     </form>
 		<div class="addlecturebutton">

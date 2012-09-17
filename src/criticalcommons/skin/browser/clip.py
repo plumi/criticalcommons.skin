@@ -4,6 +4,8 @@ from plone.z3cform import z2
 from z3c.form.interfaces import IFormLayer
 from zope.security import checkPermission
 from AccessControl import getSecurityManager
+from zope.component import getUtility, adapter
+from plone.registry.interfaces import IRegistry
 
 
 class ClipView(VideoView):
@@ -24,3 +26,27 @@ class ClipView(VideoView):
 
     def canDownload(self):
         return getSecurityManager().checkPermission('criticalcommons.content.CanDownload', self.context)
+
+    def aftersubmissiontext(self):
+        try:
+            registry = getUtility(IRegistry)
+            message = registry['plumi.content.browser.interfaces.IPlumiSettings.AfterVideoText']
+            return message
+        except:
+            return ''
+
+    def show_aftersubmissiontext(self):
+        'Show that text only if object is transcodable and transcoded has not started'
+        try:
+            transcoding = self.transcoding
+            if transcoding:
+                for value in transcoding.values():
+                    if 'ok' in value:
+                        return False
+            else:
+                return False
+            return True
+        except:
+            return False
+    
+

@@ -114,6 +114,11 @@
         <h1 class="documentFirstHeading"> 
             Clip Library
         </h1>
+            <div class="aftersubmissionarea" tal:condition="view/show_aftersubmissiontext">
+                <p tal:content="structure view/aftersubmissiontext"></p>
+            </div>
+
+
         <h3> 
             <metal:field use-macro="python:here.widget('title', mode='view')">
                 Title
@@ -124,6 +129,7 @@
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
         <div id="video-core" tal:define="thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_preview' or ''">
+
             <div tal:condition="not: transcoding">
                 <tal:isVideo condition="view/isVideo">
                     <video id="main-video" width="525" height="300" controls

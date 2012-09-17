@@ -961,3 +961,20 @@ span.separator {
 div.featured-blogs-posts {
     padding-bottom: 30px;
 }
+
+body.template-video_view dl.portalMessage {
+    display:none;
+}
+
+.aftersubmissionarea {
+    background: none repeat scroll 0 0 #b2b2b3;
+    margin-top: 20px;
+    padding-bottom: 90px;
+}
+
+.aftersubmissionarea p {
+    font-size: 18px;
+    margin-left: 31px;
+    margin-right: 31px;
+    padding-top: 70px;
+}
