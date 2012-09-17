@@ -44,7 +44,7 @@ class HomePage(BrowserView):
         folder = portal['blog']
         folder_path = '/'.join(folder.getPhysicalPath())
         portal_catalog = getToolByName(context, 'portal_catalog')
-        results = portal_catalog(portal_type=['Document','News Item'], Subject=('featured-content'), review_state=['published','featured'], path={'query': folder_path,}, sort_on="effective", sort_order='reverse')[:6]
+        results = portal_catalog(portal_type=['News Item'], Subject=('featured-content'), review_state=['published','featured'], sort_on="effective", sort_order='reverse')[:6]
         return self.request.get(
             'items', results)
 
