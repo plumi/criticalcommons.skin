@@ -138,23 +138,6 @@
                     </span>
 
                 </tal:location>
-                <tal:user_title condition="authorinfo/user_title" >
-                    Title:
-                    <span tal:content="authorinfo/user_title" >
-                        Some Title
-                    </span>
-
-                </tal:user_title>
-                <tal:institution condition="authorinfo/institution" >
-                    Institution:
-                    <span tal:content="authorinfo/institution" >
-                        institution
-                    </span>
-
-                </tal:institution>
-
-
-
 
                 <tal:language condition="authorinfo/language">
                 &mdash;
