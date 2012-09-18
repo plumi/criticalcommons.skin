@@ -164,4 +164,11 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        name="register"
+        for="Products.CMFPlone.Portal.PloneSite"
+	  	class=".forms.MyRegistrationForm"
+	  	permission="zope2.View"
+        />
+
 </configure>
