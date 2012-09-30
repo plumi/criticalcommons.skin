@@ -978,3 +978,15 @@ body.template-video_view dl.portalMessage {
     margin-right: 31px;
     padding-top: 70px;
 }
+
+div.scroll {
+    height: 200px;
+    width: 600px;
+    overflow: auto;
+    border: 1px solid #666;
+    background-color: #ccc;
+    padding: 5px 0px 5px 25px;
+}
+div.tos-container {
+    margin-top: 25px;
+}

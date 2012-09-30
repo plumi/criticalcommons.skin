@@ -20,3 +20,9 @@ class EnhancedUserDataPanelAdapter(UserDataPanelAdapter):
     def set_institution(self, value):
         return self.context.setMemberProperties({'institution': value})
     institution = property(get_institution, set_institution)
+
+    def get_accept(self):
+        return self.context.getProperty('accept', '')
+    def set_accept(self, value):
+        return self.context.setMemberProperties({'accept': value})
+    accept = property(get_accept, set_accept)

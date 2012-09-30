@@ -37,3 +37,12 @@ class IEnhancedUserDataSchema(IUserDataSchema):
         title=_(u'Institution'),
         required=False,
     )
+
+    accept = schema.Bool(
+        title=_(u'label_accept', default=u'Accept terms of use'),
+        description=_(u'help_accept',
+                      default=u"Tick this box to indicate that you have found,"
+                      " read and accepted the Terms of Service. "),
+        required=True,
+        constraint=validateAccept,
+        )

@@ -8,6 +8,7 @@
    <element value="institution" />
    <element value="description" />
    <element value="home_page" />
+   <element value="accept" />
   </property>
  </object>
 </object>
