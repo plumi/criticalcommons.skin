@@ -128,7 +128,9 @@
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <div id="video-core" tal:define="thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_preview' or ''">
+        <div id="video-core" tal:define="
+            thumb python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage_preview' or '';
+            thumb_full python:view.hasThumbnailImage() and here.absolute_url()+'/thumbnailImage' or ''">
 
             <div tal:condition="not: transcoding">
                 <tal:isVideo condition="view/isVideo">
@@ -156,7 +158,7 @@
                 </tal:isAudio>
 
                 <tal:isImage condition="view/isImage">
-                    <img tal:attributes="src thumb; width string:620" />
+                    <img tal:attributes="src thumb_full; width string:620" />
                 </tal:isImage>
             </div>
 
@@ -234,6 +236,10 @@
               <li tal:condition="here/portal_membership/isAnonymousUser">
                 <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a>
               </li>
+              <li tal:condition="not: here/portal_membership/isAnonymousUser">
+                <a class="optionHeader-com" tal:attributes="href string:sendto_form ">Email to a friend</a>
+              </li>
+
             </ul>
           </dd>
         </dl>

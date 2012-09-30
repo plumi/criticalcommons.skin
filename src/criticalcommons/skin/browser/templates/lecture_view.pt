@@ -29,6 +29,7 @@
 
 
                     <div class="cinema" tal:repeat="obj view/clips">
+                        <div tal:define="item_type obj/portal_type;" tal:condition="python:item_type in ['Lecture', 'PlumiVideo']">
 		        <a  tal:define="portal context/@@plone_portal_state/portal" tal:condition="obj/thumbnailImage" tal:attributes="href obj/absolute_url" >
                        <span class="search-img">
                         <img tal:attributes="alt obj/getThumbnailImageDescription; src python:obj.getThumbnailImage().absolute_url() + '_thumb'" />
@@ -40,6 +41,7 @@
 			    <span class="clip-description">by 
 			    <span tal:content="obj/Director">Croneberg</span> (<span tal:omit-tag="" tal:content="obj/DateProduced"/>)</span>
 			    <span class="clip-description" tal:content="obj/description">Lorem ipsum  </span>
+                            </div>
 			 </div>
 
 

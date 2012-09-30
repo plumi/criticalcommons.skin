@@ -20,11 +20,7 @@
                 <p>A community-generated archive of lectures, presentations and screening
                 programs, complete with associated media clips and critical commentaries.</p>
 
-		<div class="addlecturebutton">
-		<div>
-		<a tal:define="portal context/@@plone_portal_state/portal;" class="lectureupload" tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture">Add a lecture</a>
-		</div>
-		</div>
+		<a tal:define="portal context/@@plone_portal_state/portal;" tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture" title="Add a lecture" alt="Add a lecture" class="upload" >Add a lecture</a>
                 <div class="search-results additions" tal:define="batch python:Batch(lectures, 40, int(b_start), orphan=1); template_id string:@@lecturelibrary_view">
 		<div class="column1">
 		<div tal:repeat="lecture batch" tal:omit-tag="">

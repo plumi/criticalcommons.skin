@@ -47,6 +47,7 @@
                     </a>
                     <strong tal:content="fc5/Title"> title </strong>
                 </div>
+            <a tal:define="portal context/@@plone_portal_state/portal;"  tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_url}/publisher" class="upload" title="Upload Media" alt="Upload Media" >Upload Media</a>
             </div>
         </div>
     </div>

@@ -894,7 +894,7 @@ span.vaporized-tag {
     text-decoration: underline; 
 }
 
-body.portaltype-plumivideo #archetypes-fieldname-location, body.portaltype-plumivideo #archetypes-fieldname-thumbnailImageDescription, body.portaltype-plumivideo #archetypes-fieldname-VideoLanguage, body.portaltype-plumivideo #archetypes-fieldname-language, body.portaltype-plumivideo #archetypes-fieldname-FullDescription, body.portaltype-plumivideo #archetypes-fieldname-WebsiteURL, body.portaltype-plumivideo #archetypes-fieldname-ProductionCompanyName, body.portaltype-plumivideo #archetypes-fieldname-ProjectName, body.portaltype-plumivideo #archetypes-fieldname-ProducerMailingAddress, body.portaltype-plumivideo #archetypes-fieldname-ProducerEmail, body.portaltype-plumivideo #archetypes-fieldname-Producer {
+body.portaltype-plumivideo #archetypes-fieldname-location, body.portaltype-plumivideo #archetypes-fieldname-thumbnailImageDescription, body.portaltype-plumivideo #archetypes-fieldname-VideoLanguage, body.portaltype-plumivideo #archetypes-fieldname-language, body.portaltype-plumivideo #archetypes-fieldname-FullDescription, body.portaltype-plumivideo #archetypes-fieldname-WebsiteURL, body.portaltype-plumivideo #archetypes-fieldname-ProductionCompanyName, body.portaltype-plumivideo #archetypes-fieldname-ProjectName, body.portaltype-plumivideo #archetypes-fieldname-ProducerMailingAddress, body.portaltype-plumivideo #archetypes-fieldname-ProducerEmail, body.portaltype-plumivideo #archetypes-fieldname-Producer, body.portaltype-plumivideo #archetypes-fieldname-video_file {
     display: none !important;
 }
 
@@ -990,3 +990,53 @@ div.scroll {
 div.tos-container {
     margin-top: 25px;
 }
+.upload {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:3px 13px;
+	margin-top: 10px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.upload:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+	text-decoration:none;
+}
+
+.upload:active {
+	position:relative;
+	top:1px;
+}
+
+.upload a:hover {
+    text-decoration: none !important;
+}
+
+#content img.tileImage, #content div.newsImageContainer {
+    float: none !important;
+}
+
+
+body.portaltype-plumivideo #archetypes-fieldname-Countries, body.portaltype-plumivideo #archetypes-fieldname-Categories {
+    display: none;
+}
+
+
