@@ -25,7 +25,7 @@
                class="txt-input" />
         <label for="portal_type">in</label>
         <select name="portal_type" tal:define="portal_type request/portal_type|nothing">
-            <option name="clips" tal:attributes="selected python:portal_type == 'PlumiVideo'" value="PlumiVideo">Clips</option>
+            <option name="clips" tal:attributes="selected python:portal_type == 'PlumiVideo'" value="PlumiVideo">Media</option>
             <option name="lectures" tal:attributes="selected python:portal_type == 'Lecture'" value="Lecture">Lectures</option>
             <option name="articles" tal:attributes="selected python:portal_type == 'Document'" value="Document">Articles</option>
             <option name="commentaries" tal:attributes="selected python:portal_type == 'Commentary'" value="Commentary">Commentaries</option>
@@ -46,9 +46,9 @@
         });
         $(document).ready(function(){$('#portal-searchbox select').change()});
         </script>
-        <input class="searchButton"
+        <input class="upload searchbutton"
                type="submit"
-               value="" />
+               value="Go" />
 
         <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
         </div>

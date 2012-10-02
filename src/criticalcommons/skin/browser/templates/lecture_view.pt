@@ -25,7 +25,7 @@
                 />
         </div>
 
-            <p tal:content="structure context/fullDescription/raw">Full Description</p>
+            <p tal:condition="context/fullDescription" tal:content="structure context/fullDescription/raw">Full Description</p>
 
 
                     <div class="cinema" tal:repeat="obj view/clips">

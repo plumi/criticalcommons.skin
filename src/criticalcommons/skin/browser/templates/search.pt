@@ -137,7 +137,7 @@
                                                          class string:state-${item/review_state}"
                                          tal:content="item/title" />
                                     </dt>
-                                    <dd tal:attributes="class python:'thumbs' if item_type=='PlumiVideo' else ''">
+                                    <dd tal:attributes="class python:'thumbs' if item_type in ['PlumiVideo', 'Lecture'] else ''">
                                       <span class="discreet" i18n:domain="plone"
                                         tal:condition="show_about">
                                         <span class="documentAuthor"

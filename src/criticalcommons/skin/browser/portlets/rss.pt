@@ -3,8 +3,8 @@
 	<div class="boxes rss">
 	    <h3>RSS Feeds</h3>
 		<ul>
-			<li> <a tal:attributes="href string:${here/portal_url}/latestclips/RSS">Latest Clips (RSS1)</a> </li>
-			<li> <a tal:attributes="href string:${here/portal_url}/latestclips/RSS2">Latest Clips (RSS2)</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/latestclips/RSS">Latest Media (RSS1)</a> </li>
+			<li> <a tal:attributes="href string:${here/portal_url}/latestclips/RSS2">Latest Media (RSS2)</a> </li>
 			<li> <a tal:attributes="href string:${here/portal_url}/lectures/RSS2">Lectures</a> </li>
 			<li> <a tal:attributes="href string:${here/portal_url}/blog/blog/RSS">Posts</a> </li>
 		</ul>
