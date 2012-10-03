@@ -25,7 +25,7 @@ class ClipView(VideoView):
         return ret
 
     def canDownload(self):
-        return getSecurityManager().checkPermission('criticalcommons.content.CanDownload', self.context)
+        return getSecurityManager().checkPermission('criticalcommons.content: Can Download', self.context)
 
     def aftersubmissiontext(self):
         try:
