@@ -287,7 +287,7 @@
 
     <script>
         // using jQuery
-        $('video,audio').mediaelementplayer(/* Options */);
+        $('audio').mediaelementplayer();
     </script>
     
     </tal:main-macro>
