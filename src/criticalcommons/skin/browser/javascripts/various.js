@@ -21,3 +21,8 @@ $(document).ready(function() {
     }
   });
 });
+
+$(document).ready(function() {
+    $("form.edit-form #form\\.usertype").parent().parent().parent().parent().hide()
+    $("form.edit-form #form\\.accept").parent().parent().hide()
+});
