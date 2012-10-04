@@ -3,6 +3,7 @@ from Products.Five import BrowserView
 from zope.component import queryMultiAdapter
 from Products.CMFCore.utils import getToolByName
 from zope.app.component.hooks import getSite
+from AccessControl import getSecurityManager
 
 from random import shuffle
 
@@ -47,6 +48,9 @@ class HomePage(BrowserView):
         results = portal_catalog(portal_type=['News Item'], Subject=('Featured Content'), review_state=['published','featured'], sort_on="effective", sort_order='reverse')[:6]
         return self.request.get(
             'items', results)
+
+    def canUpload(self):
+        return getSecurityManager().checkPermission('criticalcommons.content: Can Download', self.context)
 
 class PublishPage(BrowserView):
     """Publish browser view

@@ -1,6 +1,7 @@
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from AccessControl import getSecurityManager
 
 
 class LectureView(BrowserView):
@@ -77,6 +78,10 @@ class ClipLibraryView(BrowserView):
         genresDict = [SimpleTerm(value=term[0], token=term[0], title=term[1])
                          for term in voc_terms if term[0] != 'none']
         return SimpleVocabulary(genresDict)
+
+    def canUpload(self):
+        return getSecurityManager().checkPermission('criticalcommons.content: Can Download', self.context)
+
 
 class CommentaryView(BrowserView):
     """A view of a critical commons Commentary"""
