@@ -26,7 +26,7 @@ class MyRegistrationForm(RegistrationForm):
                  validator='validate_registration', name=u'register')
     def action_join(self, action, data):
         self.handle_join_success(data)
-        if data['usertype'] == 'Advanced user':
+        if data['usertype'] == u'Advanced User':
             portal = getSite()
             mail_host = getToolByName(portal, 'MailHost')
             sender = data['email']
