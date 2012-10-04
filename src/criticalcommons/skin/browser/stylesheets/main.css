@@ -1045,3 +1045,7 @@ body.portaltype-plumivideo #archetypes-fieldname-Countries, body.portaltype-plum
     padding: 3px;
 }
 
+#formfield-form-widgets-relatedItems-widgets-query input.searchButton {
+    display:none;
+}
+
