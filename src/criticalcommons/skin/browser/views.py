@@ -40,6 +40,10 @@ class LectureLibraryView(BrowserView):
         lectures = self.catalog(filtering)
         return [ l for l in lectures ]
 
+    def canUpload(self):
+        return getSecurityManager().checkPermission('criticalcommons.content: Can Download', self.context)
+
+
 
 class ClipLibraryView(BrowserView):
     """A view of a library of critical commons Clips """
@@ -78,10 +82,6 @@ class ClipLibraryView(BrowserView):
         genresDict = [SimpleTerm(value=term[0], token=term[0], title=term[1])
                          for term in voc_terms if term[0] != 'none']
         return SimpleVocabulary(genresDict)
-
-    def canUpload(self):
-        return getSecurityManager().checkPermission('criticalcommons.content: Can Download', self.context)
-
 
 class CommentaryView(BrowserView):
     """A view of a critical commons Commentary"""
