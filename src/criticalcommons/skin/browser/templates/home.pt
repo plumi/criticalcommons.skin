@@ -52,7 +52,7 @@
         </div>
     </div>
     <div class="latest-news">
-        <h2>Featured Content</h2>
+        <a tal:define="portal context/@@plone_portal_state/portal;" tal:attributes="href string:${portal/portal_url}/@@search?Subject%3Alist=Featured Content"><h2>Featured Content</h2></a>
     </div>
     <div class="featured-blogs-posts">
         <tal:items tal:repeat="obj view/featured_blog_posts">
@@ -60,17 +60,6 @@
                      url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
                 <h4><a tal:attributes="href python: obj.getURL();"><span tal:replace="obj/Title">title</span></a></h4>
                 <em tal:content="python: toLocalizedTime(obj.created)">Tuesday March 15, 2011</em>
-                <div class="filed-under">Filed under: </div>
-                  <div tal:repeat="category categories" style="float:left;">
-                    <a href=""
-                       class="link-category"
-                       rel="tag"
-                       tal:content="category"
-                       tal:define="quotedCat python:url_quote(category)"
-                       tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}&portal_type%3Alist=Document&portal_type%3Alist=News+Item">
-                      Category
-                      </a><span class="separator" tal:condition="not: repeat/category/end">,</span>
-                  </div>
                 <div class="blog-listing-descr">
                     <img tal:attributes="src string:${obj/getURL}/image_tile" class="blog-listing-image" />
                     <div tal:content="obj/Description">Steve's talk on fair use is picked up by Inside Higher Ed</div>
@@ -79,7 +68,7 @@
         </tal:items>
     </div>
     <div class="latest-news">
-        <h2>Latest Updates</h2>
+        <a tal:define="portal context/@@plone_portal_state/portal;" tal:attributes="href string:${portal/portal_url}/@@search?Subject%3Alist=Updates"><h2>Latest Updates</h2></a>
     </div>
     <div class="updates-blog-posts">
         <tal:items tal:repeat="obj view/blog_posts">
@@ -87,17 +76,6 @@
                      url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
                 <h4><a tal:attributes="href python: obj.getURL();"><span tal:replace="obj/Title">title</span></a></h4>
                 <em tal:content="python: toLocalizedTime(obj.created)">Tuesday March 15, 2011</em>
-                <div class="filed-under">Filed under: </div>
-                  <div tal:repeat="category categories" style="float:left;">
-                    <a href=""
-                       class="link-category"
-                       rel="tag"
-                       tal:content="category"
-                       tal:define="quotedCat python:url_quote(category)"
-                       tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${quotedCat}&portal_type%3Alist=Document&portal_type%3Alist=News+Item">
-                      Category
-                      </a><span class="separator" tal:condition="not: repeat/category/end">,</span>
-                  </div>
                 <div class="blog-listing-descr">
                     <div tal:content="obj/Description">Steve's talk on fair use is picked up by Inside Higher Ed</div>
                 </div>
