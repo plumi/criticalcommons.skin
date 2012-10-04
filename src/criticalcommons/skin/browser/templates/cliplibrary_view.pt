@@ -28,7 +28,7 @@
                     </select>
                     </form>
 		<div class="addlecturebutton">
-                    <a tal:define="portal context/@@plone_portal_state/portal;"  tal:condition="not: here/portal_membership/isAnonymousUser" tal:attributes="href string:${portal/portal_url}/publisher" class="upload" title="Upload Media" alt="Upload Media" >Upload Media</a>
+                    <a tal:define="portal context/@@plone_portal_state/portal;"  tal:condition="view/canUpload" tal:attributes="href string:${portal/portal_url}/publisher" class="upload" title="Upload Media" alt="Upload Media" >Upload Media</a>
 		</div>
                 <div class="search-results additions" >
 		<div class="column1">

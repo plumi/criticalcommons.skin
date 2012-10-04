@@ -83,6 +83,10 @@ class ClipLibraryView(BrowserView):
                          for term in voc_terms if term[0] != 'none']
         return SimpleVocabulary(genresDict)
 
+    def canUpload(self):
+        return getSecurityManager().checkPermission('criticalcommons.content: Can Download', self.context)
+
+
 class CommentaryView(BrowserView):
     """A view of a critical commons Commentary"""
 
