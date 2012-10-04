@@ -179,11 +179,11 @@ div#clip-area div#layout-contents {
 
 
 .boxes .lectures ul li {
-    padding: 0 0 14px 37px;
+    padding: 0 0 14px; 
 }
 
 .lectures ul li {
-    background: url("++resource++criticalcommons.skin.images/lectures-bullet.gif") no-repeat scroll 0 4px transparent;
+    background: none;
     padding: 0 0 18px 37px;
 }
 
