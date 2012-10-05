@@ -812,6 +812,8 @@ span.clip-description {
 .clips-holder img {
     border: 1px solid #999999;
     float: left;
+    width: 160px;
+    max-height: 200px;
 }
 
 .clips-holder em {
