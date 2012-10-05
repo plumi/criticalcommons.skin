@@ -435,7 +435,7 @@ ul#portal-globalnav li {
     height: 1%;
     line-height: 13px;
     list-style: none outside none;
-    margin: 0 15px 0 13px;
+    margin: 0 15px 0 0px;
     overflow: hidden;
     padding: 22px 0 54px;
 }
@@ -1075,4 +1075,8 @@ a.#user-name {
 div.browse-by {
     float: left;
     padding-right: 10px;
+}
+
+div.listingBar {
+    font-size:100%;
 }
