@@ -14,7 +14,7 @@
                  clips view/latestclips;  batch python:Batch(clips, 40, int(b_start), orphan=1); template_id string:@@cliplibrary_view">
 
 		<div class="lecture-search">
-		<h1>Explore the Clip Library</h1>
+		<h1>Browse the Media Library</h1>
                 <div class="discreet">There are <b tal:content="python:len(clips)"></b> videos available</div>
                 Browse by genre:
 
