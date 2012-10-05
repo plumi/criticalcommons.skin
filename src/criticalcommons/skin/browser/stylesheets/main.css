@@ -805,6 +805,10 @@ span.clip-description {
     padding: 0 0 18px;
 }
 
+.clips-holder {
+    font-size: 13px;
+}
+
 .clips-holder img {
     border: 1px solid #999999;
     float: left;
