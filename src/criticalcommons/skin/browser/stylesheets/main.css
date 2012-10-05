@@ -525,7 +525,7 @@ body.portaltype-plumivideo h3 {
     clear: both;
     float: right;
     padding-bottom: 10px;
-    padding-left: 10px;
+    padding-left: 5px;
     padding-right: 10px;
 }
 
@@ -1047,5 +1047,9 @@ body.portaltype-plumivideo #archetypes-fieldname-Countries, body.portaltype-plum
 
 #formfield-form-widgets-relatedItems-widgets-query input.searchButton {
     display:none;
+}
+
+div.lecture-search select {
+    border: 0;
 }
 
