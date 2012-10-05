@@ -155,7 +155,7 @@ div#clip-area div#layout-contents {
 /* PORTLETS */
 
 #portal-column-two .rss ul li {
-    background: url("++resource++criticalcommons.skin.images/btn-rss.gif") no-repeat scroll 0 0 transparent;
+    background: url("++resource++criticalcommons.skin.images/rss2_icon.png") no-repeat scroll 0 0 transparent;
     padding: 0 0 7px 23px;
     display: block;
 }
@@ -288,8 +288,9 @@ h1{
         }
 #content h1 {
         background:url('++resource++criticalcommons.skin.images/grey-border.gif') repeat-x 0 100%;
-
+        letter-spacing: 0px;
 }
+
 h3{
         font-size: 14px;
         font-weight: bold;
@@ -1030,6 +1031,10 @@ div.tos-container {
     text-decoration: none !important;
 }
 
+.uploadtop {
+    float: right; 
+    margin-top:-40px;
+}
 #content img.tileImage, #content div.newsImageContainer {
     float: none !important;
 }
@@ -1051,5 +1056,13 @@ body.portaltype-plumivideo #archetypes-fieldname-Countries, body.portaltype-plum
 
 div.lecture-search select {
     border: 0;
+}
+
+#portal-personaltools dt {
+    font-weight: bold !important;
+}
+
+a.#user-name {
+    color:#75AD0A;
 }
 

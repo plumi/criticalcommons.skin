@@ -15,6 +15,8 @@
 
 		<div class="lecture-search">
 		<h1>Browse the Media Library</h1>
+                <a tal:define="portal context/@@plone_portal_state/portal;"  tal:condition="view/canUpload" tal:attributes="href string:${portal/portal_url}/publisher" class="upload uploadtop" title="Upload Media" alt="Upload Media" >Upload Media</a>
+
                 <div class="discreet">There are <b tal:content="python:len(clips)"></b> videos available</div>
                 Browse by genre:
 
@@ -27,9 +29,6 @@
                         </div>
                     </select>
                     </form>
-		<div class="addlecturebutton">
-                    <a tal:define="portal context/@@plone_portal_state/portal;"  tal:condition="view/canUpload" tal:attributes="href string:${portal/portal_url}/publisher" class="upload" title="Upload Media" alt="Upload Media" >Upload Media</a>
-		</div>
                 <div class="search-results additions" >
 		<div class="column1">
 		<div tal:repeat="clip batch" tal:omit-tag="">

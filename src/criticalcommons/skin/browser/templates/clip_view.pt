@@ -237,7 +237,7 @@
                 <a class="optionHeader-flag" tal:attributes="href string:${portal_url}/contact-info/?subject=Inappropriate Clip&message=[Your name] is notifying Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ ">Flag as inappropriate</a>
               </li>
               <li tal:condition="not: here/portal_membership/isAnonymousUser">
-                <a class="optionHeader-com" tal:attributes="href string:sendto_form ">Email to a friend</a>
+                <a class="optionHeader-com" tal:attributes="href string:${here/absolute_url}/sendto_form ">Email to a friend</a>
               </li>
 
             </ul>
@@ -295,10 +295,12 @@
 <script>
 $(document).ready(function(){
     function show_comment(){
-        $('div.text-commentaries span').hide();
-        var option_id = $('.com-form select option:selected')[0].id;
-        comment_id = option_id.split('option-').pop();
-        $('#' + comment_id).show();
+        try{
+            $('div.text-commentaries span').hide();
+            var option_id = $('.com-form select option:selected')[0].id;
+            comment_id = option_id.split('option-').pop();
+            $('#' + comment_id).show();
+        }  catch(err) {}
     }
     
     show_comment();
