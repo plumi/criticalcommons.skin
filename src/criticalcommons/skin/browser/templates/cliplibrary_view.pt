@@ -15,18 +15,20 @@
 
 		<div class="lecture-search">
 		<h1>Browse the Media Library</h1>
+                <a tal:define="portal context/@@plone_portal_state/portal;"  tal:condition="view/canUpload" tal:attributes="href string:${portal/portal_url}/publisher" class="upload uploadtop" title="Upload Media" alt="Upload Media" >Upload Media</a>
+
                 <div class="discreet">There are <b tal:content="python:len(clips)"></b> videos available</div>
                 <div class="browse-by">Browse by genre:</div>
 
-                <form method="post" action="">
-                <select onchange="javascript:form.submit()" name="genre">
-                    <option tal:attributes="value string:all;selected string:selected;" >All</option>
-                    <div tal:define="genres view/videogenres;" tal:repeat="genre genres" >
-                        <option tal:condition="python: view.request.form.get('genre') == genre.value" tal:attributes="value string:${genre/value};selected string:selected;" tal:content="genre/title" >Title</option>
-                        <option tal:condition="python: view.request.form.get('genre') != genre.value" tal:attributes="value string:${genre/value}" tal:content="genre/title" >Title</option>
-                    </div>
-                </select>
-                </form>
+                    <form method="post" action="">
+                        <select onchange="javascript:form.submit()" name="genre">
+                            <option tal:attributes="value string:all;selected string:selected;" >All</option>
+                            <div tal:define="genres view/videogenres;" tal:repeat="genre genres" >
+                                <option tal:condition="python: view.request.form.get('genre') == genre.value" tal:attributes="value string:${genre/value};selected string:selected;" tal:content="genre/title" >Title</option>
+                                <option tal:condition="python: view.request.form.get('genre') != genre.value" tal:attributes="value string:${genre/value}" tal:content="genre/title" >Title</option>
+                            </div>
+                        </select>
+                    </form>
 		        <div class="addlecturebutton">
                             <a tal:define="portal context/@@plone_portal_state/portal;"  tal:condition="view/canUpload" tal:attributes="href string:${portal/portal_url}/publisher" class="upload" title="Upload Media" alt="Upload Media" >Upload Media</a>
 		        </div>
