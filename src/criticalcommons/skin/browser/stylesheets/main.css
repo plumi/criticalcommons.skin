@@ -1066,3 +1066,7 @@ a.#user-name {
     color:#75AD0A;
 }
 
+div.browse-by {
+    float: left;
+    padding-right: 10px;
+}
