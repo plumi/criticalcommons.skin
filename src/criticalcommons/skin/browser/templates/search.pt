@@ -61,7 +61,7 @@
                  class="cell width-16 position-0"
                  tal:define="b_start python:0;
                              b_start request/b_start | b_start;
-                             batch python: view.results(b_start=b_start, b_size=20);
+                             batch python: view.results(b_start=b_start, b_size=40);
                              normalizeString nocall:context/@@plone/normalizeString;">
 
                 <div id="search-results-bar">
