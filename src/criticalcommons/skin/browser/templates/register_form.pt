@@ -31,9 +31,11 @@
                 </div>
 
             </tal:nomailhost>
+<br />
+<a href="/TOS" target="_blank">Terms of Service</a>
+
 
 <div class="tos-container">
-    <div>Terms of Service</div>
     <div class="scroll">
     <div align="left">
     <p style="text-align: left;">

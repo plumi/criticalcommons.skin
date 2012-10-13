@@ -29,9 +29,7 @@
 		<div class="clips-holder">
                     <span class="search-img" tal:condition="repeat/lecture/even">
                         <a tal:attributes="href lecture/getURL; title lecture/Title">
-                      <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;
-                                           width string:75;
-                                           height string:75;"
+                      <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;"
                       /></a>
                     </span>
 		<tal:lecture condition="repeat/lecture/even">
@@ -49,9 +47,7 @@
 		<div class="clips-holder">
                    <span class="search-img" tal:condition="repeat/lecture/odd">
                         <a tal:attributes="href lecture/getURL; title lecture/Title">
-                      <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;
-                                           width string:75;
-                                           height string:75;"
+                      <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;"
                       /></a>
                     </span>
 		<tal:lecture condition="repeat/lecture/odd">

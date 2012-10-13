@@ -54,7 +54,8 @@
                     video_info view/video_info;
                     mtool context/portal_membership; 
                     video_href string:${here/absolute_url}/@@download/video_file/${context/video_file/filename};
-                    video_source string:${here/absolute_url}/video_file;">
+                    video_source string:${here/absolute_url}/video_file;
+                    member context/@@plone_portal_state/member;">
 
         <div class="text-commentaries">
             <h2>Text Commentaries on this Clip</h2>
@@ -83,12 +84,13 @@
                  <h4 tal:content="obj/Title">commentary title</h4>
                  <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
                  <p tal:content="structure obj/textCommentary/raw">textCommentary</p>
+            <em tal:define="author python:mtool.getMemberInfo(obj.Creator())" tal:condition="python:author.get('username','')==str(member)"><a tal:attributes="href python:obj.absolute_url()+'/edit'"> Edit commentary </a></em>
+
              </span>
 
-
    <div id="authors_latest" tal:define="other_videos  view/authors_latest|nothing">
-        <h2 tal:condition="other_videos" style="padding-bottom:10px;" >Other videos by this contributor</h2>
-    <ul>
+        <h2 tal:condition="other_videos" style="padding-bottom:10px;" >Other media by this contributor</h2>
+    <ul class="marginless">
         <li tal:repeat="video other_videos">
             <a class="video-download" 
                                         tal:attributes="href string:${video/url}/view;title video/post_date">
@@ -111,19 +113,13 @@
 		<div class="roundborder rounded">
         <div tal:replace="structure provider:plone.abovecontent" />
         <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-        <h1 class="documentFirstHeading"> 
-            Clip Library
-        </h1>
-            <div class="aftersubmissionarea" tal:condition="view/show_aftersubmissiontext">
-                <p tal:content="structure view/aftersubmissiontext"></p>
-            </div>
-
-
-        <h3> 
-            <metal:field use-macro="python:here.widget('title', mode='view')">
+        <h1 class="documentFirstHeading clipview"> 
+           <metal:field use-macro="python:here.widget('title', mode='view')">
                 Title
             </metal:field>
-        </h3>
+
+        </h1>
+
 
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
@@ -165,6 +161,17 @@
             <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontentbody" tal:condition="transcoding" />
         </div> <!-- id=video-core -->
 
+            <div class="aftersubmissionarea" tal:condition="view/show_aftersubmissiontext">
+                <p tal:content="structure view/aftersubmissiontext"></p>
+            </div>
+
+      <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+
         <dl>
           <dt><strong>from <span tal:omit-tag="" tal:content="context/filmName" href="#">Psycho</span></strong> <span tal:omit-tag="" tal:content="python:'('+str(context.DateProduced)+')'" /></dt>
               <dd tal:condition="context/Director"><strong>Creator: <span tal:omit-tag="" tal:content="context/Director">Alfred Hitchcock</span></strong></dd>
@@ -173,18 +180,13 @@
         </dl>
 
 
-       <p class="documentDescription">
-            <metal:field use-macro="python:here.widget('description', mode='view')">
-            Description
-            </metal:field>
-        </p>
 
 
         <dl tal:define="subjects view/subjects" tal:condition="subjects">
           <dt i18n:translate="">Keywords</dt>
           <dd>
-            <ul>
-              <li tal:repeat="kw subjects">
+            <ul class="marginless">
+              <li class="inlined" tal:repeat="kw subjects">
                 <a href="" title="" id=""
                    tal:attributes="href kw/url;
                                    id kw/id;
@@ -228,9 +230,9 @@
 		</div>
 
        <dl>
-          <dt i18n:translate="">Clip Options</dt>
+          <dt i18n:translate="">Options</dt>
           <dd>
-            <ul>
+            <ul class="marginless">
               <li tal:condition="not: here/portal_membership/isAnonymousUser">
                 <a class="optionHeader-flag" tal:define="member context/@@plone_portal_state/member;" tal:attributes="href string:${portal_url}/contact-info/?sender_fullname=${member}&subject=Inappropriate Clip&message=I would like to notify Critical Commons about an inappropriate clip. The clip URL is ${here/absolute_url}/ and the reason I believe this clip is inappropriate is: ">Flag as inappropriate</a>
               </li>

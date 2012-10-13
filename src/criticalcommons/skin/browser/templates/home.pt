@@ -56,12 +56,12 @@
     </div>
     <div class="featured-blogs-posts">
         <tal:items tal:repeat="obj view/featured_blog_posts">
-            <div class="info-block" tal:define="categories obj/Subject|nothing;
+            <div class="info-block info-blockicon" tal:define="categories obj/Subject|nothing;
                      url_quote  nocall:modules/Products.PythonScripts.standard/url_quote;">
                 <h4><a tal:attributes="href python: obj.getURL();"><span tal:replace="obj/Title">title</span></a></h4>
                 <em tal:content="python: toLocalizedTime(obj.created)">Tuesday March 15, 2011</em>
                 <div class="blog-listing-descr">
-                    <img tal:attributes="src string:${obj/getURL}/image_tile" class="blog-listing-image" />
+                    <img tal:attributes="src string:${obj/getURL}/image_thumb" class="blog-listing-image" />
                     <div tal:content="obj/Description">Steve's talk on fair use is picked up by Inside Higher Ed</div>
                 </div>
             </div>

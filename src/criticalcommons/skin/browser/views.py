@@ -2,7 +2,8 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from AccessControl import getSecurityManager
-
+from collective.transcode.star.interfaces import ITranscodeTool
+from zope.component import getUtility
 
 class LectureView(BrowserView):
     """A view of a critical commons lecture"""
@@ -102,3 +103,16 @@ class CommentaryView(BrowserView):
         return clips
 
 
+class Playlist(BrowserView):
+    """A view for the RSS feed used by Scalar project"""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def profiles(self, uid):
+        tt = getUtility(ITranscodeTool)
+        try:
+            return tt[uid][tt[uid].keys()[0]]
+        except:
+            return []

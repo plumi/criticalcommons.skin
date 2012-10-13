@@ -10,7 +10,7 @@ from criticalcommons.content.forms import CommentaryForm
 
 class CommentaryViewlet(ViewletBase):
     index = ViewPageTemplateFile('templates/commentaryviewlet.pt')
-    label = 'Add Commentary'
+    label = 'Add commentary'
     def update(self):
         super(CommentaryViewlet, self).update()
         z2.switch_on(self, request_layer=IFormLayer)

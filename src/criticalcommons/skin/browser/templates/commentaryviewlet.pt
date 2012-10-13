@@ -1,5 +1,5 @@
 <div tal:condition="not: here/portal_membership/isAnonymousUser" id="add_comentary_form">
-    <a id="show_commentary_form" tal:content="view/label">View Title</a>
+    <a id="show_commentary_form" class="upload" tal:content="view/label">View Title</a>
     <div id="layout-contents" style="display:none;">
       <div tal:replace="structure view/form/render" />
     </div>
@@ -9,12 +9,13 @@
             $('#form-widgets-body').val('');
             $('#form-widgets-title').val('');
             $('#layout-contents').toggle();
+            $('#show_commentary_form').hide();
           });
     </script>
 </div>
 
 <div tal:condition="here/portal_membership/isAnonymousUser" id="add_comentary_form">
-    <a id="show_commentary_form" tal:attributes="href string:login_form;">Login to add commentary</a>
+    <a id="show_commentary_form" class="upload" tal:attributes="href string:login_form;">Log in to add commentary</a>
 
 
 

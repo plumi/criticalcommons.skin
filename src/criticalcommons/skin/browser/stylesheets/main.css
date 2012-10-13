@@ -108,7 +108,11 @@ div#clip-area div#layout-contents {
 
 .info-block {
     background: url("++resource++criticalcommons.skin.images/grey-border.gif") repeat-x scroll 0 100% transparent;
-    padding: 13px 10px 20px 0;
+   padding: 13px 10px 20px 0;
+}
+
+.info-blockicon {
+    height: 145px;
 }
 
 .info-block h4 {
@@ -127,7 +131,7 @@ div#clip-area div#layout-contents {
     color: #494949;
     display: block;
     font-style: normal;
-    line-height: 20px;
+    line-height: 10px;
 }
 
 .info-block strong {
@@ -806,7 +810,11 @@ span.clip-description {
 }
 
 .clips-holder {
-    font-size: 13px;
+    font-size: 14px;
+}
+
+#search-results-wrapper .clips-holder {
+    font-size: 12px !important;
 }
 
 .clips-holder img {
@@ -814,6 +822,14 @@ span.clip-description {
     float: left;
     width: 160px;
     max-height: 200px;
+}
+
+.clips-holder .search img {
+    max-width: 220px !important;
+
+}
+.additions .search  {
+    width: 400px !important;
 }
 
 .clips-holder em {
@@ -839,6 +855,8 @@ div.text-commentaries input#form-widgets-title, div.text-commentaries textarea#f
 
 div.text-commentaries textarea#form-widgets-body  {
     height: 250px !important;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Arial,FreeSans,sans-serif;
 }
 
 a#show_commentary_form {
@@ -887,6 +905,7 @@ span.vaporized-tag {
 
 #content a:link, dl.portlet a:link, dl.portlet a:visited, dl.portlet a:hover {
     color: #006666;
+    font-size: 13px;
     border-bottom: medium none;
 }
 
@@ -948,8 +967,10 @@ body.template-publish_video #formfield-form-widgets-Topics, body.template-publis
 }
 
 img.blog-listing-image {
-    float:left;
-    padding: 3px;
+    float: left;
+    max-height: 123px;
+    max-width: 130px;
+    padding: 3px 10px 3px 3px;
 }
 
 div.filed-under {
@@ -974,9 +995,12 @@ body.template-video_view dl.portalMessage {
 }
 
 .aftersubmissionarea {
-    background: none repeat scroll 0 0 #b2b2b3;
+    background: none repeat scroll 0 0 #444444;
     margin-top: 20px;
+    color: #ffffff;
     padding-bottom: 90px;
+    height: 300px;
+    width: 630px;
 }
 
 .aftersubmissionarea p {
@@ -1080,3 +1104,41 @@ div.browse-by {
 div.listingBar {
     font-size:100%;
 }
+
+
+.clips-holder { margin-bottom: 20px; }
+
+.search-img { margin-left: 20px; }
+
+em { padding-top: 5px; padding-bottom: 5px; } 
+
+.videobar span {
+    cursor: pointer !important;
+}
+
+h1 {
+    letter-spacing: 0;
+}
+
+select {
+    background-color: white !important;
+}
+
+body.template-video_view div.formControls {
+    margin: 0px !important;
+}
+
+h1.clipview {
+    font-size: 18px !important;
+    padding-bottom: 10px;
+}
+
+#content li.inlined {
+    display: inline !important;
+}
+
+ul.marginless {
+    margin-left: 0px !important;
+}
+
+

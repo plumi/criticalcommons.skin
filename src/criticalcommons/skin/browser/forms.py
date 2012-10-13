@@ -33,8 +33,8 @@ class MyRegistrationForm(RegistrationForm):
             mto = portal.getProperty('email_from_address')
 
             subject = 'User: ' + data['username'] + ' requested advanced status'
-            message = 'Hi. The user ' + data['username'] + 'has requested to become an advanced user' + '\n\n'
-            message += '\n\n' + 'Visit the user overview to grant the role:' + portal.absolute_url() + '/@@usergroup-userprefs' + '\n\n'
+            message = "%s of %s , is applying for Advanced User status in Critical Commons.\n\n Home page URL is %s, Username is %s, and email address is %s. \n\n  Visit the User Overview to respond to this request: %s" % (data['user_title'], data['institution'], data['home_page'], data['username'], data['email'], portal.absolute_url() + '/@@usergroup-userprefs' )
+
             mail_host.send(message, mto, sender, subject, charset='utf-8')
         
         # XXX Return somewhere else, depending on what

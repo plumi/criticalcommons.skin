@@ -36,7 +36,7 @@
         $('#portal-searchbox select').change(function(){
             if (this.value=='Members') {
                 $('#portal-searchbox form').attr('action',portal_url+'Members/member_search_results');
-                $('#portal-searchbox input.txt-input').attr('name','fullname');
+                $('#portal-searchbox input.txt-input').attr('name','login');
                 $('#portal-searchbox select').attr('name','');
             } else {
                 $('#portal-searchbox form').attr('action',portal_url+'@@search');

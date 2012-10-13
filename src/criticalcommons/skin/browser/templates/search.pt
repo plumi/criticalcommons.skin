@@ -107,10 +107,16 @@
                                                    site_properties context/portal_properties/site_properties;
                                                    allowAnonymousViewAbout site_properties/allowAnonymousViewAbout;
                                                    show_about python:not isAnon or allowAnonymousViewAbout;">
+                <div class="search-results additions" >
+                          <div class="column1 search">
+
                           <dl class="searchResults">
-                              <tal:results repeat="item batch">
-                              <tal:entry define="item_url item/getURL;
+                              <div tal:repeat="item batch" tal:omit-tag="" >
+                              <div tal:define="item_url item/getURL;
                                       item_type item/portal_type;">
+
+                              <span  tal:omit-tag="" tal:condition="repeat/item/even">
+                              <div class="clips-holder search">
 
                                     <dt tal:attributes="class item/ContentTypeClass">
                                       <div tal:omit-tag="" tal:condition="python:item_type not in ['Lecture', 'PlumiVideo']">
@@ -119,7 +125,7 @@
                                       <div tal:omit-tag="" tal:condition="python:item_type=='PlumiVideo'">
                                               <span class="search-img">
                                                   <a tal:attributes="href item/getURL" >
-                                                  <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;height string:130; width string:230;" />
+                                                  <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
                                                   </a>
                         		      </span>
                                       </div>
@@ -127,7 +133,7 @@
                                        <div tal:omit-tag="" tal:condition="python:item_type=='Lecture'">
                                               <span class="search-img">
                                                   <a tal:attributes="href item/getURL" >
-                                                  <img tal:attributes="src string:${item/getURL}/@@images/thumbnailImage/thumb;title item/title; alt item/title;height string:130; width string:230;" />
+                                                  <img tal:attributes="src string:${item/getURL}/@@images/thumbnailImage/thumb;title item/title; alt item/title;" />
                                                   </a>
                                               </span>
                                       </div>
@@ -137,12 +143,13 @@
                                                          class string:state-${item/review_state}"
                                          tal:content="item/title" />
                                     </dt>
-                                    <dd tal:attributes="class python:'thumbs' if item_type in ['PlumiVideo', 'Lecture'] else ''">
-                                      <span class="discreet" i18n:domain="plone"
-                                        tal:condition="show_about">
-                                        <span class="documentAuthor"
+                                    <div tal:condition="python:item_type=='PlumiVideo'" >
+                                        <span tal:omit-tag="" tal:content="string: From ${item/filmName} " href="#">Psycho</span><span tal:omit-tag="" tal:content="python:'('+str(item.DateProduced)+').'"  />
+                                    </div>
+                                      <span tal:content="item/Description">Nulla neque velit,a est.</span>
+                                        <em class="documentAuthor"
                                             i18n:translate="label_by_author">
-                                        by
+                                        Contributed by
                                             <tal:block tal:condition="item/Creator"
                                                 tal:define="author python:context.portal_membership.getMemberInfo(item.Creator())">
                                               <a href="#"
@@ -153,57 +160,82 @@
                                                 Bob Dobalina
                                               </a>
                                             </tal:block>
-                                        </span>
+                                        </em>
 
-                                        <span tal:define="publication_date item/EffectiveDate;
-                                                          modification_date item/ModificationDate">
 
-                                            <span class="documentPublished" tal:condition="python: publication_date != 'None'">
-                                              &mdash;
-                                              <span i18n:translate="box_published">
-                                                published
+
+
+                              </div> <!--clips-holder-->
+                             </span>
+
+                              </div>
+                              </div>
+                          </dl>
+                      </div> <!--column1-->
+
+                          <div class="column2 search">
+
+                          <dl class="searchResults">
+                              <div tal:repeat="item batch" tal:omit-tag="">
+                              <div tal:define="item_url item/getURL;
+                                      item_type item/portal_type;">
+
+                              <span  tal:omit-tag="" tal:condition="repeat/item/odd">
+                              <div class="clips-holder search">
+
+                                    <dt tal:attributes="class item/ContentTypeClass">
+                                      <div tal:omit-tag="" tal:condition="python:item_type not in ['Lecture', 'PlumiVideo']">
+                                         <img tal:replace="structure item/getIcon" />
+                                      </div>
+                                      <div tal:omit-tag="" tal:condition="python:item_type=='PlumiVideo'">
+                                              <span class="search-img">
+                                                  <a tal:attributes="href item/getURL" >
+                                                  <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
+                                                  </a>
+                        		      </span>
+                                      </div>
+    
+                                       <div tal:omit-tag="" tal:condition="python:item_type=='Lecture'">
+                                              <span class="search-img">
+                                                  <a tal:attributes="href item/getURL" >
+                                                  <img tal:attributes="src string:${item/getURL}/@@images/thumbnailImage/thumb;title item/title; alt item/title;" />
+                                                  </a>
                                               </span>
-                                              <span tal:replace="python:toLocalizedTime(publication_date, long_format=0)">
-                                                August 16, 2001 at 23:35:59
-                                              </span>
-                                            </span>
-
-                                            <span class="documentModified" tal:condition="python: modification_date != publication_date">
-                                              &mdash;
-                                              <span i18n:translate="box_last_modified">
-                                                last modified
-                                              </span>
-                                              <span tal:replace="python:toLocalizedTime(modification_date, long_format=1)">
-                                                August 16, 2001 at 23:35:59
-                                              </span>
-                                            </span>
-
-                                        </span>
-
-                                        <span tal:define="categories item/Subject|nothing"
-                                              tal:condition="categories">
-                                          &mdash;
-                                          <tal:filedunder i18n:translate="">tagged with:</tal:filedunder>
-                                          <span tal:repeat="category categories">
-                                            <a href=""
-                                               class="link-category"
-                                               rel="tag"
-                                               tal:content="category"
-                                               tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/@@search?Subject%3Alist=${category}">
-                                              Category
-                                            </a><tal:separator condition="not: repeat/category/end">,</tal:separator>
-                                          </span>
-                                        </span>
-                                      </span>
-                                      <div tal:content="python: len(item.CroppedDescription()) > 400 and item.CroppedDescription()[:400]+'...' or item.CroppedDescription()[:400]">
-                                        Cropped description
                                       </div>
 
+                                      <a href="#"
+                                         tal:attributes="href item/getURL;
+                                                         class string:state-${item/review_state}"
+                                         tal:content="item/title" />
+                                    </dt>
+                                    <div tal:condition="python:item_type=='PlumiVideo'">
+                                        <span tal:omit-tag="" tal:content="string: From ${item/filmName} " href="#">Psycho</span><span tal:omit-tag="" tal:content="python:'('+str(item.DateProduced)+').'"  />
+                                    </div>
+                                    <span tal:content="item/Description">Nulla neque velit,a est.</span>
+                                        <em class="documentAuthor"
+                                            i18n:translate="label_by_author">
+                                        Contributed by
+                                            <tal:block tal:condition="item/Creator"
+                                                tal:define="author python:context.portal_membership.getMemberInfo(item.Creator())">
+                                              <a href="#"
+                                                 tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${item/Creator}"
+                                                 tal:content="python:author and author['fullname'] or item.Creator()"
+                                                 tal:omit-tag="not:item/Creator"
+                                                 i18n:name="author">
+                                                Bob Dobalina
+                                              </a>
+                                            </tal:block>
+                                        </em>
 
-                                    </dd>
-                              </tal:entry>
-                              </tal:results>
+                              </div> <!--clips-holder-->
+                              </span>
+
+                              </div> 
+                              </div> 
                           </dl>
+                      </div> <!--column2-->
+
+                      </div> <!--search-results -->
                           <div metal:use-macro="context/batch_macros/macros/navigation" />
                         </metal:results>
                     </div>
