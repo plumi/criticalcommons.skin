@@ -7,6 +7,7 @@ from zope.app.component.hooks import getSite
 from zope.component import getUtility
 from Products.CMFCore.utils import getToolByName
 from criticalcommons.content import _
+from five import grok
 
 class MyRegistrationForm(RegistrationForm):
     """ Subclass the standard registration form
@@ -15,6 +16,9 @@ class MyRegistrationForm(RegistrationForm):
     implements(IMyRegistrationForm)
 
     template = ViewPageTemplateFile('templates/register_form.pt')
+
+    label = _(u"Register")
+    description = _(u"To add commentaries to media, please register for a BASIC USER account. These accounts are processed automatically and you can begin commenting immediately. Educators may apply for ADVANCED USER status based on their institutional afiliation. Once approved by site administrators, ADVANCED USERS may upload and download media for classroom instruction. Non-institutionally affiliated applicants for Advanced User status should should get in touch via the Contact form.")
 
     @property
     def form_fields(self):

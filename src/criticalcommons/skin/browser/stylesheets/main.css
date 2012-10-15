@@ -1141,4 +1141,11 @@ ul.marginless {
     margin-left: 0px !important;
 }
 
+.pb-ajax div.documentDescription {
+    margin-bottom: 8px;
+}
 
+.pb-ajax .documentFirstHeading {
+   margin-bottom: 0;
+   padding-bottom: 5px;
+}

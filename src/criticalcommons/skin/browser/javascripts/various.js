@@ -4,12 +4,15 @@ $("#form\\.usertype").live('change', function() {
         $("#formfield-form-institution").hide();
         $("#formfield-form-description").hide();
         $("#formfield-form-home_page").hide();
+        $('div.advanced-text').hide();
    }
    else {
         $("#formfield-form-user_title").show();
         $("#formfield-form-institution").show();
         $("#formfield-form-description").show();
         $("#formfield-form-home_page").show();
+        $('div.advanced-text').appendTo($('#formfield-form-usertype'));
+        $('div.advanced-text').show();
    }
 });
 

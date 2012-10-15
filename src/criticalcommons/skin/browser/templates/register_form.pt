@@ -9,6 +9,7 @@
                  tal:define="dummy python:request.set('disable_border',1);
                              disable_column_one python:request.set('disable_plone.leftcolumn',1);
                              disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+
 </head>
 
 <body>
@@ -32,6 +33,13 @@
 
             </tal:nomailhost>
 <br />
+<div class="advanced-text" style="display:none;">
+    Thank you for applying for 
+    Advanced User status. You will 
+    receive a response by e-mail in the 
+    next 5 minutes to 24 hours. Thank 
+    you for your patience!
+</div>
 <a href="/TOS" target="_blank">Terms of Service</a>
 
 
