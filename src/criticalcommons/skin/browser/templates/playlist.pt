@@ -76,7 +76,15 @@
                     distributor obj_item/Distributor|nothing;
                     creator obj_item/Creator|nothing">
     <title tal:content="obj_item/pretty_title_or_id">Title</title>
-    <link tal:define="profiles python: view.profiles(obj_item.UID())" tal:content="string:${profiles/mp4-high/address|nothing}/${profiles/mp4-high/path|nothing}">check</link>
+    <tal:isVideo tal:condition="python: view.isVideo(obj_item)">
+        <link tal:define="profiles python: view.profiles(obj_item.UID())" tal:content="string:${profiles/mp4-high/address|nothing}/${profiles/mp4-high/path|nothing}">check</link>
+    </tal:isVideo>
+    <tal:isAudio tal:condition="python: view.isAudio(obj_item)">
+        <link tal:content="string:${obj_item/absolute_url}/@@download/video_file/${obj_item/video_file/filename}">check</link>
+    </tal:isAudio>
+    <tal:isImage tal:condition="python: view.isImage(obj_item)">
+        <link tal:content="string:${obj_item/absolute_url}/@@download/video_file/${obj_item/video_file/filename}">check</link>
+    </tal:isImage>
     <description tal:content="obj_item/Description">Description</description>
     <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/"
         tal:condition="has_text"
@@ -94,7 +102,15 @@
       <dc:subject tal:content="item">Item</dc:subject>
     </tal:block>
     <dc:date tal:content="python: has_effective and effective or modified">Published or last modified date if no published date</dc:date>
-    <dc:type tal:content="obj_item/Type">Type</dc:type>
+    <tal:isVideo tal:condition="python: view.isVideo(obj_item)">
+        <dc:type>Video</dc:type>
+    </tal:isVideo>
+    <tal:isAudio tal:condition="python: view.isAudio(obj_item)">
+        <dc:type>Audio</dc:type>
+    </tal:isAudio>
+    <tal:isImage tal:condition="python: view.isImage(obj_item)">
+        <dc:type>Image</dc:type>
+    </tal:isImage>
   </item>
 </tal:block>
 

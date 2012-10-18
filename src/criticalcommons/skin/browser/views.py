@@ -116,3 +116,12 @@ class Playlist(BrowserView):
             return tt[uid][tt[uid].keys()[0]]
         except:
             return []
+
+    def isVideo(self, obj):
+        return 'video' in obj.getContentType()
+
+    def isAudio(self, obj):
+        return 'audio' in obj.getContentType()
+
+    def isImage(self, obj):
+        return 'image' in obj.getContentType()
