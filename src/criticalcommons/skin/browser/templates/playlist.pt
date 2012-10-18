@@ -51,7 +51,7 @@
 
   <items>
     <rdf:Seq>
-      <tal:block repeat="obj_item python: objects">
+      <tal:block repeat="obj_item python: objects" >
         <rdf:li rdf:resource=""
                 tal:attributes="rdf:resource obj_item/getURL|obj_item/absolute_url" />
       </tal:block>
@@ -62,23 +62,33 @@
 
 <tal:block define="getMemberInfo nocall:context/portal_membership/getMemberInfo;"
            repeat="brain python: objects">
-  <item rdf:about="" tal:attributes="rdf:about obj_item/getURL|obj_item/absolute_url"
+  <item rdf:about=""  tal:condition="python:obj_item.Type()=='Video'" tal:attributes="rdf:about obj_item/getURL|obj_item/absolute_url"
         tal:define="obj_item brain/getObject|nocall:brain;
                     has_text exists:obj_item/aq_explicit/getText;
                     text python:has_text and obj_item.getText() or '';
                     has_effective exists:obj_item/aq_explicit/effective_date;
                     effective python:has_effective and obj_item.effective().HTML4() or '';
                     modified python:obj_item.modified().HTML4();
+                    filmName obj_item/filmName|nothing;
+                    DateProduced obj_item/DateProduced|nothing;
+                    director obj_item/Director|nothing;
+                    thumb_url python:obj_item.absolute_url()+'/thumbnailImage_thumb';
+                    distributor obj_item/Distributor|nothing;
                     creator obj_item/Creator|nothing">
     <title tal:content="obj_item/pretty_title_or_id">Title</title>
-    <link tal:content="obj_item/Identifier">Identifier</link>
-    <link tal:define="profiles python: view.profiles(obj_item.UID())" tal:content="string: ${profiles/mp4-high/address|nothing}/${profiles/mp4-low/path|nothing}">check</link>
+    <link tal:define="profiles python: view.profiles(obj_item.UID())" tal:content="string:${profiles/mp4-high/address|nothing}/${profiles/mp4-high/path|nothing}">check</link>
     <description tal:content="obj_item/Description">Description</description>
     <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/"
         tal:condition="has_text"
         tal:content="structure python:'&lt;![CDATA[' + text + ']]&gt;'">Content</content:encoded>
-    <dc:publisher tal:content="obj_item/Publisher">Publisher</dc:publisher>
+    <dc:filmName tal:condition="filmName" tal:content="filmName">filmName</dc:filmName>
+    <dc:DateProduced tal:condition="DateProduced" tal:content="DateProduced">DateProduced</dc:DateProduced>
+    <dc:director tal:condition="director" tal:content="director">director</dc:director>
+    <dc:distributor tal:condition="distributor" tal:content="distributor">distributor</dc:distributor>
     <dc:creator tal:condition="creator" tal:define="author python:getMemberInfo(creator)" tal:content="python:author and author['fullname'] or creator">Creator</dc:creator>
+
+    <dc:thumbnail tal:condition="thumb_url" tal:attributes="url thumb_url">thumbnail</dc:thumbnail>
+
     <dc:rights tal:content="obj_item/Rights">Rights</dc:rights>
     <tal:block tal:repeat="item obj_item/Subject">
       <dc:subject tal:content="item">Item</dc:subject>
