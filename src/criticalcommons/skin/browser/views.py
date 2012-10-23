@@ -118,7 +118,10 @@ class Playlist(BrowserView):
             return []
 
     def isVideo(self, obj):
-        return 'video' in obj.getContentType()
+        if self.isAudio(obj) or self.isImage(obj):
+            return False
+        else:
+            return True
 
     def isAudio(self, obj):
         return 'audio' in obj.getContentType()

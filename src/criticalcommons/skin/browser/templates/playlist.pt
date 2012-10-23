@@ -2,6 +2,8 @@
 <rdf:RDF
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:art="http://simile.mit.edu/2003/10/ontologies/artstor#"
   xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
   xmlns="http://purl.org/rss/1.0/"
   xmlns:tal="http://xml.zope.org/namespaces/tal"
@@ -11,17 +13,11 @@
 <metal:block
     define-macro="master"
     tal:define="syn context/portal_syndication;
-                max_items syn/max_items;
-                start python: int(request.get('b_start', 0));
-                startnumber python: start+1;
-                end python: int(request.get('b_end', start+max_items));
                 order python: request.set('sort_order', 'reverse');
                 dummy python: request.set('sort_on', request.get('sort_on', 'effective'));
-                objectList python:context.queryCatalog(show_all=1, use_types_blacklist=True, use_navigation_root=True)[start:end];
-                endnumber python: start+len(objectList);
-                default_max syn/getMaxItems;
-                max max_items|python:syn.getMaxItems(here);
-                objects python: objectList[:max]">
+                types python: request.set('portal_type', 'PlumiVideo');
+                objectList python:context.queryCatalog(show_all=1, use_types_blacklist=True, use_navigation_root=True);
+                objects python: objectList">
 
 <metal:block tal:define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/xml;;charset=utf-8')" />
 
@@ -62,7 +58,7 @@
 
 <tal:block define="getMemberInfo nocall:context/portal_membership/getMemberInfo;"
            repeat="brain python: objects">
-  <item rdf:about=""  tal:condition="python:obj_item.Type()=='Video'" tal:attributes="rdf:about obj_item/getURL|obj_item/absolute_url"
+  <item rdf:about="" tal:attributes="rdf:about obj_item/getURL|obj_item/absolute_url"
         tal:define="obj_item brain/getObject|nocall:brain;
                     has_text exists:obj_item/aq_explicit/getText;
                     text python:has_text and obj_item.getText() or '';
@@ -89,27 +85,27 @@
     <content:encoded xmlns:content="http://purl.org/rss/1.0/modules/content/"
         tal:condition="has_text"
         tal:content="structure python:'&lt;![CDATA[' + text + ']]&gt;'">Content</content:encoded>
-    <dc:filmName tal:condition="filmName" tal:content="filmName">filmName</dc:filmName>
-    <dc:DateProduced tal:condition="DateProduced" tal:content="DateProduced">DateProduced</dc:DateProduced>
-    <dc:director tal:condition="director" tal:content="director">director</dc:director>
-    <dc:distributor tal:condition="distributor" tal:content="distributor">distributor</dc:distributor>
+    <dcterms:source tal:condition="filmName" tal:content="filmName">filmName</dcterms:source>
+    <dcterms:created tal:condition="DateProduced" tal:content="DateProduced">DateProduced</dcterms:created>
+    <dcterms:creator tal:condition="director" tal:content="director">director</dcterms:creator>
+    <dcterms:publisher tal:condition="distributor" tal:content="distributor">distributor</dcterms:publisher>
     <dc:creator tal:condition="creator" tal:define="author python:getMemberInfo(creator)" tal:content="python:author and author['fullname'] or creator">Creator</dc:creator>
 
-    <dc:thumbnail tal:condition="thumb_url" tal:attributes="url thumb_url">thumbnail</dc:thumbnail>
+    <art:thumbnail tal:condition="thumb_url" tal:attributes="url thumb_url">thumbnail</art:thumbnail>
 
-    <dc:rights tal:content="obj_item/Rights">Rights</dc:rights>
+    <dcterms:rights tal:content="obj_item/Rights">Rights</dcterms:rights>
     <tal:block tal:repeat="item obj_item/Subject">
-      <dc:subject tal:content="item">Item</dc:subject>
+      <dcterms:subject tal:content="item">Item</dcterms:subject>
     </tal:block>
-    <dc:date tal:content="python: has_effective and effective or modified">Published or last modified date if no published date</dc:date>
+    <dcterms:date tal:content="python: has_effective and effective or modified">Published or last modified date if no published date</dcterms:date>
     <tal:isVideo tal:condition="python: view.isVideo(obj_item)">
-        <dc:type>Video</dc:type>
+        <dcterms:type >Video</dcterms:type>
     </tal:isVideo>
     <tal:isAudio tal:condition="python: view.isAudio(obj_item)">
-        <dc:type>Audio</dc:type>
+        <dcterms:type>Audio</dcterms:type>
     </tal:isAudio>
     <tal:isImage tal:condition="python: view.isImage(obj_item)">
-        <dc:type>Image</dc:type>
+        <dcterms:type>Image</dcterms:type>
     </tal:isImage>
   </item>
 </tal:block>
