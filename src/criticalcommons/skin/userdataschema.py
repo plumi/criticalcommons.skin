@@ -28,6 +28,12 @@ class IEnhancedUserDataSchema(IUserDataSchema):
         default=u'Basic User',
     )
 
+    fullname = schema.TextLine(
+        title=_(u'label_full_name', default=u'Full Name'),
+        description=_(u'help_full_name_creation',
+                      default=u"Enter full name, example John Smith."),
+        required=True)
+
     user_title = schema.TextLine(
         title=_(u'Title'),
         required=False,

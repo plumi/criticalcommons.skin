@@ -4,6 +4,7 @@
   <property name="enable_livesearch" type="boolean">False</property>
   <property name="user_registration_fields" type="lines">
    <element value="usertype" />
+   <element value="fullname" />
    <element value="user_title" />
    <element value="institution" />
    <element value="description" />
