@@ -189,4 +189,13 @@
 	  	permission="zope2.View"
         />
 
+    <browser:page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        name="author_view"
+        class=".author.AuthorPage"
+        permission="zope2.View"
+        allowed_interface="plumi.content.browser.interfaces.IAuthorPage"
+        layer=".interfaces.IThemeSpecific"
+        />
+
 </configure>

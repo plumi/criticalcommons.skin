@@ -11,3 +11,4 @@ class IAddCommentary(IViewletManager):
 class IMyRegistrationForm(Interface):
     """Marker interface for my custom registration form
     """
+
