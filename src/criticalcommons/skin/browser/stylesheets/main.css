@@ -1149,3 +1149,7 @@ ul.marginless {
    margin-bottom: 0;
    padding-bottom: 5px;
 }
+
+body.template-publish_video #portal-top {
+    padding-bottom: 39px;
+}
