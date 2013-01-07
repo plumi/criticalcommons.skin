@@ -91,13 +91,14 @@
    <div id="authors_latest" tal:define="other_videos  view/authors_latest|nothing">
         <h2 tal:condition="other_videos" style="padding-bottom:10px;" >Other media by this contributor</h2>
     <ul class="marginless">
-        <li tal:repeat="video other_videos">
+        <li tal:repeat="video other_videos" class="video-item">
             <a class="video-download" 
-                                        tal:attributes="href string:${video/url}/view;title video/post_date">
-                <img title="" alt="" tal:attributes="alt video/video_title;
+                                        tal:attributes="href string:${video/url}/view">
+                <img title="" alt="" tal:attributes="class string:video-thumb; alt video/video_title;
                                                      src string:${video/url}/thumbnailImage_thumb" />
                 <h5 class="featuredItemTitle" tal:content="video/video_title" />
             </a>
+            <div class="duration" tal:content="video/context/videoDuration" />
         </li>
     </ul>
 
