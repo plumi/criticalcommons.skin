@@ -156,10 +156,14 @@ div#clip-area div#layout-contents {
     text-decoration: none;
 }
 
+#content #featured-front-page h4 a {
+    font-size: 18px !important;
+}
+
 /* PORTLETS */
 
 #portal-column-two .rss ul li {
-    background: url("++resource++criticalcommons.skin.images/rss2_icon.png") no-repeat scroll 0 0 transparent;
+    background: url("/rss2_icon.png") no-repeat scroll 0 0 transparent;
     padding: 0 0 7px 23px;
     display: block;
 }
@@ -221,7 +225,12 @@ div#clip-area div#layout-contents {
     display: inline;
 }
 
-
+.portletHeader div.tile {
+    background: url("++resource++criticalcommons.skin.images/red-border.gif") repeat-x scroll 0 100% transparent !important;
+    color: #AA0131 !important;
+    height: 30px;
+    font-size: 130%;
+}
 
 .lectures ul a:hover {
     text-decoration: underline;
@@ -257,7 +266,7 @@ a:hover {
 }
 
 #portal-column-two .boxes {
-    margin: 37px 0 0;
+    margin: 30px 0 0;
     padding: 0 15px 11px 10px;
 }
 
@@ -789,6 +798,14 @@ span.clip-description {
   margin: 30px 0 0;
 }
 
+.lecture-search .search-results {
+  margin: 20px 0 0 !important;
+}
+
+.lecture-search .discreet {
+  padding-bottom: 15px;
+}
+
 #search-results-bar {
     font-size: 13px;
 }
@@ -982,6 +999,7 @@ div.filed-under {
 
 div.blog-listing-descr {
     clear:both;
+    font-size:13px;
 }
 
 span.separator {
@@ -1232,4 +1250,8 @@ body.template-publish_video #portal-top {
     margin-top: 1px;
     right: 14px;
     bottom: 11px;
+}
+
+#portal-personaltools-wrapper .actionMenuHeader a:link, #portal-personaltools-wrapper .actionMenuHeader a:visited {
+   color: #006666;
 }

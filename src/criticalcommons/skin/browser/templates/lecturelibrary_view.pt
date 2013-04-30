@@ -34,7 +34,7 @@
                     </span>
 		<tal:lecture condition="repeat/lecture/even">
 		<strong><a tal:attributes="href lecture/getURL" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
-                <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator" tal:content="python:author and author['fullname'] or lecture.Creator">Alfred Hitchcock</a></em>
+                <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(lecture.Creator)">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator" tal:content="python:author and author['fullname'] or lecture.Creator">Alfred Hitchcock</a></em>
 		<span tal:content="lecture/Description">Nulla neque velit,a est.</span>
 		</tal:lecture>
 		</div>
@@ -52,7 +52,7 @@
                     </span>
 		<tal:lecture condition="repeat/lecture/odd">
 		<strong><a tal:attributes="href lecture/getURL" tal:content="lecture/Title">The Dolly Counter-Zoom</a></strong>
-		<em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator" tal:content="python:author and author['fullname'] or lecture.Creator">Alfred Hitchcock</a></em>
+		<em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(lecture.Creator)">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + lecture.Creator" tal:content="python:author and author['fullname'] or lecture.Creator">Alfred Hitchcock</a></em>
 		<span tal:content="lecture/Description">Nulla neque velit, pr a est.</span>
 		</tal:lecture>
 		</div>

@@ -179,7 +179,7 @@
                           <dl class="searchResults">
                               <div tal:repeat="item batch" tal:omit-tag="">
                               <div tal:define="item_url item/getURL;
-                                      item_type item/portal_type;">
+                                      item_type item/portal_type;" tal:condition="repeat/item/odd">
 
                               <span  tal:omit-tag="" tal:condition="repeat/item/odd">
                               <div class="clips-holder search">

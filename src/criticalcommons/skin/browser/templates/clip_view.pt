@@ -151,7 +151,6 @@
                         <param name="flashvars" value="" tal:attributes="value python:'controls=true&poster=%s&file=%s' % (thumb, video_source)" />
                       </object>
                     </audio>
-                    <p class="documentByLine" tal:content="video_info/duration|nothing"></p>
                 </tal:isAudio>
 
                 <tal:isImage condition="view/isImage">

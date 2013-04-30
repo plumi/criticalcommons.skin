@@ -41,7 +41,7 @@
                                     </span>
 		                            <tal:clip condition="repeat/clip/even">
 		                                <strong><a tal:attributes="href clip/getURL" tal:content="clip/Title">The Dolly Counter-Zoom</a></strong>
-                                        <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
+                                        <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(clip.Creator)">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
                                         <span tal:content="clip/Description">Nulla neque velit,a est.</span>
                                             </tal:clip>
 		                         </div>
@@ -61,10 +61,10 @@
 
                                     <tal:clip condition="repeat/clip/odd">
                                         <strong><a tal:attributes="href clip/getURL" tal:content="clip/Title">The Dolly Counter-Zoom</a></strong>
-                                        <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
+                                        <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(clip.Creator)">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
                                         <span tal:content="clip/Description">Nulla neque velit, pr a est.</span>
-		                            </tal:clip>
-		                        </div>
+		                    </tal:clip>
+		                </div>
                             </span>
 	                    </div>
                     </div>
