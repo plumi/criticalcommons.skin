@@ -136,8 +136,8 @@
                     <video id="main-video" width="525" height="300" controls
                       tal:attributes="poster thumb" preload="metadata">
                       <source src="" tal:attributes="src video_source; type view/context/content_type" />
-                      <object width="525" height="300" type="application/x-shockwave-flash" data="++resource++collective.mediaelementjs/flashmediaelement.swf">
-                        <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+                      <object width="525" height="300" type="application/x-shockwave-flash" data="http://www.criticalcommons.org/++resource++collective.mediaelementjs/flashmediaelement.swf">
+                        <param name="movie" value="http://www.criticalcommons.org/++resource++collective.mediaelementjs/flashmediaelement.swf" />
                         <param name="flashvars" value="" tal:attributes="value python:'controls=true&poster=%s&file=%s' % (thumb, video_source)" />
                       </object>
                     </video>
@@ -148,8 +148,8 @@
                     <img tal:condition="thumb" tal:attributes="src thumb" width="525" height="300" />
                     <audio id="main-audio"  >
                       <source src="" tal:attributes="src video_source; type view/context/content_type" />
-                      <object width="600" height="30" type="application/x-shockwave-flash" data="++resource++collective.mediaelementjs/flashmediaelement.swf">
-                        <param name="movie" value="++resource++collective.mediaelementjs/flashmediaelement.swf" />
+                      <object width="600" height="30" type="application/x-shockwave-flash" data="http://www.criticalcommons.org/++resource++collective.mediaelementjs/flashmediaelement.swf">
+                        <param name="movie" value="http://www.criticalcommons.org/++resource++collective.mediaelementjs/flashmediaelement.swf" />
                         <param name="flashvars" value="" tal:attributes="value python:'controls=true&poster=%s&file=%s' % (thumb, video_source)" />
                       </object>
                     </audio>
