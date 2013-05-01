@@ -20,7 +20,7 @@
                title="Search Site"
                accesskey="4"
                i18n:attributes="title title_search_site;"
-               tal:attributes="value request/form/SearchableText|nothing;
+               tal:attributes="value request/form/SearchableText|request/form/login|nothing;
                                id search_input_id"
                class="txt-input" />
         <label for="portal_type">in</label>
@@ -29,7 +29,7 @@
             <option name="lectures" tal:attributes="selected python:portal_type == 'Lecture'" value="Lecture">Lectures</option>
             <option name="articles" tal:attributes="selected python:portal_type == 'Document'" value="Document">Articles</option>
             <option name="commentaries" tal:attributes="selected python:portal_type == 'Commentary'" value="Commentary">Commentaries</option>
-            <option name="members" tal:define="members request/fullname|nothing" tal:attributes="selected members" value="Members">Contributors</option>
+            <option name="members" tal:define="members request/fullname|request/form/login|nothing" tal:attributes="selected members" value="Members">Contributors</option><div tal:content="request/portal_type|nothing" />
         </select>
         <script tal:content="string: var portal_url='${navigation_root_url}/'" />
         <script>
