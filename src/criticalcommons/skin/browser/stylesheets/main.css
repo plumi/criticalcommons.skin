@@ -999,6 +999,7 @@ div.filed-under {
 
 div.blog-listing-descr {
     clear:both;
+    padding: 10px;
     font-size:13px;
 }
 
@@ -1259,5 +1260,9 @@ body.template-publish_video #portal-top {
 /* hide Plone edit-bar functionality for users */
 #edit-bar #plone-contentmenu-translate, #edit-bar li#contentview-local_roles,  #edit-bar dl#plone-contentmenu-actions, #edit-bar dd.actionMenuContent li, #edit-bar dl#plone-contentmenu-factories {
     display: none;
+}
+
+body.template-featured_videos_homepage .featured-blogs-posts em, body.template-featured_videos_homepage .updates-blog-posts em {
+    display: none 
 }
 
