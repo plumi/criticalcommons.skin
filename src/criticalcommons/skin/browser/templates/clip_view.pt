@@ -35,6 +35,8 @@
         <style type="text/css" tal:condition="not: view/canDownload">
             div.download { display:none; }
         </style>
+
+
     </tal:block>
 <head>
     <metal:block fill-slot="column_two_slot" />

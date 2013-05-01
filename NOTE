@@ -1,0 +1,1 @@
+need to find a proper way to hide actions on Plone's edit-bar. Now we do it with css, on main.css we hide unnecessary actions for all users, and allow them back for admins using a condition, on sunburst_templates/main_template.pt

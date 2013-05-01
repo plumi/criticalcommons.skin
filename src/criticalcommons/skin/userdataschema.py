@@ -1,5 +1,6 @@
-from zope.interface import Interface, implements
+from zope.interface import Interface, implements, invariant
 from zope import schema
+from z3c.form import button
 
 from criticalcommons.content import _
 from plone.app.users.userdataschema import IUserDataSchemaProvider
@@ -51,4 +52,17 @@ class IEnhancedUserDataSchema(IUserDataSchema):
                       " read and accepted the Terms of Service. "),
         required=True,
         constraint=validateAccept,
-        )
+    )
+
+    @invariant
+    def usertypeInvariant(data):
+        if data.usertype == u'Advanced User':
+            if not (data.user_title and data.institution):
+                raise Invalid(_(u"You must specify your Title and Institution when registering as Advanced User"))
+
+"""    @button.buttonAndHandler(_(u'Register'))
+    def handleApply(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return """

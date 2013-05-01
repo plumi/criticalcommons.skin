@@ -15,7 +15,10 @@ class LectureView(BrowserView):
     def clips(self):
         clips = []
         for item in self.context.relatedItems:
-            video = item.to_object
+            try:
+                video = item.to_object
+            except:
+                video = item
             clips.append(video)
         return clips
 
