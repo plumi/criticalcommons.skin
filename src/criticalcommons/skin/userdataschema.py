@@ -1,8 +1,7 @@
 from five import grok
 from zope.interface import Interface, implements, invariant, Invalid
 from zope import schema
-from z3c.form import button
-from plone.directives import form
+from z3c.form import form, field, button
 from Products.CMFCore.interfaces import ISiteRoot
 
 from criticalcommons.content import _
@@ -44,6 +43,8 @@ class IEnhancedUserDataSchema(IUserDataSchema):
 
     user_title = schema.TextLine(
         title=_(u'Title*'),
+        description=_(u'help_user_title_creation',
+                      default=u"E.g., Professor of Film History; Economics Instructor, etc."),
         required=False,
     )
 
@@ -66,3 +67,4 @@ class IEnhancedUserDataSchema(IUserDataSchema):
         if data.usertype == u'Advanced User':
             if not (data.user_title and data.institution):
                 raise Invalid("Please specify the motivation of your request")
+
