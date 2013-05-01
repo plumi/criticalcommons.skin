@@ -3,9 +3,9 @@
 	    <h3><a tal:attributes="href string:${here/portal_url}/lectures">Lectures</a></h3>
 		<ul>
             <tal:items tal:repeat="obj view/results">
-			    <li><strong>
+			    <li tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator)"><strong>
 				    <a tal:attributes="href string:${obj/getURL};"><span tal:replace="obj/Title">test event</span></a>
-			        </strong>by <a class="author" tal:attributes="href string:${obj/portal_url}/author/${obj/Creator}" ><span tal:content="obj/Creator">Brian ORoark</span></a>
+			        </strong>by <a tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator" tal:content="python:author and author['fullname'] or obj.Creator">Alfred Hitchcock</a>
 			    </li>	
             </tal:items>
 	    </ul>
