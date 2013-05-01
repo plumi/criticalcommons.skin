@@ -9,6 +9,9 @@ from Products.CMFCore.utils import getToolByName
 from criticalcommons.content import _
 from five import grok
 
+from zope.app.form.interfaces import WidgetInputError, InputErrors
+
+
 class MyRegistrationForm(RegistrationForm):
     """ Subclass the standard registration form
     """
@@ -44,3 +47,37 @@ class MyRegistrationForm(RegistrationForm):
         # XXX Return somewhere else, depending on what
         # handle_join_success returns?
         return self.context.unrestrictedTraverse('registered')()
+
+
+    def validate_registration(self, action, data):
+        """
+        """
+
+        #import pdb; pdb.set_trace()
+        errors = super(MyRegistrationForm, self).validate_registration(action, data)
+
+        form_field_names = [f.field.getName() for f in self.form_fields]
+
+        if not ('accept' in data.keys() and data.get('accept', '')):
+            err_str = _(u'Please check if you agree with the terms')
+            errors.append(WidgetInputError('accept', u'label_accept', err_str))
+            self.widgets['accept'].error = err_str
+
+        if not ('fullname' in data.keys() and data.get('fullname', '')):
+            err_str = _(u'Please fill in the full name')
+            errors.append(WidgetInputError('fullname', u'label_fullname', err_str))
+            self.widgets['fullname'].error = err_str
+
+        if data['usertype'] == u'Advanced User':
+            if not ('user_title' in data.keys() and data.get('user_title', '')):
+                err_str = _(u'Please fill in the title')
+                errors.append(WidgetInputError('user_title', u'label_user_title', err_str))
+                self.widgets['user_title'].error = err_str
+            if not ('institution' in data.keys() and data.get('institution', '')):
+                err_str = _(u'Please fill in the institution')
+                errors.append(WidgetInputError('institution', u'label_institution', err_str))
+                self.widgets['institution'].error = err_str
+
+
+        return errors
+

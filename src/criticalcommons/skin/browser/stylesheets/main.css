@@ -885,9 +885,6 @@ a#show_commentary_form {
     text-decoration: underline;
 }
 
-.kssattr-formname-register #formfield-form-user_title, .kssattr-formname-register #formfield-form-institution, .kssattr-formname-register #formfield-form-description, .kssattr-formname-register #formfield-form-home_page {
-    display: none;
-}
 
 .listingBar {
     clear: both !important;

@@ -1,10 +1,14 @@
-from zope.interface import Interface, implements, invariant
+from five import grok
+from zope.interface import Interface, implements, invariant, Invalid
 from zope import schema
 from z3c.form import button
+from plone.directives import form
+from Products.CMFCore.interfaces import ISiteRoot
 
 from criticalcommons.content import _
 from plone.app.users.userdataschema import IUserDataSchemaProvider
 from plone.app.users.userdataschema import IUserDataSchema
+from zope.schema import ValidationError
 
 def validateAccept(value):
     if not value == True:
@@ -18,6 +22,9 @@ class UserDataSchemaProvider(object):
         """
         """
         return IEnhancedUserDataSchema
+
+class ErrorAdvanced(Invalid):
+    __doc__ = _(u"You must specify the title and institution")
 
 class IEnhancedUserDataSchema(IUserDataSchema):
     """ Use all the fields from the default user data schema, and add various
@@ -36,12 +43,12 @@ class IEnhancedUserDataSchema(IUserDataSchema):
         required=True)
 
     user_title = schema.TextLine(
-        title=_(u'Title'),
+        title=_(u'Title*'),
         required=False,
     )
 
     institution = schema.TextLine(
-        title=_(u'Institution'),
+        title=_(u'Institution*'),
         required=False,
     )
 
@@ -58,11 +65,4 @@ class IEnhancedUserDataSchema(IUserDataSchema):
     def usertypeInvariant(data):
         if data.usertype == u'Advanced User':
             if not (data.user_title and data.institution):
-                raise Invalid(_(u"You must specify your Title and Institution when registering as Advanced User"))
-
-"""    @button.buttonAndHandler(_(u'Register'))
-    def handleApply(self, action):
-        data, errors = self.extractData()
-        if errors:
-            self.status = self.formErrorsMessage
-            return """
+                raise Invalid("Please specify the motivation of your request")
