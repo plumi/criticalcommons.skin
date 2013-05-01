@@ -35,6 +35,9 @@
         <style type="text/css" tal:condition="not: view/canDownload">
             div.download { display:none; }
         </style>
+        <style type="text/css" tal:condition="not: view/commentaries">
+            #add_comentary_form a { display:none; }
+        </style>
 
 
     </tal:block>
@@ -79,6 +82,7 @@
                  </script>
 
                  <div tal:replace="structure provider:commentary_viewlet_manager" />
+
              </div>
 
 
