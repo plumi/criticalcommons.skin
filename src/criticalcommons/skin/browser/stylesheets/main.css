@@ -1263,3 +1263,10 @@ body.portaltype-folder dl#plone-contentmenu-workflow, body.portaltype-folder li#
     display: none 
 }
 
+span.duration img {
+    width: 12px !important;
+    height: 8px !important;
+    border: 0px  !important;
+}
+
+

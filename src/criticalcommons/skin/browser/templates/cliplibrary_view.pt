@@ -37,7 +37,8 @@
                                     <span class="search-img" tal:condition="repeat/clip/even">
                                         <a tal:attributes="href clip/getURL; title clip/Title">
                                         <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;"/></a>
-                                        <span class="duration" tal:content="clip/videoDuration"></span>
+                                        <span class="duration" tal:condition="clip/videoDuration" tal:content="clip/videoDuration"></span>
+                                        <span class="duration" tal:condition="not: clip/videoDuration" ><img src="++resource++criticalcommons.skin.images/cc_image.png" /></span>
                                     </span>
 		                            <tal:clip condition="repeat/clip/even">
 		                                <strong><a tal:attributes="href clip/getURL" tal:content="clip/Title">The Dolly Counter-Zoom</a></strong>
@@ -56,7 +57,8 @@
                                         <a tal:attributes="href clip/getURL; title clip/Title">
                                             <img tal:attributes="src string:${clip/getURL}/@@images/thumbnailImage/thumb;" />
                                         </a>
-                                        <span class="duration" tal:content="clip/videoDuration"></span>
+                                        <span class="duration" tal:condition="clip/videoDuration" tal:content="clip/videoDuration"></span>
+                                        <span class="duration" tal:condition="not: clip/videoDuration" ><img src="++resource++criticalcommons.skin.images/cc_image.png" /></span>
                                     </span>
 
                                     <tal:clip condition="repeat/clip/odd">
