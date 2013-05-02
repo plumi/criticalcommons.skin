@@ -1259,7 +1259,7 @@ body.template-publish_video #portal-top {
     display: none;
 }
 
-body.portaltype-folder li#contentview-edit, body.template-featured_videos_homepage .featured-blogs-posts em, body.template-featured_videos_homepage .updates-blog-posts em {
+body.portaltype-folder dl#plone-contentmenu-workflow, body.portaltype-folder li#contentview-edit, body.template-featured_videos_homepage .featured-blogs-posts em, body.template-featured_videos_homepage .updates-blog-posts em {
     display: none 
 }
 
