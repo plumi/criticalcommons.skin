@@ -9,6 +9,5 @@
 			    </li>	
             </tal:items>
 	    </ul>
-	    <br />
     </div>
 </div>
