@@ -127,7 +127,9 @@
                                                   <a tal:attributes="href item/getURL" >
                                                   <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
                                                   </a>
-                                                  <span class="duration" tal:content="item/videoDuration"></span>
+                                        <span class="duration" tal:condition="item/videoDuration" tal:content="item/videoDuration"></span>
+                                        <span class="duration" tal:condition="not: item/videoDuration" ><img src="++resource++criticalcommons.skin.images/cc_image.png" /></span>
+
                         		      </span>
                                       </div>
     
@@ -193,7 +195,9 @@
                                                   <a tal:attributes="href item/getURL" >
                                                   <img tal:attributes="src string:${item/getURL}/thumbnailImage_thumb;title item/title; alt item/title;" />
                                                   </a>
-                                                  <span class="duration" tal:content="item/videoDuration"></span>
+                                        <span class="duration" tal:condition="item/videoDuration" tal:content="item/videoDuration"></span>
+                                        <span class="duration" tal:condition="not: item/videoDuration" ><img src="++resource++criticalcommons.skin.images/cc_image.png" /></span>
+
                         		      </span>
                                       </div>
     

@@ -104,7 +104,8 @@
                                                      src string:${video/url}/thumbnailImage_thumb" />
                 <h5 class="featuredItemTitle" tal:content="video/video_title" />
             </a>
-            <div class="duration" tal:content="video/context/videoDuration" />
+               <div class="duration" tal:content="video/context/videoDuration" />
+
         </li>
     </ul>
 
