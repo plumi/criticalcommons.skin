@@ -150,7 +150,6 @@
                 </tal:isVideo>
 
                 <tal:isAudio condition="view/isAudio">
-                    <img tal:condition="thumb" tal:attributes="src thumb" width="525" height="300" />
                     <audio id="main-audio"  >
                       <source src="" tal:attributes="src video_source; type view/context/content_type" />
                       <object width="600" height="30" type="application/x-shockwave-flash" data="http://www.criticalcommons.org/++resource++collective.mediaelementjs/flashmediaelement.swf">
