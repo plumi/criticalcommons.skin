@@ -1259,13 +1259,13 @@ body.template-publish_video #portal-top {
     display: none;
 }
 
-body.portaltype-folder dl#plone-contentmenu-workflow, body.portaltype-folder li#contentview-edit, body.template-featured_videos_homepage .featured-blogs-posts em, body.template-featured_videos_homepage .updates-blog-posts em {
+body.portaltype-folder #edit-bar, body.template-featured_videos_homepage .featured-blogs-posts em, body.template-featured_videos_homepage .updates-blog-posts em {
     display: none 
 }
 
 span.duration img {
-    width: 12px !important;
-    height: 8px !important;
+    width: 25px !important;
+    height: 20px !important;
     border: 0px  !important;
 }
 
@@ -1274,4 +1274,7 @@ dd.portletFooter {
     display: none;
 }
 
+.updates-blog-posts div:last-child {
+    background: none repeat scroll 0 0 transparent !important;
+}
 
