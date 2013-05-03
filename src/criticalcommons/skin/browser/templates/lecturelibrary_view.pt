@@ -15,7 +15,7 @@
 
 		<div class="lecture-search">
 		<h1>Lecture Library</h1>
-		<a tal:define="portal context/@@plone_portal_state/portal;" tal:condition="view/canUpload" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/++add++Lecture" title="Add a lecture" alt="Add a lecture" class="upload uploadtop" >Add a lecture</a>
+		<a tal:define="portal context/@@plone_portal_state/portal;" tal:condition="view/canUpload" tal:attributes="href string:${portal/portal_membership/getHomeUrl}/lectures/createObject?type_name=Lecture" title="Add a lecture" alt="Add a lecture" class="upload uploadtop" >Add a lecture</a>
 
                 <div class="discreet">There are <b tal:content="python:len(lectures)"></b> lectures available</div>
 
@@ -26,7 +26,7 @@
 		<div class="column1">
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/even">
-		<div class="clips-holder">
+		<div class="clips-holder" tal:condition="lecture/Description" >
                     <span class="search-img" tal:condition="repeat/lecture/even">
                         <a tal:attributes="href lecture/getURL; title lecture/Title">
                       <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;"
@@ -44,7 +44,7 @@
 	        <div class="column2">
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/odd">
-		<div class="clips-holder">
+                <div class="clips-holder" tal:condition="lecture/Description" >
                    <span class="search-img" tal:condition="repeat/lecture/odd">
                         <a tal:attributes="href lecture/getURL; title lecture/Title">
                       <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;"
