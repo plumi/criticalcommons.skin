@@ -146,7 +146,7 @@
                                                          class string:state-${item/review_state}"
                                          tal:content="item/title" />
                                     </dt>
-                                    <div tal:condition="python:item_type=='PlumiVideo'" >
+                                    <div class="from" tal:condition="python:item_type=='PlumiVideo'" >
                                         <span tal:omit-tag="" tal:content="string: From ${item/filmName} " href="#">Psycho</span><span tal:omit-tag="" tal:content="python:'('+str(item.DateProduced)+').'"  />
                                     </div>
                                       <span tal:content="item/Description">Nulla neque velit,a est.</span>
@@ -214,7 +214,7 @@
                                                          class string:state-${item/review_state}"
                                          tal:content="item/title" />
                                     </dt>
-                                    <div tal:condition="python:item_type=='PlumiVideo'">
+                                    <div class="from" tal:condition="python:item_type=='PlumiVideo'">
                                         <span tal:omit-tag="" tal:content="string: From ${item/filmName} " href="#">Psycho</span><span tal:omit-tag="" tal:content="python:'('+str(item.DateProduced)+').'"  />
                                     </div>
                                     <span tal:content="item/Description">Nulla neque velit,a est.</span>

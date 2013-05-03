@@ -1278,3 +1278,6 @@ dd.portletFooter {
     background: none repeat scroll 0 0 transparent !important;
 }
 
+.clips-holder .from {
+    font-style: italic;
+}
