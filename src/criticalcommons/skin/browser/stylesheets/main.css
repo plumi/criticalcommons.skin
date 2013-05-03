@@ -1281,3 +1281,8 @@ dd.portletFooter {
 .clips-holder .from {
     font-style: italic;
 }
+
+.search em {
+    padding-top: 0 !important;
+}
+
