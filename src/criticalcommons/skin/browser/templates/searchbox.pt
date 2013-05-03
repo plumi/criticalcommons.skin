@@ -20,7 +20,7 @@
                title="Search Site"
                accesskey="4"
                i18n:attributes="title title_search_site;"
-               tal:attributes="value request/form/SearchableText|request/form/login|nothing;
+               tal:attributes="value request/form/SearchableText|request/form/fullname|nothing;
                                id search_input_id"
                class="txt-input" />
         <label for="portal_type">in</label>
@@ -29,14 +29,14 @@
             <option name="lectures" tal:attributes="selected python:portal_type == 'Lecture'" value="Lecture">Lectures</option>
             <option name="articles" tal:attributes="selected python:portal_type == 'Document'" value="Document">Articles</option>
             <option name="commentaries" tal:attributes="selected python:portal_type == 'Commentary'" value="Commentary">Commentaries</option>
-            <option name="members" tal:define="members request/fullname|request/form/login|nothing" tal:attributes="selected members" value="Members">Contributors</option><div tal:content="request/portal_type|nothing" />
+            <option name="members" tal:define="members request/fullname|request/form/fullname|nothing" tal:attributes="selected members" value="Members">Contributors</option><div tal:content="request/portal_type|nothing" />
         </select>
         <script tal:content="string: var portal_url='${navigation_root_url}/'" />
         <script>
         $('#portal-searchbox select').change(function(){
             if (this.value=='Members') {
                 $('#portal-searchbox form').attr('action',portal_url+'Members/member_search_results');
-                $('#portal-searchbox input.txt-input').attr('name','login');
+                $('#portal-searchbox input.txt-input').attr('name','fullname');
                 $('#portal-searchbox select').attr('name','');
             } else {
                 $('#portal-searchbox form').attr('action',portal_url+'@@search');
