@@ -42,9 +42,9 @@
                                     </span>
 		                            <tal:clip condition="repeat/clip/even">
 		                                <strong><a tal:attributes="href clip/getURL" tal:content="clip/Title">The Dolly Counter-Zoom</a></strong>
-                                                    <em tal:content="python: 'From ' + clip.getObject().filmName + '('+str(clip.getObject().DateProduced)+').'" />
+                                                    <em tal:content="python: 'From ' + clip.getObject().filmName + ' ('+str(clip.getObject().DateProduced)+').'" />
                                                    <span tal:content="clip/Description">Nulla neque velit, pr a est.</span>
-                                        <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(clip.Creator)">Contributed by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
+                                        <em class="documentAuthor" tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(clip.Creator)">Contributed by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
                                             </tal:clip>
 		                         </div>
 		                    </span>
@@ -64,9 +64,9 @@
 
                                     <tal:clip condition="repeat/clip/odd">
                                                 <strong><a tal:attributes="href clip/getURL" tal:content="clip/Title">The Dolly Counter-Zoom</a></strong>
-                                                    <em tal:content="python: 'From ' + clip.getObject().filmName + '('+str(clip.getObject().DateProduced)+').'" />
+                                                    <em tal:content="python: 'From ' + clip.getObject().filmName + ' ('+str(clip.getObject().DateProduced)+').'" />
                                                    <span tal:content="clip/Description">Nulla neque velit, pr a est.</span>
-                                        <em tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(clip.Creator)">Contributed by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
+                                        <em class="documentAuthor" tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(clip.Creator)">Contributed by <a tal:attributes="href python:portal.absolute_url() + '/author/' + clip.Creator" tal:content="python:author and author['fullname'] or clip.Creator">Alfred Hitchcock</a></em>
                                             </tal:clip>
 
 		                </div>
