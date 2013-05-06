@@ -1290,3 +1290,16 @@ em.documentAuthor {
     font-style: normal;
 }
 
+body.template-edit #content-core .discreet {
+    display: none;
+}
+
+body.template-edit #content h1 {
+    background: none !important;
+}
+
+fieldset, .editionComment {
+    padding: 0px !important;
+}
+
+
