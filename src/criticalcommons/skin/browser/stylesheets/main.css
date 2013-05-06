@@ -872,17 +872,19 @@ div.text-commentaries input#form-widgets-title, div.text-commentaries textarea#f
     width: 290px !important;
 }
 
-div.text-commentaries textarea#form-widgets-body  {
-    height: 250px !important;
+div.overlay textarea, .field input, div.text-commentaries textarea#form-widgets-body  {
     font-size: 14px;
     font-family: "Helvetica Neue",Arial,FreeSans,sans-serif;
+}
+
+div.text-commentaries textarea#form-widgets-body  {
+    height: 250px !important;
 }
 
 a#show_commentary_form {
     color: #205C90;
     cursor: pointer;
     font-size: 14px;
-    text-decoration: underline;
 }
 
 
@@ -933,7 +935,6 @@ span.vaporized-tag {
 
 #content a:hover, dl.portlet a:hover {
     color: #006666 !important;
-    text-decoration: underline; 
 }
 
 body.portaltype-plumivideo #archetypes-fieldname-location, body.portaltype-plumivideo #archetypes-fieldname-thumbnailImageDescription, body.portaltype-plumivideo #archetypes-fieldname-VideoLanguage, body.portaltype-plumivideo #archetypes-fieldname-language, body.portaltype-plumivideo #archetypes-fieldname-FullDescription, body.portaltype-plumivideo #archetypes-fieldname-WebsiteURL, body.portaltype-plumivideo #archetypes-fieldname-ProductionCompanyName, body.portaltype-plumivideo #archetypes-fieldname-ProjectName, body.portaltype-plumivideo #archetypes-fieldname-ProducerMailingAddress, body.portaltype-plumivideo #archetypes-fieldname-ProducerEmail, body.portaltype-plumivideo #archetypes-fieldname-Producer, body.portaltype-plumivideo #archetypes-fieldname-video_file {
@@ -1184,6 +1185,7 @@ body.template-publish_video #portal-top {
 #authors_latest li.video-item {
     display: block;
     margin: 0;
+    margin-bottom: 20px;
     overflow: auto;
     position: relative;
 }
@@ -1193,7 +1195,7 @@ body.template-publish_video #portal-top {
 }
 
 #authors_latest ul.marginless li a {
-    border-bottom: 1px solid #CCCCCC;
+ /*    border-bottom: 1px solid #CCCCCC; */
     display: block;
 }
 
@@ -1214,7 +1216,7 @@ body.template-publish_video #portal-top {
     color: #222222;
     font-size: 12px;
     font-weight: bold;
-    margin: 0;
+    margin: 0 0 20px;
     line-height: 1.3;
     padding: 4px 0px 10px 5px;
 }
@@ -1231,8 +1233,6 @@ body.template-publish_video #portal-top {
 }
 
 #authors_latest ul li a:hover {
-    background: none repeat scroll 0 0 #F5F5F6;
-    border-bottom: 1px solid #CCCCCC;
     color: #111111;
 }
 

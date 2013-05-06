@@ -274,7 +274,6 @@
                 <h1 class="documentFirstHeading" i18n:translate="transcoding"> 
                 	Transcoding
                 </h1>                   
-                <strong i18n:translate="transcode_status">Transcode Status</strong>
                 <ul>
                     <li tal:repeat="profile transcoding">
                         <a tal:omit-tag="python:transcoding[profile][0] != 'ok'" tal:attributes="href python:transcoding[profile][1]">
@@ -283,11 +282,10 @@
                     </li>
                 </ul>
                 
-                <p><span tal:omit-tag="" i18n:translate="restart_transcoding">
-                    You may like to try to</span>
+                <p>
                     <a tal:attributes="href string:${here/absolute_url}/reTranscode"
                        onclick="showNotification()"
-                       >re-start transcoding.</a>              
+                       >Restart transcoding</a>              
                 </p>
                 <div id="notificationDiv" style="display:none">
                     <strong>reTranscoding...</strong> <p> Please refresh the page in 5-15 minutes (the larger your video the longer it will take) to see the retranscoded file.</p>
