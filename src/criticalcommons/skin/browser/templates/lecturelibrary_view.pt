@@ -26,7 +26,7 @@
 		<div class="column1">
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/even">
-		<div class="clips-holder" >
+		<div class="clips-holder" tal:condition="python: lecture.Title" >
                     <span class="search-img" tal:condition="repeat/lecture/even">
                         <a tal:attributes="href lecture/getURL; title lecture/Title">
                       <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;"
@@ -44,7 +44,7 @@
 	        <div class="column2">
 		<div tal:repeat="lecture batch" tal:omit-tag="">
 		<span  tal:omit-tag="" tal:condition="repeat/lecture/odd">
-                <div class="clips-holder" >
+                <div class="clips-holder" tal:condition="python: lecture.Title">
                    <span class="search-img" tal:condition="repeat/lecture/odd">
                         <a tal:attributes="href lecture/getURL; title lecture/Title">
                       <img tal:attributes="src string:${lecture/getURL}/@@images/thumbnailImage/thumb;"
