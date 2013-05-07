@@ -42,14 +42,14 @@ class IEnhancedUserDataSchema(IUserDataSchema):
         required=True)
 
     user_title = schema.TextLine(
-        title=_(u'Title*'),
+        title=_(u'Title'),
         description=_(u'help_user_title_creation',
                       default=u"E.g., Professor of Film History; Economics Instructor, etc."),
         required=False,
     )
 
     institution = schema.TextLine(
-        title=_(u'Institution*'),
+        title=_(u'Institution'),
         required=False,
     )
 
