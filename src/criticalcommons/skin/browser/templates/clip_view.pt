@@ -63,7 +63,7 @@
                     member context/@@plone_portal_state/member;">
 
         <div class="text-commentaries">
-            <h2>Text Commentaries on this Clip</h2>
+            <h2>Commentaries on this Media</h2>
              <div tal:condition="view/commentaries" class="com-form">
                  <label tal:condition="python: len(view.commentaries())!=1" ><strong>Select the commentary you want to read:</strong></label>
                  <select>

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $("body.template-publish_video textarea").attr("maxlength", 249);
   $(window).keydown(function(event){
     if(event.keyCode == 13 && $(document.activeElement).attr('id') == "form-widgets-Title") {
       event.preventDefault();
