@@ -1255,7 +1255,7 @@ body.template-publish_video #portal-top {
 }
 
 /* hide Plone edit-bar functionality for users */
-#edit-bar #plone-contentmenu-translate, #edit-bar li#contentview-local_roles,  #edit-bar dl#plone-contentmenu-actions, #edit-bar dd.actionMenuContent li, #edit-bar dl#plone-contentmenu-factories {
+#edit-bar #plone-contentmenu-translate, #edit-bar li#contentview-local_roles,  #edit-bar dl#plone-contentmenu-factories {
     display: none;
 }
 
