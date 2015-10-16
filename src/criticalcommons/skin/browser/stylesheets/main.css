@@ -1302,4 +1302,7 @@ fieldset, .editionComment {
     padding: 0px !important;
 }
 
+body.template-personal-information .enableUnloadProtection .field:nth-of-type(7) {
+  display: none;
+  }
 
