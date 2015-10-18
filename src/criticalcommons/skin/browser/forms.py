@@ -43,7 +43,13 @@ class MyRegistrationForm(RegistrationForm):
             message = "%s of %s , is applying for Advanced User status in Critical Commons.\n\n Home page URL is %s, Username is %s, and email address is %s. \n\n  Visit the User Overview to respond to this request: %s" % (data['user_title'], data['institution'], data['home_page'], data['username'], data['email'], portal.absolute_url() + '/@@usergroup-userprefs' )
 
             mail_host.send(message, mto, sender, subject, charset='utf-8')
-        
+    
+            # email user as well
+            user_email = data['email']    
+            subject = "Critical Commons Advanced User application"
+            message = "Dear %s\n\nThank you for applying for Advanced User status in Critical Commons!\n\nWe will review your application and respond as quickly as possible -- usually between 5 minutes and 24 hours.\nIf you have any questions, please reply to this message.\n\nCritical Commons" % data['user_title']
+            mail_host.send(message, user_email, mto, subject, charset='utf-8')
+
         # XXX Return somewhere else, depending on what
         # handle_join_success returns?
         return self.context.unrestrictedTraverse('registered')()
