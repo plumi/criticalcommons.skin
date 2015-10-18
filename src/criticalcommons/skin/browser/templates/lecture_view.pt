@@ -16,6 +16,7 @@
 
 	    <h5 tal:content="context/Title" />
 	    <em class="author" tal:define="portal context/@@plone_portal_state/portal;mtool context/portal_membership;author python:mtool.getMemberInfo(context.Creator())">by <a tal:attributes="href python:portal.absolute_url() + '/author/' + context.Creator()" tal:content="python:author and author['fullname'] or context.Creator()">Steve Anderson</a></em>
+<span tal:condition="not: here/portal_membership/isAnonymousUser"> - <a href="@@historyview">History</a></span>
 
            <p tal:content="structure context/description">Lecture summary</p>
 

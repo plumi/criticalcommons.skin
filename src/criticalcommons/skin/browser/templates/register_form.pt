@@ -33,6 +33,20 @@
 
             </tal:nomailhost>
 <br />
+
+
+ <script type="text/javascript">
+$('#formfield-form-usertype select').change(function() {
+            var type = $(this).find('option:selected').val(), $fields = $('#formfield-form-user_title, #formfield-form-institution, #formfield-form-description, #formfield-form-home_page');
+            if (type == 'Basic User') {
+                $fields.hide();
+            } else {
+                $fields.slideDown();
+            }
+        })
+        .change();
+</script> 
+
 <div class="advanced-text" style="display:none;">
     Thank you for applying for 
     Advanced User status. You will 

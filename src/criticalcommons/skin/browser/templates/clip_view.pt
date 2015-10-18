@@ -63,7 +63,7 @@
                     member context/@@plone_portal_state/member;">
 
         <div class="text-commentaries">
-            <h2>Commentaries on this Media</h2>
+            <h2>Commentaries on this Media!</h2>
              <div tal:condition="view/commentaries" class="com-form">
                  <label tal:condition="python: len(view.commentaries())!=1" ><strong>Select the commentary you want to read:</strong></label>
                  <select>
@@ -89,7 +89,7 @@
              <span tal:attributes="id python:'commentary-'+obj.getId().replace('.','-')" tal:repeat="obj view/commentaries">
                  <h4 tal:content="obj/Title">commentary title</h4>
                  <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
-                 <p tal:content="structure obj/textCommentary/raw">textCommentary</p>
+                 <p tal:content="structure obj/@@text-transform/textCommentary/text/plain">textCommentary</p>
             <em tal:define="author python:mtool.getMemberInfo(obj.Creator())" tal:condition="python:author and author.get('username','')==str(member)"><a tal:attributes="href python:obj.absolute_url()+'/edit'"> Edit commentary </a></em>
 
              </span>

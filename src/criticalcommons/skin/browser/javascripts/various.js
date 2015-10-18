@@ -6,4 +6,14 @@ $(document).ready(function() {
       return false;
     }
   });
+
+$('#formfield-form-usertype select').change(function() {
+            var type = $(this).find('option:selected').val(), $fields = $('#formfield-form-user_title, #formfield-form-institution, #formfield-form-description, #formfield-form-home_page');
+            if (type == 'Basic User') {
+                $fields.hide();
+            } else {
+                $fields.slideDown();
+            }
+        })
+        .change();
 });
