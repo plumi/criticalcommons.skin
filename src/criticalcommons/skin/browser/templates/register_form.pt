@@ -45,31 +45,29 @@ $('#formfield-form-usertype select').change(function() {
             }
         })
         .change();
-</script> 
+</script>
 
 <div class="advanced-text" style="display:none;">
-    Thank you for applying for 
-    Advanced User status. You will 
-    receive a response by e-mail in the 
-    next 5 minutes to 24 hours. Thank 
+    Thank you for applying for
+    Advanced User status. You will
+    receive a response by e-mail in the
+    next 5 minutes to 24 hours. Thank
     you for your patience!
 </div>
 <a href="/TOS" target="_blank">Terms of Service</a>
 
 
 <div class="tos-container">
-    <div class="scroll">
+    <div class="scroll" style="width: 100%">
     <div align="left">
     <p style="text-align: left;">
     <b>Critical Commons Terms of Service</b></p>
     </div>
     <div align="left">
     <p style="text-align: left;">
-    <i>Please note that these terms of service were written by lawyers for
-    lawyers. However, we at Critical Commons strongly encourage you, as
-    educated members of the public, to read and understand these terms of
-    service and to decide whether you are actually comfortable with
-    agreeing to them. </i></p>
+    <i>
+Hi! You are now reading Critical Commons’ Terms of Service, meaning the contract between you and Critical Commons when you use the Critical Commons’ site, and its services. You should read this carefully before you use Critical Commons.
+     </i></p>
     </div>
     <div align="left">
     <p style="text-align: left;">
@@ -77,95 +75,54 @@ $('#formfield-form-usertype select').change(function() {
     </div>
     <div align="left">
     <p style="text-align: left;">
-    By using and/or visiting this website (referred to collectively,
-    including all content and functionality available through the
-    CriticalCommons.org domain name, as the "Critical Commons Website", or
-    "Website"), you (otherwise defined as “user” or “users”) signify your
-    agreement to (1) these terms and conditions (the "Terms of Service"), <b>If you do not agree to any of these terms, please do not use the Critical Commons Website.</b></p>
+
+By using and/or visiting this website (referred to collectively, including all content and functionality available through the CriticalCommons.org domain name, as the "Critical Commons Website", or "Website"), you (otherwise defined as “User” or “Users”) signify your agreement to (1) these terms and conditions (the "Terms of Service"), <b>If you do not agree to any of these terms, please do not use the Critical Commons Website.
+    </b></p>
     </div>
     <div align="left">
     <p style="text-align: left;">
-    Critical Commons may, in its sole discretion, modify or revise these
-    Terms of Service and policies at any time, and you agree to be bound by
-    such modifications or revisions. Nothing in this Agreement shall be
-    deemed to confer any third-party rights or benefits.</p>
+Critical Commons may, in its sole discretion, modify or revise these Terms of Service and policies at any time, and you agree to be bound by such modifications or revisions. Nothing in this Agreement shall be deemed to confer any third-party rights or benefits. You are responsible for reviewing and become familiar with any modifications to these Terms of Services. Modifications are effective when posted, and your use of the Services following any such posted modification constitutes your acceptance of the terms and conditions of these Terms of Services.
+
+</p>
     </div>
-    <div align="left">
-    <p style="text-align: left;">
-    <i>If you're not a lawyer and you're still reading, that's a good sign.
-    We can tell you that, at this point, we have no intention of revising
-    the Terms of Service, and it is only a matter of practicality that we
-    cannot promise to notify you personally if anything changes. In this
-    case, however, we will certainly make any necessary changes known in
-    the blog section of the site, which is devoted to discussing ongoing
-    issues in fair use among communities of users. </i></p>
-    </div>
+
     <div align="left">
     <p style="text-align: left;">
     <b>2. Critical Commons Website</b></p>
     </div>
     <div align="left">
     <p style="text-align: left;">
-    A. These Terms of Service apply to all users of the Critical Commons
-    Website, including instructors who are also contributors of video
-    content, commentaries, lectures, playlists, fair use guidelines, and
-    other materials or services on the Website.</p>
-    </div>
+A. These Terms of Service apply to all users of the Critical Commons Website, including instructors who contribute content. “Content” includes the commentaries, lectures, playlists, fair use guidelines, graphics, images, music, video, audiovisual combinations, and other materials you may view on, access through, or contribute to the Service.    </p></div>
     <div align="left">
     <p style="text-align: left;">
-    B. The Critical Commons Website may contain links to third party
-    websites that are not owned or controlled by Critical Commons. Critical
-    Commons has no control over, and assumes no responsibility for, the
-    content, privacy policies, or practices of any third party websites. In
-    addition, Critical Commons will not and cannot censor or edit the
-    content of any third-party site. By using the Website, you expressly
-    relieve Critical Commons from any and all liability arising from your
-    use of any third-party website.</p>
-    </div>
+B. The Critical Commons Website may contain links to third party websites that are not owned or controlled by Critical Commons. Critical Commons has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party websites. In addition, Critical Commons will not and cannot censor or edit the content of any third-party site. By using the Website, you expressly relieve Critical Commons from any and all liability arising from your use of any third-party website.</p></div>
+
     <div align="left">
     <p style="text-align: left;">
     <b>3. Critical Commons Accounts</b></p>
     </div>
     <div align="left">
-    <p style="text-align: left;">A.
-    If you are an educator, you may register for Advanced User status with
-    Critical Commons, using your institutional website for authentication
-    of your academic status.</p>
+    <p style="text-align: left;">
+    A. If you are an educator or an individual with another legitimately transformative need to upload and download media to/from the Critical Commons server, you may register for Advanced User status using your institutional website and e-mail address for authentication. Advanced User accounts are approved at the sole discretion of Critical Commons administrators.</p>
     </div>
     <div align="left">
-    <p style="text-align: left;">B.
-    If you are logged in as an Advanced User, you may upload curriculum
-    items to Critical Commons, including text, audio, and video clips.</p>
+    <p style="text-align: left;">B. If you are logged in as an Advanced User, you may upload transformative Content to Critical Commons, including text, audio, images, and video clips.</p>
     </div>
     <div align="left">
-    <p style="text-align: left;">C.
-    In addition, Advanced Users are allowed to download curricular
-    materials from the Critical Commons website, including text, audio, and
-    video materials.</p>
+    <p style="text-align: left;">C. In addition, Advanced Users are allowed to download transformative Content from the Critical Commons website, including text, audio, images, and video materials.
+</p>
     </div>
     <div align="left">
-    <p style="text-align: left;">D.
-    In order to access some of the features of the Website, including
-    uploading content and downloading video clips, you will have to create
-    a Critical Commons account. You are solely responsible for the activity
-    that occurs on your account, and you must keep your account password
-    secure. You must notify Critical Commons administration immediately of
-    any breach of security or unauthorized use of your account.</p>
+    <p style="text-align: left;">D. If you wish to only add commentary to media, you may register for a Basic User account. These accounts are processed automatically and you can begin commenting immediately.</p>
     </div>
     <div align="left">
-    <p style="text-align: left;">E.
-    Although Critical Commons will not be liable for your losses caused by
-    any unauthorized use of your account, you may be liable for the losses
-    of Critical Commons or others due to such unauthorized use.</p>
+    <p style="text-align: left;">E. When creating either a Basic or Advanced User account, you must provide accurate and complete information. You are solely responsible for the activity that occurs on your account, and you must keep your account password secure. You must notify Critical Commons administration immediately of any breach of security or unauthorized use of your account.</p>
     </div>
     <div align="left">
     <p style="text-align: left;">
-    <i>This is actually a pretty important part of our agreement with our
-    community of users. We want to be able to trust our Advanced Users to
-    assure the quality and legitimacy of materials on the site (i.e., to
-    make sure that commentaries are substantive and genuinely relevant to
-    their linked clips) and not to have to spend all our time checking on
-    flagged content. </i></p>
+F. Although Critical Commons will not be liable for your losses caused by any unauthorized use of your account, you may be liable for the losses of Critical Commons or others due to such unauthorized use.
+
+    </p>
     </div>
     <div align="left">
     <p style="text-align: left;">
@@ -173,219 +130,174 @@ $('#formfield-form-usertype select').change(function() {
     </div>
     <div align="left">
     <p style="text-align: left;">
-    A. You may access the Critical Commons Website to view video, textual,
-    and audio materials posted within a curricular context without the need
-    of an account.</p>
+    A. You may access the Critical Commons Website to view and embed video, textual, image and audio materials posted within a  transformative context without the need of an account.</p>
     </div>
     <div align="left">
     <p style="text-align: left;">
-    B. You agree not to alter or modify any part of the Website or use
-    unauthorized technology such as third party video extractors or account
-    hacking devices, to download or extract the content on the Website.</p>
+    B. You agree not to alter or modify any part of the Website or use unauthorized technology such as third party video extractors or account hacking devices, to download or extract the content on the Website.</p>
     </div>
     <div align="left">
-    <p style="text-align: left;">C.
-    You may not use any part of the website, including user submitted
-    content, for any purpose beyond the stated license for content in
-    question.</p>
+    <p style="text-align: left;">
+    C. You may not use any part of the website, including user submitted content, for any purpose beyond the stated license for content in question.</p>
     </div>
     <div align="left">
-    <p style="text-align: left;">D.
-    You are only permitted to use the materials found on the Critical
-    Commons website in the furtherance of academic or otherwise
-    transformative endeavors covered under fair use, including planning,
-    instruction, and research.</p>
+    <p style="text-align: left;">
+    D. You are only permitted to use the materials found on the Critical Commons website in the furtherance of academic or otherwise transformative endeavors covered under fair use, including planning, instruction, and research.</p>
     </div>
+
+
+    <div align="left">
+    <p style="text-align: left;">E. If you use the embedding feature on the Critical Commons website, you may not modify, build upon, or block any portion or functionality of the embedding code provided, including but not limited to links backs to the Critical Commons website.</p>
+    </div>
+
+
+    <div align="left">
+    <p style="text-align: left;">F. In your use of the Website, you will comply with all applicable federal and state laws.</p>
+    </div>
+
+
+    <div align="left">
+    <p style="text-align: left;">G. Critical Commons reserves the right to discontinue any aspect of the Service at any time.</p>
+    </div>
+
     <div align="left">
     <p style="text-align: left;">
     <b>5. User Submissions and Conduct</b></p>
     </div>
     <div align="left">
-    <p style="text-align: left;">A.
-    As a Critical Commons Advanced User, you may submit video, audio, and
-    textual content (“User Submitted Content”) for use by the Critical
-    Commons community.</p>
+    <p style="text-align: left;">
+    A. As a Critical Commons Advanced User, you may submit video, audio, image, and textual content (“User Submitted Content”) for use by the Critical Commons community.</p>
     </div>
     <div align="left">
     <p style="text-align: left;">
-    B. Content submitted to the Website may be removed at any time if it is
-    flagged by the community to be removed, and if it is determined that
-    the content was not submitted for purposes consistent with the goals of
-    Critical Commons (as determined by the Critical Commons community and
-    administration).</p>
+    B. You shall be solely responsible for your own User Submitted Content and the consequences of submitting and publishing your Content on the Website. You affirm, represent, and warrant that you have a good faith belief that the Content you are uploading is either permissible under the Fair Use doctrine found in § 107 of the Copyright Act, or is your own, or you have the necessary licenses, rights, consent, and permission to publish.</p>
     </div>
     <div align="left">
-    <p style="text-align: left;">
-    <b>6</b><b>. Account Termination Policy</b></p>
+    <p style="text-align: left;">C. Content submitted to the Website may be removed at any time if it is flagged by the community to be removed, and if it is determined that the content was not submitted for purposes consistent with the goals of Critical Commons (as determined by the Critical Commons community and administration),currently found at http://www.criticalcommons.org/guidelines.</p>
     </div>
-    <div align="left">
-    <p style="text-align: left;">A.
-    Critical Commons will terminate a User's account if, under appropriate
-    circumstances, they are determined to have misrepresented the basis for
-    their Advanced User status or if they repeatedly submit content
-    determined to be inappropriate for this Website.</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">B.
-    Critical Commons reserves the right to terminate a User's account or
-    access to its Website if the user violates the Terms of Use listed
-    here.</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    <b>7</b><b>. Digital Millennium Copyright Act</b></p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">If
-    you are a copyright owner or an agent thereof and believe that any User
-    Submission or other content infringes upon your copyrights, you may
-    submit a notification pursuant to the Digital Millennium Copyright Act
-    ("DMCA") by providing our Copyright Agent with the following
-    information in writing (see 17 U.S.C 512(c)(3) for further detail):</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(a)
-    A physical or electronic signature of a person authorized to act on
-    behalf of the owner of an exclusive right that is allegedly infringed;</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(b)
-    Identification of the copyrighted work claimed to have been infringed,
-    or, if multiple copyrighted works at a single online site are covered
-    by a single notification, a representative list of such works at that
-    site;</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(c)
-    Identification of the material that is claimed to be infringing or to
-    be the subject of infringing activity and that is to be removed or
-    access to which is to be disabled and information reasonably sufficient
-    to permit the service provider to locate the material;</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(d)
-    Information reasonably sufficient to permit the service provider
-    (Critical Commons) to contact you, such as an address, telephone
-    number, and, if available, an electronic mail;</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(e)
-    A statement that you have a good faith belief that use of the material
-    in the manner complained of is not authorized by the copyright owner,
-    its agent, or the law; and</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(f)
-    A statement that the information in the notification is accurate, and
-    under penalty of perjury, that you are authorized to act on behalf of
-    the owner of an exclusive right that is allegedly infringed.</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">Critical
-    Common's designated Copyright Agent to receive notifications of claimed
-    infringement is: Steve Anderson 746 West Adams Blvd, Los Angeles, CA
-    90089 213-743-1933 sfanders@usc.edu For clarity, only DMCA notices
-    should go to the Copyright Agent. You acknowledge that if you fail to
-    comply with all of the requirements of this Section 7, your DMCA notice
-    may not be valid.</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    <i>This is all boilerplate DMCA stuff that we have to include here and
-    which we hope will not turn out to be how we spend all our time. We
-    promise to do our best to respect the rights of everyone to protect
-    and/or share their ideas and we sincerely hope that everyone who visits
-    will act thoughtfully and in good faith. Ultimately, we hope this site
-    will contribute to both the richness of our media culture and the level
-    of discussion surrounding copyright and fair use. </i></p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    <b>8. Counter-Notice</b></p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    If you believe that your User Submission that was removed (or to which access was disabled):</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-     	(a) is not infringing, or</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    (b) that you have the authorization from:</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    (1) the copyright owner,</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    (2) the copyright owner's agent, or</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    (3) pursuant to the law,</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    to post and use the content in your User Submission, you may send a
-    counter-notice which MUST contain the following information to the
-    Critical Commons Copyright Agent:</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">
-    (a) Your physical or electronic signature;</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(b)
-    Identification of the content that has been removed or to which access
-    has been disabled and the location at which the content appeared before
-    it was removed or disabled;</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(c)
-    A statement that you have a good faith belief that the content was
-    removed or disabled as a result of mistake or a misidentification of
-    the content; or</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(d)
-    A statement that you believe your use of the content within the context
-    of the Critical Commons website constitutes a use that is protected as
-    fair under Section 107 of the Copyright Act; and</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">(e)
-    Your name, address, telephone number, and e-mail address, a statement
-    that you consent to the jurisdiction of the federal court in Los
-    Angeles, California, and a statement that you will accept service of
-    process from the person who provided notification of the alleged
-    infringement.</p>
-    </div>
-    <div align="left">
-    <p style="text-align: left;">As
-    per the DMCA, if a counter-notice is received by the Copyright Agent,
-    Critical Commons may send a copy of the counter-notice to the original
-    complaining party informing them that Critical Commons will restore the
-    removed content in 10 business days.</p>
-    </div>
-    Unless the copyright owner files an action seeking a court order
-    against Critical Commons or the user which filed the counter-notice,
-    Critical Commons will have the discretion to restore the user submitted
-    content in 10 to 14 business days or more after receipt of the count<i>er. <br><br>I</i><i>n
-    keeping with the terms of the DMCA, removal of content that is
-    allegedly infringing from the site is open to contestation and,
-    generally speaking, we believe that the context established by Critical
-    Commons to promote the use of media for education constitutes a strong
-    basis for protection under fair use. Users who are concerned about
-    having materials removed from the site are encouraged to contribute to
-    the composition of best practices guidelines that may help shape the
-    basis on which their community exercises the protections offered by
-    fair use. </i></div>
 
-            </div>
-    <a rel="external" href="http://criticalcommons.org/terms-of-service">Read Terms of Service in new window</a>
+
+    <div align="left">
+    <p style="text-align: left;">
+    <b>6</b><b>. Your Use of Content</b></p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">A. The trademarks, service marks, and logos (“Marks”) on the Service, are owned by or licensed to Critical Commons, subject to copyright and other intellectual property rights under the law.</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">B. Content is provided to you AS IS. You may access Content for your personal use solely as intended through the provided functionality of the Website and as permitted under these Terms of Service.</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">C. You agree not to circumvent, disable, or otherwise interfere with security-related features of the Website.</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">D. You understand that when using the Service, you will be exposed to Content from a variety of sources, and that Critical Commons is not responsible for the accuracy, usefulness, safety, or intellectual property rights of or relating to such Content. You further understand and acknowledge that you may be exposed to Content that is inaccurate, offensive, indecent, or objectionable, and you agree to waive, and hereby do waive, any legal or equitable rights or remedies you have or may have against Critical Commons with respect thereto, and, to the extent permitted by applicable law, agree to indemnify and hold harmless Critical Commons, its owners, operators, affiliates, licensors, and licensees to the fullest extent allowed by law regarding all matters related to your use of the Service.</p>
+    </div>
+
+
+    <div align="left">
+    <p style="text-align: left;">
+    <b>7</b><b>. Account Termination Policy</b></p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">A. Critical Commons will terminate a User's account if, under appropriate circumstances, they are determined to have misrepresented the basis for their Advanced User status or if they repeatedly submit content determined to be inappropriate for this Website.</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    B. Critical Commons reserves the right to terminate a User's account or access to its Website if the user violates the Terms of Use listed here.</p>
+    </div>
+
+    <div align="left">
+    <p style="text-align: left;">
+    <b>8. Digital Millennium Copyright Act
+</b></p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    If you are a copyright owner or an agent thereof and believe that any User Submission or other content infringes upon your copyrights, you may submit a notification pursuant to the Digital Millennium Copyright Act ("DMCA") by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+     	(a) A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed;</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (b) Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site are covered by a single notification, a representative list of such works at that site;</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (c) Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled and information reasonably sufficient to permit the service provider to locate the material;</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (d) Information reasonably sufficient to permit the service provider (Critical Commons) to contact you, such as an address, telephone number, and, if available, an electronic mail;</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (e) A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law; and</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (f) A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    Critical Commons’ designated Copyright Agent to receive notifications of claimed infringement is:</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    Steve Anderson<br>
+USC School of Cinematic Arts<br>
+3470 McClintock Ave. SCI 101<br>
+Los Angeles, CA, 90089-2211<br>
+213-743-1933<br>
+sfanders@usc.edu </p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    For clarity, only DMCA notices should go to the Copyright Agent. Any other feedback, comments, requests for technical support, and other communications should be directed to the Critical Commons site manager through http://www.criticalcommons.org/contact-info. You acknowledge that if you fail to comply with all of the requirements of the DMCA, your DMCA notice may not be valid.</p>
+    </div>
+
+
+    <div align="left">
+    <p style="text-align: left;">
+    <b>8. Counter-Notice
+</b></p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    If you believe the User Submitted Content that was removed or disabled was not infringing, you have consent to use, or your use of the Content is permissible under the fair use doctrine, you may file a counter-notification with Critical Commons by providing the following information to the Designated Agent at the address below.</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+        (a) Your physical or electronic signature;</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (b) Identification of the content that has been removed or to which access has been disabled and the location at which the content appeared before it was removed or disabled;</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (c) A statement that you have a good faith belief that the content was removed or disabled as a result of mistake or a misidentification of the content; or</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (d) A statement that you believe your use of the content within the context of the Critical Commons website constitutes a use that is protected as fair under Section 107 of the Copyright Act; and</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    (e) Your name, address, telephone number, and e-mail address, a statement that you consent to the jurisdiction of the federal court in Los Angeles, California, and a statement that you will accept service of process from the person who provided notification of the alleged infringement.</p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    As per the DMCA, if a counter-notice is received by the Copyright Agent, Critical Commons may send a copy of the counter-notice to the original complaining party informing them that Critical Commons will restore the removed content in 10 business days.Unless the copyright owner files an action seeking a court order against Critical Commons or the user which filed the counter-notice, Critical Commons will have the discretion to restore the user submitted content in 10 to 14 business days or more after receipt of the counter. </p>
+    </div>
+    <div align="left">
+    <p style="text-align: left;">
+    In keeping with the terms of the DMCA, removal of content that is allegedly infringing from the site is open to contestation. Generally speaking, we believe that the context established by Critical Commons to promote the use of media for education constitutes a strong basis for protection under fair use and we welcome discussions of these issues with site users and copyright holders alike.</p>
+    </div>
+
+    <a rel="external" href="http://criticalcommons.org/TOS" target="_blank">Read Terms of Service in new window</a>
 </div>
     </metal:body>
 </body>
