@@ -83,7 +83,14 @@ class MyRegistrationForm(RegistrationForm):
                 err_str = _(u'Please fill in the institution')
                 errors.append(WidgetInputError('institution', u'label_institution', err_str))
                 self.widgets['institution'].error = err_str
-
+            if not ('description' in data.keys() and data.get('description', '')):
+                err_str = _(u'Please fill in the Biography')
+                errors.append(WidgetInputError('description', u'label_description', err_str))
+                self.widgets['description'].error = err_str
+            if not ('home_page' in data.keys() and data.get('home_page', '')):
+                err_str = _(u'Please fill in the Home Page')
+                errors.append(WidgetInputError('home_page', u'label_home_page', err_str))
+                self.widgets['home_page'].error = err_str
 
         return errors
 

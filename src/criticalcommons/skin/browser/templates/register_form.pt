@@ -36,6 +36,11 @@
 
 
  <script type="text/javascript">
+$('#formfield-form-user_title span:nth-of-type(1)').append('<span class="required" title="Required">&nbsp;</span>');
+$('#formfield-form-institution span:nth-of-type(1)').append('<span class="required" title="Required">&nbsp;</span>');
+$('#formfield-form-description span:nth-of-type(1)').append('<span class="required" title="Required">&nbsp;</span>');
+$('#formfield-form-home_page span:nth-of-type(1)').append('<span class="required" title="Required">&nbsp;</span>');
+
 $('#formfield-form-usertype select').change(function() {
             var type = $(this).find('option:selected').val(), $fields = $('#formfield-form-user_title, #formfield-form-institution, #formfield-form-description, #formfield-form-home_page');
             if (type == 'Basic User') {
