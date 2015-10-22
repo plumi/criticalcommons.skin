@@ -89,7 +89,7 @@
              <span tal:attributes="id python:'commentary-'+obj.getId().replace('.','-')" tal:repeat="obj view/commentaries">
                  <h4 tal:content="obj/Title">commentary title</h4>
                  <em tal:define="mtool context/portal_membership;author python:mtool.getMemberInfo(obj.Creator())">by <a  tal:attributes="href python:portal.absolute_url() + '/author/' + obj.Creator()" tal:content="python:author and author['fullname'] or obj.Creator()">Steve Anderson</a></em>
-                 <p tal:content="structure obj/@@text-transform/textCommentary/text/plain">textCommentary</p>
+                 <p tal:content="structure obj/@@text-transform/textCommentary/text/html">textCommentary</p>
             <em tal:define="author python:mtool.getMemberInfo(obj.Creator())" tal:condition="python:author and author.get('username','')==str(member)"><a tal:attributes="href python:obj.absolute_url()+'/edit'"> Edit commentary </a></em>
 
              </span>
