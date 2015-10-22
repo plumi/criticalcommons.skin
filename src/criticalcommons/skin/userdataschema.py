@@ -44,7 +44,7 @@ class IEnhancedUserDataSchema(IUserDataSchema):
     user_title = schema.TextLine(
         title=_(u'Title'),
         description=_(u'help_user_title_creation',
-                      default=u"E.g., Professor of Film History; Economics Instructor, etc."),
+                      default=u"E.g., Professor of Media Studies; Economics Instructor, Graduate Student, Fan Vidder, etc."),
         required=False,
     )
 
