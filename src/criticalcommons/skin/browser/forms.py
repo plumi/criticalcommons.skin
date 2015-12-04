@@ -1,6 +1,8 @@
 from zope.formlib import form
 from plone.app.users.browser.register import RegistrationForm
-from criticalcommons.skin.browser.interfaces import IMyRegistrationForm
+from criticalcommons.skin.browser.interfaces import IMyRegistrationForm, ICaptchaSchema
+from quintagroup.formlib.captcha import CaptchaWidget
+
 from zope.interface import implements
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.app.component.hooks import getSite
@@ -26,6 +28,16 @@ class MyRegistrationForm(RegistrationForm):
     @property
     def form_fields(self):
         myfields = super(MyRegistrationForm, self).form_fields
+
+        # Add a captcha field to the schema
+        myfields += form.Fields(ICaptchaSchema)
+        myfields['captcha'].custom_widget = CaptchaWidget
+
+        # Perform any field shuffling here...
+
+        # Return the fiddled fields
+
+
         return myfields
 
 
