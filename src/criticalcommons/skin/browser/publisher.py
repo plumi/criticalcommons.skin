@@ -36,8 +36,10 @@ class SCPublisher(BrowserView):
         mtool = getToolByName(self.context, 'portal_membership')
         member = mtool.getAuthenticatedMember()
         try:
-            url = '/'.join(mtool.getHomeFolder(member.id).getPhysicalPath()) + '/clips/@@publish_video_scalar?%s' % ref_link
+            url = '/'.join(mtool.getHomeFolder(member.id).getPhysicalPath()) + '/clips/@@publish_video_scalar'
         except:
-            url = '/acl_users/credentials_cookie_auth/require_login?came_from=http%3A//www.criticalcommons.org/scpublisher?%s' % ref_link
+            url = '/acl_users/credentials_cookie_auth/require_login?came_from=http%3A//www.criticalcommons.org/scpublisher' 
+        if ref_link:
+            url += '?%s' % ref_link
         return url
 
