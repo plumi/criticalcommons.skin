@@ -971,6 +971,10 @@ body.template-publish_video #formfield-form-widgets-Topics, body.template-publis
     display: none;
 }
 
+body.template-publish_video_scalar #formfield-form-widgets-Topics, body.template-publish_video_scalar #formfield-form-widgets-Country {
+    display: none;
+}
+
 .ccbutton a {
     border: 1px solid transparent;
     border-radius: 3px 3px 3px 3px; 
@@ -1166,6 +1170,10 @@ h1.clipview {
 }
 
 body.template-publish_video #portal-top {
+    padding-bottom: 39px;
+}
+
+body.template-publish_video_scalar #portal-top {
     padding-bottom: 39px;
 }
 

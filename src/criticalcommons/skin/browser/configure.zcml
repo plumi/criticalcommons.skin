@@ -158,6 +158,15 @@
         />
 
     <browser:page
+        name="scpublisher"
+        class=".publisher.SCPublisher"
+        permission="zope2.View"
+        for="*"
+        template="templates/publisher.pt"
+        layer=".interfaces.IThemeSpecific"
+        />
+
+    <browser:page
       name="playlist"
       for="*"
       class=".views.Playlist"
